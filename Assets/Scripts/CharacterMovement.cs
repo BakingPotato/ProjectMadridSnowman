@@ -8,8 +8,6 @@ public class CharacterMovement : MonoBehaviour
 
     Vector3 lookPos;
 
-    CharacterController characterController;
-
     [Header("Variable de movimiento")]
     public float speed = 50;
 
@@ -17,8 +15,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        characterController = GetComponent<CharacterController>();
     }
 
     private void Update()

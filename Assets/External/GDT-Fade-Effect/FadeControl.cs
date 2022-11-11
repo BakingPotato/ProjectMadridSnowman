@@ -16,14 +16,14 @@ public class FadeControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            activateFade(true);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            activateFade(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    activateFade(true);
+        //}
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    activateFade(false);
+        //}
     }
 
     public void activateFade(bool enabled)

@@ -13,6 +13,7 @@ public class UmbrellaController : MonoBehaviour
     {
         
     }
+
     private void Update()
     {
     }

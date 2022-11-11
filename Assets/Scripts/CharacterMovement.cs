@@ -23,8 +23,11 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        //RotateCharacterToMouse();
+        RotateCharacterToMouse();
+    }
 
+    private void FixedUpdate()
+    {
         GetMovementInput();
     }
 
@@ -54,10 +57,13 @@ public class CharacterMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
         //Si hay movimiento
-        //if (direction.magnitude >= 0.1f)
-        //{
-        //    characterController.Move(direction * speed * Time.deltaTime);
-        //}
-        rb.AddForce(direction * speed * Time.deltaTime);
+        if (direction.magnitude >= 0.1f)
+        {
+            rb.velocity = direction * speed;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }

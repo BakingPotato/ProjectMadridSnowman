@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    [Header("Vida")]
-    [SerializeField] protected int maxHealth = 10;
-    [SerializeField] protected int health;
-
     protected GameManager GM;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-
         GM = GameManager.Instance;
     }
 
@@ -33,37 +27,34 @@ public class HealthManager : MonoBehaviour
 
     public int getHealth()
     {
-        return health;
+        return GM.CurrentLevelManager.HP;
     }
 
     public virtual void takeDamage(int damage)
     {
-        health -= damage;
-        //UI.updateHealthBar(health);
+        GM.CurrentLevelManager.HP -= damage;
         //GM.score.resetMultiplier();
         //GM.score.resetComboFromDamage();
-
         checkDeath();
     }
 
     public void gainHealth(int cure)
     {
-        health += cure;
-        //UI.updateHealthBar(health);
+        GM.CurrentLevelManager.HP += cure;
     }
 
-    protected void checkDeath()
+    protected virtual void checkDeath()
     {
-        if (health <= 0)
-        {
-            //Aqui se debería llamar a un objeto padre que decida que hacer, empezar gameover si es jugador o solo destruir el objeto y sumar puntos si es Enemigo
-            if (gameObject.tag == "Player")
-            {
+        //if (health <= 0)
+        //{
+        //    //Aqui se debería llamar a un objeto padre que decida que hacer, empezar gameover si es jugador o solo destruir el objeto y sumar puntos si es Enemigo
+        //    if (gameObject.tag == "Player")
+        //    {
 
-            }
-            //GM.startGameOver();
-            //Parar las corrutinas
-            //Destroy(gameObject);
-        }
+        //    }
+        //    //GM.startGameOver();
+        //    //Parar las corrutinas
+        //    //Destroy(gameObject);
+        //}
     }
 }

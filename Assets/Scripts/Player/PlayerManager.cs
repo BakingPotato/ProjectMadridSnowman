@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Prefabs de PowerUps")]
     [SerializeField] GameObject prefab_Umbrella;
 
+    [SerializeField] GameObject prefabHam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,11 @@ public class PlayerManager : MonoBehaviour
     {
         StartCoroutine(powerUpUmbrella(time));
     }
+    public void instantiateHam(float time)
+    {
+        StartCoroutine(powerUpHam(time));
+    }
+
 
     IEnumerator powerUpUmbrella(float time)
     {
@@ -41,7 +48,17 @@ public class PlayerManager : MonoBehaviour
         //Destruimos el objeto
         Destroy(actualUmbrella);
     }
+    IEnumerator powerUpHam(float time)
+    {
+        //Lo instanciamos en el padre de 
+        prefabHam.GetComponent<HamController>().player = this.gameObject;
+        GameObject actualHam = Instantiate(prefabHam, transform.parent);
 
+        yield return new WaitForSeconds(time);
+
+        //Destruimos el objeto
+        Destroy(actualHam);
+    }
 
 
 }

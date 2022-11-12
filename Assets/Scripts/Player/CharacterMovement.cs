@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     Vector3 lookPos;
 
     [Header("Variable de movimiento")]
+    Animator anim;
+
     public float speed = 50;
     [SerializeField] const float MAX_SPEED = 20;
     [SerializeField] const float NORMAL_SPEED = 4;
@@ -17,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+
         speed = NORMAL_SPEED;
     }
 
@@ -52,13 +56,14 @@ public class CharacterMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        //Aplicamos el normalized para que los diagonales no sean más rápido
+        //Aplicamos el normalized para que los diagonales no sean mï¿½s rï¿½pido
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
         //Si hay movimiento
         if (direction.magnitude >= 0.1f)
         {
             rb.velocity = direction * speed;
+            anim.SetBool("Move", true);
         }
         else
         {
@@ -66,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
 
             //Evitamos que se mueva si ha chocado con otro objeto con colliders y rigidiBody
             rb.angularVelocity = Vector3.zero;
+            anim.SetBool("Move", false);
         }
     }
 

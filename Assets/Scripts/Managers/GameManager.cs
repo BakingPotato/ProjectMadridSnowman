@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
 
 	LevelManager _currentLevelManager;
 
+	[SerializeField] Animator transitionAnimator;
+
 	private void Awake()
 	{
 		if (_instance != null && _instance != this)
@@ -34,5 +37,18 @@ public class GameManager : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 		}
 
+	}
+
+	public void SetScene(string name)
+	{
+		StartCoroutine(SceneTransition(name));
+	}
+
+	IEnumerator SceneTransition(string sceneName)
+	{
+		transitionAnimator.SetTrigger("Start");
+		yield return new WaitForSeconds(0.4f);
+		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+		transitionAnimator.SetTrigger("End");
 	}
 }

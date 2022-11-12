@@ -56,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        //Aplicamos el normalized para que los diagonales no sean más rápido
+        //Aplicamos el normalized para que los diagonales no sean mï¿½s rï¿½pido
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
         //Si hay movimiento

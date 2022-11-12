@@ -4,6 +4,8 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] UIManager UIManager;
+    [SerializeField] GameObject effectsCamera;
+
     const int MAX_POINTS = 999;
     int _points;
 
@@ -45,6 +47,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         HP = MAX_HEALTH;
+
+        effectsCamera.SetActive(true);
 
         GameManager.Instance.CurrentLevelManager = this;
     }

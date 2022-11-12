@@ -39,7 +39,12 @@ public class GameManager : MonoBehaviour
 
 	}
 
-	public void SetScene(string name)
+    private void Start()
+    {
+
+	}
+
+    public void SetScene(string name)
 	{
 		StartCoroutine(SceneTransition(name));
 	}

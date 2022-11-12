@@ -7,6 +7,7 @@ public class RangeEnemy : EnemyManager
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
+    [SerializeField] bool isTurret;
     float _currentTime;
     bool _shooting = false;
 	public override void Update()
@@ -35,5 +36,11 @@ public class RangeEnemy : EnemyManager
         Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
         proj.IgnoringLayer = gameObject.layer;
         proj.Throw(direction, enemyDamage);
+	}
+
+	public override void FaceTarget()
+	{
+        if(!isTurret)
+		    base.FaceTarget();
 	}
 }

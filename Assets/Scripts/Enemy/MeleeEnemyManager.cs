@@ -17,7 +17,7 @@ public class MeleeEnemyManager : MonoBehaviour
 
     [Header("Distancia al jugador")]
     float distanceToTarget = Mathf.Infinity;
-    Transform target;
+    public Transform target;
 
     HealthManager health;
     NavMeshAgent navMeshAgent;
@@ -27,7 +27,6 @@ public class MeleeEnemyManager : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         health = GetComponent<HealthManager>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

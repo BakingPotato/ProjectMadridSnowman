@@ -79,7 +79,6 @@ public class ShooterController : MonoBehaviour
             //proyectile.transform.position = owner.transform.position + positionSpawnOffset;
             //Direction
             proyectile.GetComponent<Rigidbody>().velocity = directorVector.normalized * shotSpeed;
-            Debug.Log(proyectile.GetComponent<Rigidbody>().velocity);
 
             StartCoroutine(AliveProyectile(proyectile));
             return true;

@@ -65,4 +65,10 @@ public class UIManager : MonoBehaviour
 	{
 		AudioManager.Instance.SFXVolume = v;
 	}
+
+	public void SwitchScene(string name)
+	{
+		Time.timeScale = 1;
+		GameManager.Instance.SetScene(name);
+	}
 }

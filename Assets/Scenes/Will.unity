@@ -701,7 +701,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 359627806}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5971578927689416355}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &359627806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,18 +5084,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5578908411967102618, guid: d1596fddcf647e244a029492997158b3, type: 3}
-      propertyPath: musicSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5578908411967102618, guid: d1596fddcf647e244a029492997158b3, type: 3}
-      propertyPath: musicSounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ef26b9af04452da4cbf83d919497b38b, type: 3}
-    - target: {fileID: 5578908411967102618, guid: d1596fddcf647e244a029492997158b3, type: 3}
-      propertyPath: musicSounds.Array.data[0].name
-      value: Theme
-      objectReference: {fileID: 0}
     - target: {fileID: 5578908411967102619, guid: d1596fddcf647e244a029492997158b3, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -6193,7 +6193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5971578927762720069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5971578927689416355}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5971578927762720069
 MonoBehaviour:
   m_ObjectHideFlags: 0

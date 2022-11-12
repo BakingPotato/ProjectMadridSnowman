@@ -94,6 +94,8 @@ public class LevelManager : MonoBehaviour
 
     public void TogglePause()
 	{
+        if (!GameManager.Instance.CanPause())
+            return;
         gamePaused = !gamePaused;
         Time.timeScale = (gamePaused) ? 0 : 1;
         UIManager.ShowPause(gamePaused);

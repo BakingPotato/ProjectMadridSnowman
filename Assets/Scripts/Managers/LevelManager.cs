@@ -48,4 +48,5 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.CurrentLevelManager = this;
     }
+
 }

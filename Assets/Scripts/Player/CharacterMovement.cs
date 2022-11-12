@@ -10,11 +10,14 @@ public class CharacterMovement : MonoBehaviour
 
     [Header("Variable de movimiento")]
     public float speed = 50;
+    [SerializeField] const float MAX_SPEED = 20;
+    [SerializeField] const float NORMAL_SPEED = 4;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        speed = NORMAL_SPEED;
     }
 
     private void Update()
@@ -65,4 +68,37 @@ public class CharacterMovement : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
     }
+
+    public void increaseSpeed(float amount)
+    {
+        speed += amount;
+
+        if(speed > MAX_SPEED)
+        {
+            speed = MAX_SPEED;
+        }
+    }
+
+    public void decreaseSpeed(float amount)
+    {
+        speed -= amount;
+
+        if (speed < NORMAL_SPEED)
+        {
+            speed = NORMAL_SPEED;
+        }
+    }
+
+    public void increaseSpeed_temp(float amount, float time)
+    {
+        StartCoroutine(startBoost(amount, time));
+    }
+
+    IEnumerator startBoost(float amount, float time)
+    {
+        increaseSpeed(amount);
+        yield return new WaitForSeconds(time);
+        decreaseSpeed(amount);
+    }
+
 }

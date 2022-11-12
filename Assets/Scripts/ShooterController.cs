@@ -17,6 +17,9 @@ public class ShooterController : MonoBehaviour
     [Tooltip("Instance of the owner")]
     public GameObject owner;
 
+    [Tooltip("Instance of the gun")]
+    public GameObject gun;
+
     [Tooltip("Snow model prefab")]
     public GameObject snowballPrefab;
 
@@ -67,6 +70,7 @@ public class ShooterController : MonoBehaviour
             //if (eulerYRot < 0.0f) eulerYRot += 360.0f;
             Debug.Log("local euler" + owner.transform.localRotation.eulerAngles);
             Vector3 directorVector = new Vector3(Mathf.Cos(eulerYRot), 0, Mathf.Sin(eulerYRot));
+            directorVector = (gun.transform.position - owner.transform.position).normalized;
             //position
             //Vector3 boundsSize = proyectile.GetComponent<Collider>().bounds.size;
             //Vector3 positionSpawnOffset = directorVector + new Vector3(boundsSize.x, boundsSize.y, boundsSize.z);
@@ -80,7 +84,7 @@ public class ShooterController : MonoBehaviour
 
         }catch(InvalidOperationException e)
         {
-            Debug.Log("there is no proyectile left");
+            Debug.Log("there is no proyectile left " + e);
             return false;
         }
     }

@@ -1,12 +1,21 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+	private static GameManager GM;
+
     [SerializeField] TextMeshProUGUI _pointsText;
     [SerializeField] TextMeshProUGUI _healthText;
+    [SerializeField] TextMeshProUGUI _timerText;
 
-    public void UpdatePointsText(int points)
+    private void Start()
+    {
+		GM = GameManager.Instance;
+	}
+
+	public void UpdatePointsText(int points)
 	{
 		_pointsText.text = "Points: " + points;
 	}
@@ -15,4 +24,14 @@ public class UIManager : MonoBehaviour
 	{
 		_healthText.text = "HP: " + health;
 	}
+
+	public void UpdateTimerText(string time)
+	{
+		_timerText.text = time;
+	}
+
+	public void replayButton()
+    {
+		GM.SetScene(SceneManager.GetActiveScene().name);
+    }
 }

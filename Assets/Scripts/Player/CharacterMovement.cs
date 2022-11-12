@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     Vector3 lookPos;
 
     [Header("Variable de movimiento")]
+    Animator anim;
+
     public float speed = 50;
     [SerializeField] const float MAX_SPEED = 20;
     [SerializeField] const float NORMAL_SPEED = 4;
@@ -17,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+
         speed = NORMAL_SPEED;
     }
 
@@ -59,6 +63,7 @@ public class CharacterMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             rb.velocity = direction * speed;
+            anim.SetBool("Move", true);
         }
         else
         {
@@ -66,6 +71,7 @@ public class CharacterMovement : MonoBehaviour
 
             //Evitamos que se mueva si ha chocado con otro objeto con colliders y rigidiBody
             rb.angularVelocity = Vector3.zero;
+            anim.SetBool("Move", false);
         }
     }
 

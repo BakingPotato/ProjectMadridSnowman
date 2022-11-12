@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1958895784938800352}
   - component: {fileID: 1958895784938800355}
   - component: {fileID: 1958895784938800354}
+  - component: {fileID: 1847006411733498852}
   m_Layer: 6
   m_Name: Enemy_Turret
   m_TagString: Untagged
@@ -246,9 +247,7 @@ MonoBehaviour:
   chaseRange: 12
   turnSpeed: 5
   enemyDamage: 2
-  projectilePrefab: {fileID: 172704135531579475, guid: 688743aa0116c244596296e7f54a81de, type: 3}
-  hand: {fileID: 1958895783903633722}
-  shootCooldown: 1
+  shootingProjectiles: {fileID: 1847006411733498852}
   isTurret: 1
 --- !u!195 &1958895784938800354
 NavMeshAgent:
@@ -272,3 +271,18 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1847006411733498852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958895784938800357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45aeefc24e2b2bf4081ef967faeb558c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 172704135531579475, guid: 688743aa0116c244596296e7f54a81de, type: 3}
+  hand: {fileID: 1958895783903633722}
+  shootCooldown: 1

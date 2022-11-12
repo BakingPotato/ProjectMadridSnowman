@@ -7,5 +7,7 @@ public class Coin : PickUpObject
 	public override void Apply(GameObject target)
 	{
 		GameManager.Instance.CurrentLevelManager.Points += amount;
+
+		AudioManager.Instance.PlaySFX("Coin");
 	}
 }

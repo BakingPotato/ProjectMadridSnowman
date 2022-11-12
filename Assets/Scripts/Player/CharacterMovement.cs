@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    private static GameManager GM;
+
     Rigidbody rb;
 
     Vector3 lookPos;
@@ -18,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameManager.Instance;
+
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
@@ -26,12 +30,24 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        RotateCharacterToMouse();
+        //El jugador puede moverse mientras no acabe la partida
+        if (GM.CurrentLevelManager.getGameOver() == false)
+        {
+            RotateCharacterToMouse();
+        }
+        else
+        {
+            StopMovement();
+        }
     }
 
     private void FixedUpdate()
     {
-        GetMovementInput();
+        //El jugador puede moverse mientras no acabe la partida
+        if(GM.CurrentLevelManager.getGameOver() == false)
+        {
+            GetMovementInput();
+        }
     }
 
     private void RotateCharacterToMouse()
@@ -67,12 +83,17 @@ public class CharacterMovement : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector3.zero;
-
-            //Evitamos que se mueva si ha chocado con otro objeto con colliders y rigidiBody
-            rb.angularVelocity = Vector3.zero;
-            anim.SetBool("Move", false);
+            StopMovement();
         }
+    }
+
+    private void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
+
+        //Evitamos que se mueva si ha chocado con otro objeto con colliders y rigidiBody
+        rb.angularVelocity = Vector3.zero;
+        anim.SetBool("Move", false);
     }
 
     public void increaseSpeed(float amount)

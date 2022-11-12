@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 172704135531579476}
   - component: {fileID: 4839091256449293041}
   - component: {fileID: 172704135531579480}
-  m_Layer: 0
-  m_Name: SnowBall
+  m_Layer: 6
+  m_Name: SnowBall Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172704135531579475}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172704135531579475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4129a2b542e73154db4587a8657d6db7, type: 3}
   m_Name: 

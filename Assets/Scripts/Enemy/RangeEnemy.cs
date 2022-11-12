@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RangeEnemy : EnemyManager
+{
+    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform hand;
+    [SerializeField] float shootCooldown;
+    float _currentTime;
+    bool _shooting = false;
+	public override void Update()
+	{
+        base.Update();
+		if (_shooting)
+		{
+            _currentTime -= Time.deltaTime;
+            if (_currentTime <= 0)
+                _shooting = false;
+        }
+	}
+	public override void AttackTarget()
+    {
+        if (_shooting)
+            return;
+        _shooting = true;
+        _currentTime = shootCooldown;
+        Shoot();
+    }
+
+    public void Shoot()
+	{
+        Vector3 direction = hand.position - transform.position;
+        direction.y = 0;
+        Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
+        proj.IgnoringLayer = gameObject.layer;
+        proj.Throw(direction, enemyDamage); ;
+	}
+}

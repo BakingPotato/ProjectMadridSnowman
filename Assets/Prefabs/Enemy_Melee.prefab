@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2125296809753699803}
   - component: {fileID: 2125296809753699800}
   - component: {fileID: 2125296809753699801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,11 +110,10 @@ GameObject:
   - component: {fileID: 2125296810292773624}
   - component: {fileID: 2125296810292773629}
   - component: {fileID: 2125296810292773622}
-  - component: {fileID: 2125296810292773601}
   - component: {fileID: 2125296810292773600}
   - component: {fileID: 2125296810292773631}
   - component: {fileID: 2125296810292773630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,19 +216,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &2125296810292773601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125296810292773620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865f7114ff0e0c54890549bc5d2ddb54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
 --- !u!114 &2125296810292773600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037d2a5878d2d374ebe64393299f2618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   chaseRange: 6
   turnSpeed: 5
   enemyDamage: 2

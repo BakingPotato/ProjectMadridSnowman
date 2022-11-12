@@ -60,6 +60,9 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero;
+
+            //Evitamos que se mueva si ha chocado con otro objeto con colliders y rigidiBody
+            rb.angularVelocity = Vector3.zero;
         }
     }
 }

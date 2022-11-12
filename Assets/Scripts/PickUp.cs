@@ -8,7 +8,10 @@ public class PickUp : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Destroy(gameObject);
-		pickUpEffect.Apply(other.gameObject);
+		if(other.gameObject.tag == "Player")
+        {
+			Destroy(gameObject);
+			pickUpEffect.Apply(other.gameObject);
+		}
 	}
 }

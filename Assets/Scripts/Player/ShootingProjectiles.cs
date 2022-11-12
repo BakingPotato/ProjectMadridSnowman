@@ -7,6 +7,9 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
+
+    [SerializeField] bool isPlayer;
+
     float _currentTime;
     bool _shooting = false;
 
@@ -29,7 +32,9 @@ public class ShootingProjectiles : MonoBehaviour
         _currentTime = shootCooldown;
 
         Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
-        proj.IgnoringLayer = gameObject.layer;
+
+        if(isPlayer)
+            proj.IgnoringLayer = gameObject.layer;
 
         if(inputDamage==-1)
             proj.Throw(direction);

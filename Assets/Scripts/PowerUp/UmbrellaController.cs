@@ -21,10 +21,7 @@ public class UmbrellaController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            transform.Rotate(Vector3.up * speed);
-
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            transform.Rotate(-Vector3.up * speed);
+        transform.position = player.transform.position;
+        transform.Rotate(Vector3.up * speed);
     }
 }

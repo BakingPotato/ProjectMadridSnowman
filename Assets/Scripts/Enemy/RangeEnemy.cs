@@ -34,6 +34,6 @@ public class RangeEnemy : EnemyManager
         direction.y = 0;
         Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
         proj.IgnoringLayer = gameObject.layer;
-        proj.Throw(direction, enemyDamage); ;
+        proj.Throw(direction, enemyDamage);
 	}
 }

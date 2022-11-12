@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     Transform target;
 
     HealthManager health;
-    UnityEngine.AI.NavMeshAgent navMeshAgent;
+    protected NavMeshAgent navMeshAgent;
 
     public enemyClass getEnemyClass()
     {
@@ -88,7 +89,7 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-    private void FaceTarget()
+    public virtual void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));

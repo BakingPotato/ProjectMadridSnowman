@@ -22,7 +22,7 @@ public class EnemyHealthManager : HealthManager
         if(gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
         {
             //Es provocado al ser dañado
-            gameObject.GetComponent<MeleeEnemyManager>().OnDamageTaken();
+            gameObject.GetComponent<EnemyManager>().OnDamageTaken();
         }
         checkDeath();
     }

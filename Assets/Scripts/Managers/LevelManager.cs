@@ -4,15 +4,12 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     bool gameOver = false;
+    bool gamePaused = false;
 
     public UIManager UIManager;
     public Countdown countdown;
 
     [SerializeField] GameObject effectsCamera;
-
-    [Header("Paneles UI")]
-    [SerializeField] GameObject gameOverPanel;
-    [SerializeField] GameObject gamePanel;
 
     const int MAX_POINTS = 999;
     int _points;
@@ -71,8 +68,12 @@ public class LevelManager : MonoBehaviour
 		{
             GameManager.Instance.SetScene("Patata");
 		}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
 
-        if(countdown.getElapsedTime() <= 0)
+        if (countdown.getElapsedTime() <= 0)
         {
             countdown.StopTimer();
             startGameOver();
@@ -83,13 +84,19 @@ public class LevelManager : MonoBehaviour
     public void startGameOver()
     {
         gameOver = true;
-        gamePanel.SetActive(false);
-        gameOverPanel.SetActive(true);
+        UIManager.ShowGameOver();
     }
 
     public bool getGameOver()
     {
         return gameOver;
     }
+
+    public void TogglePause()
+	{
+        gamePaused = !gamePaused;
+        Time.timeScale = (gamePaused) ? 0 : 1;
+        UIManager.ShowPause(gamePaused);
+	}
 
 }

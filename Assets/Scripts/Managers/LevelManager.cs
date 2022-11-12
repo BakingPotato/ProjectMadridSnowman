@@ -49,4 +49,12 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.CurrentLevelManager = this;
     }
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+            GameManager.Instance.SetScene("Patata");
+		}
+	}
+
 }

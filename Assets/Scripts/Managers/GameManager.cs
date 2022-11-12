@@ -1,11 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	private static GameManager _instance;
-
 	public static GameManager Instance
 	{
 		get
@@ -15,6 +14,12 @@ public class GameManager : MonoBehaviour
 			return _instance;
 		}
 	}
+
+	private static GameManager _instance;
+
+	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
+
+	LevelManager _currentLevelManager;
 
 	private void Awake()
 	{

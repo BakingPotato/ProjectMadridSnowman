@@ -27,7 +27,7 @@ public class SnowCubeManager : MonoBehaviour
         //{
         //    takeDamage(1);
         //}
-        
+
     }
 
     public void takeDamage(int amount)

@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Prefabs de PowerUps")]
     [SerializeField] GameObject prefab_Umbrella;
+    [SerializeField] ShootingProjectiles shootingProjectiles;
 
     [SerializeField] GameObject prefabHam;
 
@@ -19,7 +20,13 @@ public class PlayerManager : MonoBehaviour
         _movement = GetComponent<CharacterMovement>();   
     }
 
-    public void increaseMovementSpeed(float amount, float time)
+	private void Update()
+	{
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            shootingProjectiles.Shoot(transform.forward);
+	}
+
+	public void increaseMovementSpeed(float amount, float time)
     {
         if(time < 0)
           _movement.increaseSpeed(amount);

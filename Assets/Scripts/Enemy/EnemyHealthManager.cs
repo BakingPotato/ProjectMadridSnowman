@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemyHealthManager : HealthManager
 {
-    [Header("Vida")]
-    [SerializeField] protected int maxHealth = 10;
-    [SerializeField] protected int health;
-
     // Start is called before the first frame update
     void Start()
     {

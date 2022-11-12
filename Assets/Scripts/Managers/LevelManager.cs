@@ -3,8 +3,16 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] UIManager UIManager;
+    bool gameOver = false;
+
+    public UIManager UIManager;
+    public Countdown countdown;
+
     [SerializeField] GameObject effectsCamera;
+
+    [Header("Paneles UI")]
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject gamePanel;
 
     const int MAX_POINTS = 999;
     int _points;
@@ -32,8 +40,7 @@ public class LevelManager : MonoBehaviour
             _health = value;
             if (_health < 0)
             {
-                //startGameOver
-                //detener al jugador
+                startGameOver();
             }
             else if (_health > MAX_HEALTH)
                 _health = MAX_HEALTH;
@@ -48,7 +55,12 @@ public class LevelManager : MonoBehaviour
     {
         HP = MAX_HEALTH;
 
+        //La camara de efectos debe empezar desactivada para no fallar la rotación del personaje
         effectsCamera.SetActive(true);
+
+        //Inicializamos el contador
+        countdown = GetComponent<Countdown>();
+        countdown.BeginTimer();
 
         GameManager.Instance.CurrentLevelManager = this;
     }
@@ -59,6 +71,25 @@ public class LevelManager : MonoBehaviour
 		{
             GameManager.Instance.SetScene("Patata");
 		}
-	}
+
+        if(countdown.getElapsedTime() <= 0)
+        {
+            countdown.StopTimer();
+            startGameOver();
+            
+        }
+    }
+
+    public void startGameOver()
+    {
+        gameOver = true;
+        gamePanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
+    public bool getGameOver()
+    {
+        return gameOver;
+    }
 
 }

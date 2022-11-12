@@ -7,6 +7,9 @@ public class PlayerManager : MonoBehaviour
     HealthManager _health;
     CharacterMovement _movement;
 
+    [Header("Prefabs de PowerUps")]
+    [SerializeField] GameObject prefab_Umbrella;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +25,23 @@ public class PlayerManager : MonoBehaviour
           _movement.increaseSpeed_temp(amount, time);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void instantiateUmbrella(float time)
     {
-        
+        StartCoroutine(powerUpUmbrella(time));
     }
+
+    IEnumerator powerUpUmbrella(float time)
+    {
+        //Lo instanciamos en el padre de 
+        prefab_Umbrella.GetComponent<UmbrellaController>().player = this.gameObject;
+        GameObject actualUmbrella = Instantiate(prefab_Umbrella, transform.parent);
+
+        yield return new WaitForSeconds(time);
+
+        //Destruimos el objeto
+        Destroy(actualUmbrella);
+    }
+
+
+
 }

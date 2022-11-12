@@ -68,16 +68,18 @@ public class ShooterController : MonoBehaviour
             float eulerYRot = owner.transform.localRotation.eulerAngles.y;
            
             //if (eulerYRot < 0.0f) eulerYRot += 360.0f;
-            Debug.Log("local euler" + owner.transform.localRotation.eulerAngles);
+            //Debug.Log("local euler" + owner.transform.localRotation.eulerAngles);
             Vector3 directorVector = new Vector3(Mathf.Cos(eulerYRot), 0, Mathf.Sin(eulerYRot));
-            directorVector = (gun.transform.position - owner.transform.position).normalized;
+            directorVector = (gun.transform.GetChild(1).transform.position - gun.transform.GetChild(0).transform.position).normalized;
+
+            proyectile.transform.position = gun.transform.GetChild(1).position;
             //position
             //Vector3 boundsSize = proyectile.GetComponent<Collider>().bounds.size;
             //Vector3 positionSpawnOffset = directorVector + new Vector3(boundsSize.x, boundsSize.y, boundsSize.z);
             //proyectile.transform.position = owner.transform.position + positionSpawnOffset;
             //Direction
             proyectile.GetComponent<Rigidbody>().velocity = directorVector.normalized * shotSpeed;
-
+            Debug.Log(proyectile.GetComponent<Rigidbody>().velocity);
 
             StartCoroutine(AliveProyectile(proyectile));
             return true;

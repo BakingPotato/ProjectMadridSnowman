@@ -3,7 +3,7 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _pointsText;
+    [SerializeField] UIManager UIManager;
     const int MAX_POINTS = 999;
     int _points;
 
@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
                 _points = 0;
             else if (_points > MAX_POINTS)
                 _points = MAX_POINTS;
-            UpdatePointsText();
+            UIManager.UpdatePointsText(_points);
         }
     }
 
@@ -22,9 +22,4 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.CurrentLevelManager = this;
     }
-
-	void UpdatePointsText()
-	{
-        _pointsText.text = "Points: " + _points;
-	}
 }

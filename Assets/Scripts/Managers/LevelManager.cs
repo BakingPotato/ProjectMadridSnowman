@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         set
         {
             _health = value;
-            if (_health < 0)
+            if (_health <= 0)
             {
                 startGameOver();
             }

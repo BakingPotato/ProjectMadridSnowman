@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
 
 	private void Start()
 	{
-		PlayMusic("Theme");	
+		PlayMusic("Level1");	
 	}
 
 	public void PlayMusic(string name)

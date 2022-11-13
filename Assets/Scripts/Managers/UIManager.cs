@@ -103,4 +103,9 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = 1;
 		GameManager.Instance.SetScene(name);
 	}
+
+	public void UITogglePause()
+	{
+		GameManager.Instance.CurrentLevelManager.TogglePause();
+	}
 }

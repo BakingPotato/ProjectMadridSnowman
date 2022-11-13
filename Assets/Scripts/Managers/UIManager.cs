@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] GameObject gamePanel;
 	[SerializeField] GameObject pausePanel;
 	[SerializeField] GameObject resultsPanel;
+	[SerializeField] UITextInfo uITextInfo;
 
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
@@ -107,5 +108,10 @@ public class UIManager : MonoBehaviour
 	public void UITogglePause()
 	{
 		GameManager.Instance.CurrentLevelManager.TogglePause();
+	}
+
+	public void SendTextInfo(string message, float duration)
+	{
+		uITextInfo.SendInfo(message, duration);
 	}
 }

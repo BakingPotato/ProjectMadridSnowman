@@ -17,8 +17,10 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] const float MAX_SPEED = 20;
     [SerializeField] const float NORMAL_SPEED = 4;
 
-    // Start is called before the first frame update
-    void Start()
+	public Vector3 LookPos { get => lookPos; set => lookPos = value; }
+
+	// Start is called before the first frame update
+	void Start()
     {
         GM = GameManager.Instance;
 
@@ -58,10 +60,10 @@ public class CharacterMovement : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 100))
         {
-            lookPos = hit.point;
+            LookPos = hit.point;
         }
 
-        Vector3 lookDir = lookPos - transform.position;
+        Vector3 lookDir = LookPos - transform.position;
         lookDir.y = 0;
 
         transform.LookAt(transform.position + lookDir, Vector3.up);

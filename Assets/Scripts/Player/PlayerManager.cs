@@ -34,6 +34,19 @@ public class PlayerManager : MonoBehaviour
           _movement.increaseSpeed_temp(amount, time);
     }
 
+    public void IncreaseShootingSpeed(float multiplier, float time)
+    {
+        if (time < 0)
+            shootingProjectiles.IncreaseShootingSpeed(multiplier);
+        else
+            shootingProjectiles.IncreaseShootingSpeed_temp(multiplier, time);
+    }
+
+    public void SetTripleShoot(float time)
+	{
+        shootingProjectiles.ActiveTripleShot(time);
+	}
+
     public void instantiateUmbrella(float time)
     {
         StartCoroutine(powerUpUmbrella(time));
@@ -67,5 +80,16 @@ public class PlayerManager : MonoBehaviour
         Destroy(actualHam);
     }
 
+    IEnumerator powerUpShootingSpeed(float time)
+    {
+        //Lo instanciamos en el padre de 
+        prefabHam.GetComponent<HamController>().player = this.gameObject;
+        GameObject actualHam = Instantiate(prefabHam, transform.parent);
+
+        yield return new WaitForSeconds(time);
+
+        //Destruimos el objeto
+        Destroy(actualHam);
+    }
 
 }

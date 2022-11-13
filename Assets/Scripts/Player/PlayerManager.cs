@@ -23,7 +23,11 @@ public class PlayerManager : MonoBehaviour
 	private void Update()
 	{
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            shootingProjectiles.Shoot(transform.forward);
+		{
+            Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
+            dir.y = 0;
+            shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+        }
 	}
 
 	public void increaseMovementSpeed(float amount, float time)

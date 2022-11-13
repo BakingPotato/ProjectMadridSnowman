@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyHealthManager : HealthManager
 {
-    // Start is called before the first frame update
-    void Start()
+	[SerializeField] EnemyHealthBar healthBar;
+	// Start is called before the first frame update
+	void Start()
     {
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
 
         GM = GameManager.Instance;
     }
@@ -15,6 +17,7 @@ public class EnemyHealthManager : HealthManager
     public override void takeDamage(int damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
         if(gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
         {
             //Es provocado al ser dañado

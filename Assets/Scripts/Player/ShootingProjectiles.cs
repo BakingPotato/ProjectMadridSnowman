@@ -17,6 +17,7 @@ public class ShootingProjectiles : MonoBehaviour
     float _tripleShootAngle = 20;
 
 	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
+	public Transform Hand { get => hand; set => hand = value; }
 
 	// Update is called once per frame
 	void Update()
@@ -36,7 +37,7 @@ public class ShootingProjectiles : MonoBehaviour
         _shooting = true;
         _currentTime = ShootCooldown;
 
-        Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
+        Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
 
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if(isPlayer)
@@ -48,8 +49,8 @@ public class ShootingProjectiles : MonoBehaviour
 
 		if (_tripleShoot)
 		{
-            Projectile proj2 = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
-			Projectile proj3 = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
+            Projectile proj2 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+			Projectile proj3 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
             if (isPlayer)
 			{
                 proj2.IgnoringLayer = gameObject.layer;

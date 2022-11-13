@@ -8,8 +8,8 @@ public class UIManager : MonoBehaviour
 	private static GameManager GM;
 
     [SerializeField] TextMeshProUGUI _pointsText;
-    [SerializeField] TextMeshProUGUI _healthText;
     [SerializeField] TextMeshProUGUI _timerText;
+    [SerializeField] PlayerHealtBar _healthBar;
 
 	[Header("Paneles UI")]
 	[SerializeField] GameObject gameOverPanel;
@@ -24,16 +24,17 @@ public class UIManager : MonoBehaviour
 		GM = GameManager.Instance;
 		musicSlider.value = AudioManager.Instance.MusicVolume;
 		sfxSlider.value = AudioManager.Instance.SFXVolume;
+		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
 	}
 
 	public void UpdatePointsText(int points)
 	{
-		_pointsText.text = "Points: " + points;
+		_pointsText.text = points.ToString();
 	}
 
-	public void UpdateHealthText(int health)
+	public void UpdateHealth(int health)
 	{
-		_healthText.text = "HP: " + health;
+		_healthBar.SetHealth(health);
 	}
 
 	public void UpdateTimerText(string time)

@@ -52,6 +52,12 @@ public class AudioManager : MonoBehaviour
 		MusicVolume = PlayerPrefs.HasKey("MusicVolume") ? PlayerPrefs.GetFloat("MusicVolume") : DEFAULT_VOLUME;
 		SFXVolume = PlayerPrefs.HasKey("SFXVolume") ? PlayerPrefs.GetFloat("SFXVolume") : DEFAULT_VOLUME;
 	}
+
+	private void Start()
+	{
+		PlayMusic("Theme");	
+	}
+
 	public void PlayMusic(string name)
 	{
 		Sound s = Array.Find(musicSounds, x => x.name == name);

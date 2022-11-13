@@ -30,6 +30,7 @@ public class EnemyHealthManager : HealthManager
             //Parar las corrutinas
             //Contamos la muerte
             GM.CurrentLevelManager.KillCount++;
+            this.GetComponent<EnemiesLootManager>().InstanceRandomLoot();
             Destroy(gameObject);
         }
     }

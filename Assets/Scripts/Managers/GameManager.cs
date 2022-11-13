@@ -39,10 +39,6 @@ public class GameManager : MonoBehaviour
 
 	}
 
-    private void Start()
-    {
-	}
-
     public void SetScene(string name)
 	{
 		StartCoroutine(SceneTransition(name));
@@ -54,5 +50,10 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(0.4f);
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 		transitionAnimator.SetTrigger("End");
+	}
+
+	public bool CanPause()
+	{
+		return transitionAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1;
 	}
 }

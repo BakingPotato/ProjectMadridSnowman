@@ -14,8 +14,8 @@ public class CharacterMovement : MonoBehaviour
     Animator anim;
 
     public float speed = 50;
-    [SerializeField] const float MAX_SPEED = 20;
-    [SerializeField] const float NORMAL_SPEED = 4;
+    [SerializeField] float MAX_SPEED = 8f;
+    [SerializeField] float NORMAL_SPEED = 4.5f;
 
 	public Vector3 LookPos { get => lookPos; set => lookPos = value; }
 
@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        transform.position = new Vector3(transform.position.x, 1.13f, transform.position.z);
         //El jugador puede moverse mientras no acabe la partida
         if (GM.CurrentLevelManager.getGameOver() == false)
         {

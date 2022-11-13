@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898257302289551436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickUpHP_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1898257302679891574}
   - component: {fileID: 1898257302679891562}
   - component: {fileID: 1898257302679891563}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,9 +228,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7644166459470932736, guid: 6e48b55052911304dad32c6105b87b2b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4817519929209441861, guid: 6e48b55052911304dad32c6105b87b2b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6e48b55052911304dad32c6105b87b2b, type: 3}
       propertyPath: m_Name
       value: Churros (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e48b55052911304dad32c6105b87b2b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e48b55052911304dad32c6105b87b2b, type: 3}

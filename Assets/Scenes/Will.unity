@@ -6017,17 +6017,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1705299118 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6314233767906031451, guid: 2dc6c4165a00c764887db7a464898687, type: 3}
-  m_PrefabInstance: {fileID: 893826079}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6dda4130231e964f8903e2e08113be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1712045967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1199948504117343225, guid: ab85099225e821f46bec18554f54e7d5, type: 3}
@@ -7248,6 +7237,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2241859329416115077, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241859329416115077, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2241859329416115077, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2854670915449970536, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -7335,18 +7336,6 @@ PrefabInstance:
     - target: {fileID: 2854670915449970540, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854670916257233168, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.7635803
-      objectReference: {fileID: 0}
-    - target: {fileID: 8449486788515504134, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1705299118}
-    - target: {fileID: 8449486790223066148, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.30999756
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}

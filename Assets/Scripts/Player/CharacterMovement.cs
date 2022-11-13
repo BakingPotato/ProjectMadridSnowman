@@ -20,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
 
 	public Vector3 LookPos { get => lookPos; set => lookPos = value; }
 
+    private Vector3 inputDirection;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -71,6 +73,7 @@ public class CharacterMovement : MonoBehaviour
         transform.LookAt(transform.position + lookDir, Vector3.up);
     }
 
+
     private void GetMovementInput()
     {
         //Obtenemos los movimientos del jugador
@@ -78,19 +81,58 @@ public class CharacterMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         //Aplicamos el normalized para que los diagonales no sean m�s r�pido
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
         //Si hay movimiento
         if (direction.magnitude >= 0.1f)
         {
-            rb.velocity = direction * speed;
-            anim.SetBool("Move", true);
+            MovePlayer(direction);
         }
         else
         {
             StopMovement();
         }
     }
+
+    private void MovePlayer(Vector3 direction)
+    {
+        rb.velocity = direction * speed;
+        anim.SetBool("Move", true);
+    }
+
+    //private void GetMovementInput()
+    //{
+    //    inputDirection = Vector3.zero;
+
+    //    if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.A))
+    //    {
+    //        inputDirection += new Vector3(-1, 0, 0);
+    //    }
+    //    if (Input.GetKey(KeyCode.D))
+    //    {
+    //        inputDirection += new Vector3(1, 0, 0);
+    //    }
+    //    if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.W))
+    //    {
+    //        inputDirection += new Vector3(0, 0, 1);
+    //    }
+    //    if (Input.GetKey(KeyCode.S))
+    //    {
+    //        inputDirection += new Vector3(0, 0, -1);
+    //    }
+
+    //    MovePlayer(inputDirection);
+    //}
+
+
+    //private void MovePlayer(Vector3 direction)
+    //{
+    //    Vector3 moveDirection = new Vector3(Mathf.Clamp(direction.x * 2, -1, 1), 0, Mathf.Clamp(direction.z * 2, -1, 1));
+    //    rb.AddTorque(moveDirection * 5);
+    //    rb.AddForce(moveDirection * 5, ForceMode.Force);
+    //}
+
+
 
     private void StopMovement()
     {

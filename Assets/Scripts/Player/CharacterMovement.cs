@@ -16,6 +16,7 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 50;
     [SerializeField] float MAX_SPEED = 8f;
     [SerializeField] float NORMAL_SPEED = 4.5f;
+    [SerializeField] LayerMask groundLayer;
 
 	public Vector3 LookPos { get => lookPos; set => lookPos = value; }
 
@@ -59,7 +60,7 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit hit;
 
         //Layer 11 es la del suelo
-        if (Physics.Raycast(ray, out hit, 100))
+        if (Physics.Raycast(ray, out hit, 100, groundLayer))
         {
             LookPos = hit.point;
         }

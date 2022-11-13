@@ -35,8 +35,10 @@ public class ShootingProjectiles : MonoBehaviour
 
         if(isPlayer)
             proj.IgnoringLayer = gameObject.layer;
+        else
+            proj.IgnoringLayer = 999;
 
-        if(inputDamage==-1)
+        if (inputDamage==-1)
             proj.Throw(direction);
         else
             proj.Throw(direction, inputDamage);

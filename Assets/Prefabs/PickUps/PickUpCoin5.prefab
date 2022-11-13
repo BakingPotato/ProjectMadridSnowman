@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1841091080550535126}
   - component: {fileID: 1841091080550535114}
   - component: {fileID: 1841091080550535115}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841091080672440812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickUpCoin5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,13 +228,29 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7917291961305824890, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
       propertyPath: m_Name
       value: 5cent
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935945314048100579, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040542448765327740, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7216655632450529714, guid: dde50144aa7372548b49e665f2e0598d, type: 3}
       propertyPath: m_Materials.Array.data[0]

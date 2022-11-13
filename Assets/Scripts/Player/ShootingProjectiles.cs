@@ -33,10 +33,13 @@ public class ShootingProjectiles : MonoBehaviour
 
         Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
 
+        //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if(isPlayer)
             proj.IgnoringLayer = gameObject.layer;
+        else
+            proj.IgnoringLayer = 999;
 
-        if(inputDamage==-1)
+        if (inputDamage==-1)
             proj.Throw(direction);
         else
             proj.Throw(direction, inputDamage);

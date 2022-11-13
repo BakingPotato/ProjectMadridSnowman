@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 972568319}
   - component: {fileID: 972568321}
   - component: {fileID: 972568320}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 1199948503995436483}
   - component: {fileID: 1199948503995436511}
   - component: {fileID: 1199948503995436510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4951,7 +4951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199948504117343225}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickUpVelocity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5048,6 +5048,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1d510654a9f440845861bf5fd298380b, type: 3}
       propertyPath: m_Name
       value: Taza
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d510654a9f440845861bf5fd298380b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d510654a9f440845861bf5fd298380b, type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1172488823319070566}
   - component: {fileID: 1172488823319070586}
   - component: {fileID: 1172488823319070587}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172488823448844636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickUpHP_Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,9 +224,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7897196919111509921, guid: c222044518977d146871f2b22240a208, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6623951920091629302, guid: c222044518977d146871f2b22240a208, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c222044518977d146871f2b22240a208, type: 3}
       propertyPath: m_Name
       value: Bocata
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c222044518977d146871f2b22240a208, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045522938868193728, guid: c222044518977d146871f2b22240a208, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c222044518977d146871f2b22240a208, type: 3}

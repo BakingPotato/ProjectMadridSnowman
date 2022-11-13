@@ -6,6 +6,12 @@ public class HamController : UmbrellaController
 {
     public int damage = 1;
 
+    void FixedUpdate()
+    {
+        transform.position = player.transform.position;
+        transform.Rotate(Vector3.down * speed);
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         switch (LayerMask.LayerToName(collider.gameObject.layer))

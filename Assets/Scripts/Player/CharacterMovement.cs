@@ -58,6 +58,7 @@ public class CharacterMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        //Layer 11 es la del suelo
         if (Physics.Raycast(ray, out hit, 100))
         {
             LookPos = hit.point;
@@ -76,7 +77,7 @@ public class CharacterMovement : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         //Aplicamos el normalized para que los diagonales no sean m�s r�pido
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
 
         //Si hay movimiento
         if (direction.magnitude >= 0.1f)

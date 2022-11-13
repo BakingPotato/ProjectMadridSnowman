@@ -44,15 +44,9 @@ public class Projectile : MonoBehaviour
 		//Sound
 		Destroy(gameObject);
 	}
-
-	public void Throw(Vector3 direction)
+	public void Throw(Vector3 direction, int inputDamage = -1)
 	{
-		direction.Normalize();
-		GetComponent<Rigidbody>().AddForce(direction * impulseForce, ForceMode.Impulse);
-	}
-	public void Throw(Vector3 direction, int inputDamage)
-	{
-		damage = inputDamage;
+		damage = (inputDamage == -1) ? damage : inputDamage;
 		direction.Normalize();
 		GetComponent<Rigidbody>().AddForce(direction * impulseForce, ForceMode.Impulse);
 	}

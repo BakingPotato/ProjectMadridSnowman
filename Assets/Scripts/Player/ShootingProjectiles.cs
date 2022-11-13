@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,13 @@ public class ShootingProjectiles : MonoBehaviour
 
     float _currentTime;
     bool _shooting = false;
+    bool _tripleShoot = false;
+    float _tripleShootAngle = 20;
 
-    // Update is called once per frame
-    void Update()
+	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
+
+	// Update is called once per frame
+	void Update()
     {
         if (_shooting)
         {
@@ -29,7 +34,7 @@ public class ShootingProjectiles : MonoBehaviour
         if (_shooting)
             return;
         _shooting = true;
-        _currentTime = shootCooldown;
+        _currentTime = ShootCooldown;
 
         Projectile proj = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
 
@@ -39,9 +44,54 @@ public class ShootingProjectiles : MonoBehaviour
         else
             proj.IgnoringLayer = 999;
 
-        if (inputDamage==-1)
-            proj.Throw(direction);
-        else
             proj.Throw(direction, inputDamage);
+
+		if (_tripleShoot)
+		{
+            Projectile proj2 = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
+			Projectile proj3 = Instantiate(projectilePrefab, hand.position, Quaternion.identity).GetComponent<Projectile>();
+            if (isPlayer)
+			{
+                proj2.IgnoringLayer = gameObject.layer;
+                proj3.IgnoringLayer = gameObject.layer;
+            }
+			else
+			{
+                proj2.IgnoringLayer = 999;
+                proj3.IgnoringLayer = 999;
+            }
+            proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
+            proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
+        }
+    }
+
+	public void IncreaseShootingSpeed(float multiplier)
+	{
+        shootCooldown /= multiplier;
+    }
+
+	public void IncreaseShootingSpeed_temp(float multiplier, float time)
+    {
+        StartCoroutine(StartBoost(multiplier, time));
+    }
+
+    IEnumerator StartBoost(float multiplier, float time)
+    {
+        float initial = shootCooldown;
+        shootCooldown /= multiplier;
+        yield return new WaitForSeconds(time);
+        shootCooldown = initial;
+    }
+
+    public void ActiveTripleShot(float time)
+	{
+        StartCoroutine(StartTripleShoot(time));
+    }
+
+    IEnumerator StartTripleShoot(float time)
+    {
+        _tripleShoot = true;
+        yield return new WaitForSeconds(time);
+        _tripleShoot = false;
     }
 }

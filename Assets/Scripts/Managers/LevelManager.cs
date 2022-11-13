@@ -94,6 +94,11 @@ public class LevelManager : MonoBehaviour
         return gameOver;
     }
 
+    public void setGameOver(bool enabled)
+    {
+        gameOver = enabled;
+    }
+
     public void TogglePause()
 	{
         if (!GameManager.Instance.CanPause())

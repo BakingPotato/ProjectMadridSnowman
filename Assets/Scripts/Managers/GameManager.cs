@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 	public void ShowResults(string nextSceneName)
 	{
 		CurrentLevelManager.countdown.StopTimer();
+		CurrentLevelManager.setGameOver(true);
 		int timeLeft = (int)Mathf.Ceil(CurrentLevelManager.countdown.getElapsedTime());
 		int score = CurrentLevelManager.Points;
 		int enemies = CurrentLevelManager.KillCount;

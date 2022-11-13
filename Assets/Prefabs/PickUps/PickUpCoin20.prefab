@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5273330667590922032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PickUpCoin20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5273330667729064202}
   - component: {fileID: 5273330667729064214}
   - component: {fileID: 5273330667729064215}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,9 +228,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3403155128824885820, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
       propertyPath: m_Name
       value: 20cent
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1705689583484389773, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -240,10 +248,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c7014670835b8ec4ba568b8daff03ebf, type: 2}
+    - target: {fileID: 3942917935200129153, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4191509097384965755, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c387ace79b31d7d4ca8a328844e9bb2b, type: 2}
+    - target: {fileID: 6562889748348933850, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c43e39a4e64dab547943a9f1a6d4471a, type: 3}
 --- !u!4 &8842249761498059167 stripped

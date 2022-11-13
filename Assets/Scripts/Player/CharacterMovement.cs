@@ -30,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        transform.position = new Vector3(transform.position.x, 1.13f, transform.position.z);
         //El jugador puede moverse mientras no acabe la partida
         if (GM.CurrentLevelManager.getGameOver() == false)
         {

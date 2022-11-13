@@ -37,6 +37,7 @@ public class HealthManager : MonoBehaviour
     public virtual void takeDamage(int damage)
     {
         GM.CurrentLevelManager.HP -= damage;
+        GM.CurrentLevelManager.TotalDamage += damage;
         //GM.score.resetMultiplier();
         //GM.score.resetComboFromDamage();
         checkDeath();
@@ -45,6 +46,11 @@ public class HealthManager : MonoBehaviour
     public void gainHealth(int cure)
     {
         GM.CurrentLevelManager.HP += cure;
+    }
+
+    public void resultsScreen()
+    {
+
     }
 
     protected virtual void checkDeath()

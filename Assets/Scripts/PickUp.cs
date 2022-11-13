@@ -11,7 +11,7 @@ public class PickUp : MonoBehaviour
 		if(other.gameObject.tag == "Player")
         {
 			pickUpEffect.Apply(other.gameObject);
-			Destroy(this.transform.parent.gameObject);
+			Destroy(transform.parent.gameObject);
 		}
 	}
 }

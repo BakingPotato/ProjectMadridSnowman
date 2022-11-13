@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     int _health;
 
     int _killCount;
+    int _totalDamage;
 
 	public int Points { get => _points; set {
             _points = value;
@@ -46,6 +47,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public int KillCount { get => _killCount; set => _killCount = value; }
+    public int TotalDamage { get => _totalDamage; set => _totalDamage = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -64,10 +66,10 @@ public class LevelManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-            GameManager.Instance.SetScene("Patata");
-		}
+		//if (Input.GetKeyDown(KeyCode.Space))
+		//{
+  //          GameManager.Instance.SetScene("Patata");
+		//}
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
@@ -90,6 +92,11 @@ public class LevelManager : MonoBehaviour
     public bool getGameOver()
     {
         return gameOver;
+    }
+
+    public void setGameOver(bool enabled)
+    {
+        gameOver = enabled;
     }
 
     public void TogglePause()

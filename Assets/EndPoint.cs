@@ -10,6 +10,6 @@ public class EndPoint : MonoBehaviour
 	{
 		PlayerManager pM = other.GetComponent<PlayerManager>();
 		if (pM && GameManager.Instance.CurrentLevelManager.Points >= minPoints)
-			GameManager.Instance.SetScene(nextSceneName);
+			GameManager.Instance.ShowResults(nextSceneName);
 	}
 }

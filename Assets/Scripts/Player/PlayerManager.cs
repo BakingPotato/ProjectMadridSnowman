@@ -10,8 +10,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Prefabs de PowerUps")]
     [SerializeField] GameObject prefab_Umbrella;
     [SerializeField] ShootingProjectiles shootingProjectiles;
-
     [SerializeField] GameObject prefabHam;
+
 
     // Start is called before the first frame update
     void Start()

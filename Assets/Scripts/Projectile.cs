@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
 
 	public LayerMask IgnoringLayer { get => _ignoringLayer; set => _ignoringLayer = value; }
 
+	public GameObject snow;
+
 	private void Update()
 	{
 		lifeSpan -= Time.deltaTime;
@@ -42,12 +44,21 @@ public class Projectile : MonoBehaviour
 	{
 		//Animation
 		//Sound
+		TriggerSnow();
 		Destroy(gameObject);
 	}
+
 	public void Throw(Vector3 direction, int inputDamage = -1)
 	{
 		damage = (inputDamage == -1) ? damage : inputDamage;
 		direction.Normalize();
 		GetComponent<Rigidbody>().AddForce(direction * impulseForce, ForceMode.Impulse);
+	}
+
+	private void TriggerSnow()
+	{
+		GameObject snowSnowBall = Instantiate(snow);
+		snowSnowBall.transform.position = this.gameObject.transform.position;
+		//snowInst.GetComponent<ProjectileSnow>().Live();
 	}
 }

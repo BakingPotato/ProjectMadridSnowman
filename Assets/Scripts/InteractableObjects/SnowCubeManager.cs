@@ -16,9 +16,9 @@ public class SnowCubeManager : HealthManager
         public float weight;
 	}
 
-    [SerializeField] List<GameObject> powerUps;
-    [SerializeField] List<GameObject> coins;
-    [SerializeField] Loot[] lootArray;
+    [SerializeField] protected List<GameObject> powerUps;
+    [SerializeField] protected List<GameObject> coins;
+    [SerializeField] protected Loot[] lootArray;
 
     public override void takeDamage(int amount)
     {
@@ -35,7 +35,7 @@ public class SnowCubeManager : HealthManager
         }
     }
 
-	private void InstanceRandomLoot()
+	protected void InstanceRandomLoot()
 	{
         LootType randomType = GetRandomLootType();
 
@@ -56,7 +56,7 @@ public class SnowCubeManager : HealthManager
     /// Relative probability based on weights
     /// </summary>
     /// <returns></returns>
-	private LootType GetRandomLootType()
+	protected virtual LootType GetRandomLootType()
     {
         float totalWeight = 0;
         foreach (Loot loot in lootArray)

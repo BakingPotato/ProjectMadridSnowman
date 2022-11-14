@@ -9,8 +9,10 @@ public class Ham : PickUpObject
 
 	public override void Apply(GameObject target)
 	{
+
+
 		target.GetComponent<PlayerManager>().instantiateHam(time);
 
-		//AudioManager.Instance.PlaySFX("VelocityUp");
+		AudioManager.Instance.PlaySFX3D("PowerUp", target.transform.position);
 	}
 }

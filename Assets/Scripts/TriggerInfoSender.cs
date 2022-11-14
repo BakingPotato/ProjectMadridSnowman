@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TriggerInfoSender : MonoBehaviour
 {
-	[SerializeField] UIManager uIManager;
 	[SerializeField] string message;
 	[SerializeField] float messageDuration;
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			uIManager.SendTextInfo(message, messageDuration);
+			GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo(message, messageDuration);
 		}
 	}
 }

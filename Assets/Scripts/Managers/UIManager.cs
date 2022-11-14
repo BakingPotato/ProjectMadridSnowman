@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI _pointsText;
     [SerializeField] TextMeshProUGUI _timerText;
-    [SerializeField] PlayerHealtBar _healthBar;
+    [SerializeField] PlayerHealthBar _healthBar;
+    [SerializeField] PlayerShootingBar _shootingBar;
 
 	[Header("Resultados")]
 	[SerializeField] TextMeshProUGUI _timeLeftText;
@@ -113,5 +114,10 @@ public class UIManager : MonoBehaviour
 	public void SendTextInfo(string message, float duration)
 	{
 		uITextInfo.SendInfo(message, duration);
+	}
+
+	public void ShowShootingBar(float time)
+	{
+		_shootingBar.DisplayShootingBar(time);
 	}
 }

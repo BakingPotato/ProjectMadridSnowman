@@ -79,11 +79,10 @@ public class LevelManager : MonoBehaviour
             TogglePause();
         }
 
-        if (countdown.getElapsedTime() <= 0)
+        if (countdown.getElapsedTime() <= 0 && !gameOver)
         {
             countdown.StopTimer();
             startGameOver(true);
-            
         }
     }
 

@@ -32,6 +32,7 @@ public class SnowCubeManager : HealthManager
         if (health <= 0)
         {
             InstanceRandomLoot();
+            AudioManager.Instance.PlaySFX3D("BreakBox", this.gameObject.transform.position);
             Destroy(gameObject);
         }
     }

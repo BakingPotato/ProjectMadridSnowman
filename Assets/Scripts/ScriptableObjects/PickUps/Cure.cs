@@ -8,6 +8,6 @@ public class Cure : PickUpObject
 	{
 		GameManager.Instance.CurrentLevelManager.HP += amount;
 
-		AudioManager.Instance.PlaySFX("HealthUp", target.transform.position);
+		AudioManager.Instance.PlaySFX("HealthUp");
 	}
 }

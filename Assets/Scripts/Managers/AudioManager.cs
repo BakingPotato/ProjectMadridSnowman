@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
 			Debug.LogError("SFX named " + name + " not found.");
 	}
 
-	public void PlaySFX(string name, Vector3 position)
+	public void PlaySFX3D(string name, Vector3 position)
 	{
 		Sound s = Array.Find(sfxSounds, x => x.name == name);
 
@@ -100,9 +100,21 @@ public class AudioManager : MonoBehaviour
 		if (s != null)
 		{
 			float pitch = sfxSource.pitch;
-			sfxSource.pitch = UnityEngine.Random.Range(0.5f, 2f);
+			sfxSource.pitch = UnityEngine.Random.Range(0.6f, 1.5f);
 			sfxSource.PlayOneShot(s.clip);
 			sfxSource.pitch = pitch;
+		}
+		else
+			Debug.LogError("SFX named " + name + " not found.");
+	}
+
+	public void PlaySFX3DRandomPitch(string name, Vector3 position)
+	{
+		Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+		if (s != null)
+		{
+			PlayClipAt(s.clip, position, SFXVolume).pitch = UnityEngine.Random.Range(0.6f, 1.5f);
 		}
 		else
 			Debug.LogError("SFX named " + name + " not found.");
@@ -115,8 +127,9 @@ public class AudioManager : MonoBehaviour
 		AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
 		aSource.clip = clip; // define the clip
 		aSource.volume = volume;
-		aSource.maxDistance = 20;
+		aSource.maxDistance = 25;
 		aSource.rolloffMode = AudioRolloffMode.Linear;
+		aSource.spatialBlend = 1;
 							 // set other aSource properties here, if desired
 		aSource.Play(); // start the sound
 		Destroy(tempGO, clip.length); // destroy object after clip duration

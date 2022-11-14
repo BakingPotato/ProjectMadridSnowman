@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
 
 	[Header("Paneles UI")]
 	[SerializeField] GameObject gameOverPanel;
+	[SerializeField] GameObject deathGameOverPanel;
 	[SerializeField] GameObject gamePanel;
 	[SerializeField] GameObject pausePanel;
 	[SerializeField] GameObject resultsPanel;
@@ -67,10 +68,13 @@ public class UIManager : MonoBehaviour
 		GM.SetScene(SceneManager.GetActiveScene().name);
     }
 
-	public void ShowGameOver()
+	public void ShowGameOver(bool alive)
 	{
 		gamePanel.SetActive(false);
-		gameOverPanel.SetActive(true);
+		if (alive)
+			gameOverPanel.SetActive(true);
+		else
+			deathGameOverPanel.SetActive(true);
 	}
 
 	public void ShowPause(bool b)

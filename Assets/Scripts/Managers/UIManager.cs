@@ -60,7 +60,10 @@ public class UIManager : MonoBehaviour
 
 	public void UpdateTimerText(string time)
 	{
-		_timerText.text = time;
+		if(_timerText != null)
+        {
+			_timerText.text = time;
+		}
 	}
 
 	public void replayButton()

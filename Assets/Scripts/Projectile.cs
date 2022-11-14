@@ -42,8 +42,7 @@ public class Projectile : MonoBehaviour
 
 	void DestroyProjectile()
 	{
-		//Animation
-		//Sound
+		AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
 		TriggerSnow();
 		Destroy(gameObject);
 	}

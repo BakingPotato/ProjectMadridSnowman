@@ -40,14 +40,6 @@ public class UIManager : MonoBehaviour
 		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
 	}
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameManager.Instance.ShowResults("MainMenu");
-        }
-    }
-
 	public void UpdatePointsText(int points)
 	{
 		_pointsText.text = points/100 + "," + (points%100).ToString("00");

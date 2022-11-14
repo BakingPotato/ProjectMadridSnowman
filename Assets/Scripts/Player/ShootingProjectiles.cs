@@ -41,8 +41,11 @@ public class ShootingProjectiles : MonoBehaviour
         Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
 
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
-        if(isPlayer)
+        if (isPlayer)
+        {
             proj.IgnoringLayer = gameObject.layer;
+            AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+        }
         else
             proj.IgnoringLayer = 999;
 

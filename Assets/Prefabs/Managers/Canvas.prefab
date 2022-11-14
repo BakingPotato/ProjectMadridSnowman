@@ -2299,7 +2299,7 @@ GameObject:
   - component: {fileID: 2010793796833178214}
   - component: {fileID: 8578958304045249362}
   m_Layer: 5
-  m_Name: GameOverPanel (1)
+  m_Name: GameOverPanelTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2321,7 +2321,7 @@ RectTransform:
   - {fileID: 2034548898343727635}
   - {fileID: 1225594030956007855}
   m_Father: {fileID: 2854670915449970540}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3133,8 +3133,8 @@ RectTransform:
   m_Children:
   - {fileID: 2854670915401280554}
   - {fileID: 8449486788949052921}
-  - {fileID: 8449486789019126759}
   - {fileID: 1667209089467946915}
+  - {fileID: 8449486789019126759}
   - {fileID: 913288573}
   - {fileID: 4377961491530694211}
   m_Father: {fileID: 0}
@@ -3228,8 +3228,8 @@ MonoBehaviour:
   _damageText: {fileID: 1636300152}
   _totalText: {fileID: 1118734427}
   resultsAnim: {fileID: 913288576}
-  gameOverPanel: {fileID: 8449486789019126758}
-  deathGameOverPanel: {fileID: 1031229953937616696}
+  gameOverPanel: {fileID: 1031229953937616696}
+  deathGameOverPanel: {fileID: 8449486789019126758}
   gamePanel: {fileID: 2854670915401280551}
   pausePanel: {fileID: 8449486788949052920}
   resultsPanel: {fileID: 913288572}
@@ -4866,7 +4866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "No llegaste a tiempo.\n!Est\xE1s despedido!"
+  m_text: "No llegaste a tiempo.\n\xA1Est\xE1s despedido!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c7c8a3cf6cd7b24bbe2221c274d605d, type: 2}
   m_sharedMaterial: {fileID: 2572990739985460220, guid: 4c7c8a3cf6cd7b24bbe2221c274d605d, type: 2}
@@ -6013,7 +6013,7 @@ GameObject:
   - component: {fileID: 8449486789019126757}
   - component: {fileID: 8449486789019126756}
   m_Layer: 5
-  m_Name: GameOverPanel
+  m_Name: GameOverPanelDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6026,20 +6026,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8449486789019126758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9113442, y: 0.9113442, z: 0.9113442}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2490589495820601749}
   - {fileID: 4293916254930259812}
   - {fileID: 2039220617101189861}
   m_Father: {fileID: 2854670915449970540}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8449486789019126757

@@ -28,7 +28,8 @@ public class MenuManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-
+			introVideo.Stop();
+			introPanel.SetActive(false);
 		}
 	}
 	public void SwitchScene(string name)

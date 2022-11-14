@@ -96,6 +96,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void MovePlayer(Vector3 direction)
     {
+        rb.angularVelocity = Vector3.zero;
         rb.velocity = direction * speed;
         anim.SetBool("Move", true);
     }

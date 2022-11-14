@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject powerUp;
     [SerializeField] float waitTime;
-    GameObject _actualPowerUp;
+    [SerializeField] GameObject _actualPowerUp;
 
     public bool isSpawning { get { return spawning != null; } }
     Coroutine spawning = null;
@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _actualPowerUp = Instantiate(powerUp, transform.position, transform.rotation);
+        //_actualPowerUp = Instantiate(powerUp, transform.position, transform.rotation);
     }
 
     // Update is called once per frame

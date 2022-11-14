@@ -7,7 +7,7 @@ public class SnowCubeManager : HealthManager
 {
     public enum LootType
 	{
-        Empty, Coin, PowerUp
+        Empty, Coin, PowerUp, Cure
 	}
     [System.Serializable]
     public struct Loot
@@ -18,6 +18,7 @@ public class SnowCubeManager : HealthManager
 
     [SerializeField] protected List<GameObject> powerUps;
     [SerializeField] protected List<GameObject> coins;
+    [SerializeField] protected List<GameObject> cures;
     [SerializeField] protected Loot[] lootArray;
 
     public override void takeDamage(int amount)
@@ -49,7 +50,10 @@ public class SnowCubeManager : HealthManager
 			case LootType.PowerUp:
                 Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform.position, Quaternion.identity);
                 break;
-		}
+            case LootType.Cure:
+                Instantiate(cures[Random.Range(0, cures.Count)], transform.position, Quaternion.identity);
+                break;
+        }
 	}
 
     /// <summary>

@@ -36,14 +36,18 @@ public class LevelManager : MonoBehaviour
         get => _health;
         set
         {
-            _health = value;
-            if (_health <= 0)
+            if(!gameOver)
             {
-                startGameOver(false);
+                _health = value;
+                if (_health <= 0)
+                {
+                    startGameOver(false);
+                }
+                else if (_health > MAX_HEALTH)
+                    _health = MAX_HEALTH;
+                UIManager.UpdateHealth(_health);
             }
-            else if (_health > MAX_HEALTH)
-                _health = MAX_HEALTH;
-            UIManager.UpdateHealth(_health);
+            
         }
     }
 
@@ -79,11 +83,10 @@ public class LevelManager : MonoBehaviour
             TogglePause();
         }
 
-        if (countdown.getElapsedTime() <= 0)
+        if (countdown.getElapsedTime() <= 0 && !gameOver)
         {
             countdown.StopTimer();
             startGameOver(true);
-            
         }
     }
 

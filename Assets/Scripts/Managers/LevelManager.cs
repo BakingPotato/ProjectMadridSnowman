@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
             _health = value;
             if (_health <= 0)
             {
-                startGameOver();
+                startGameOver(false);
             }
             else if (_health > MAX_HEALTH)
                 _health = MAX_HEALTH;
@@ -79,15 +79,15 @@ public class LevelManager : MonoBehaviour
         if (countdown.getElapsedTime() <= 0)
         {
             countdown.StopTimer();
-            startGameOver();
+            startGameOver(true);
             
         }
     }
 
-    public void startGameOver()
+    public void startGameOver(bool alive)
     {
         gameOver = true;
-        UIManager.ShowGameOver();
+        UIManager.ShowGameOver(alive);
     }
 
     public bool getGameOver()

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 	private static GameManager _instance;
 
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
+	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
 
 	LevelManager _currentLevelManager;
 
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
 		}
 
 	}
+
+	bool _introVideo = true;
 
     private void Start()
     {

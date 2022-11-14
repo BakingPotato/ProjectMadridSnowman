@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class LevelManager : MonoBehaviour
         countdown.BeginTimer();
 
         GameManager.Instance.CurrentLevelManager = this;
+
+        AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
     }
 
 	private void Update()
@@ -88,6 +91,7 @@ public class LevelManager : MonoBehaviour
     {
         gameOver = true;
         UIManager.ShowGameOver(alive);
+        AudioManager.Instance.PlayMusic("GameOver");
     }
 
     public bool getGameOver()

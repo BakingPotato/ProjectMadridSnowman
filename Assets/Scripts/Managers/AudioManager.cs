@@ -53,13 +53,9 @@ public class AudioManager : MonoBehaviour
 		SFXVolume = PlayerPrefs.HasKey("SFXVolume") ? PlayerPrefs.GetFloat("SFXVolume") : DEFAULT_VOLUME;
 	}
 
-	private void Start()
-	{
-		PlayMusic("Level1");	
-	}
-
 	public void PlayMusic(string name)
 	{
+		Debug.Log(name + "playing");
 		Sound s = Array.Find(musicSounds, x => x.name == name);
 
 		if (s != null)
@@ -68,7 +64,7 @@ public class AudioManager : MonoBehaviour
 			musicSource.Play();
 		}
 		else
-			Debug.LogError("Music named " + name + " not found.");
+			Debug.LogWarning("Music named " + name + " not found.");
 	}
 
 	public void PlaySFX(string name)
@@ -78,7 +74,7 @@ public class AudioManager : MonoBehaviour
 		if (s != null)
 			sfxSource.PlayOneShot(s.clip);
 		else
-			Debug.LogError("SFX named " + name + " not found.");
+			Debug.LogWarning("SFX named " + name + " not found.");
 	}
 
 	public void PlaySFX3D(string name, Vector3 position)
@@ -90,7 +86,7 @@ public class AudioManager : MonoBehaviour
 			PlayClipAt(s.clip, position, SFXVolume);
 		}
 		else
-			Debug.LogError("SFX named " + name + " not found.");
+			Debug.LogWarning("SFX named " + name + " not found.");
 	}
 
 	public void PlaySFXRandomPitch(string name)
@@ -105,7 +101,7 @@ public class AudioManager : MonoBehaviour
 			sfxSource.pitch = pitch;
 		}
 		else
-			Debug.LogError("SFX named " + name + " not found.");
+			Debug.LogWarning("SFX named " + name + " not found.");
 	}
 
 	public void PlaySFX3DRandomPitch(string name, Vector3 position)
@@ -117,7 +113,7 @@ public class AudioManager : MonoBehaviour
 			PlayClipAt(s.clip, position, SFXVolume).pitch = UnityEngine.Random.Range(0.6f, 1.5f);
 		}
 		else
-			Debug.LogError("SFX named " + name + " not found.");
+			Debug.LogWarning("SFX named " + name + " not found.");
 	}
 
 	AudioSource PlayClipAt(AudioClip clip, Vector3 pos, float volume)

@@ -86,6 +86,7 @@ public class CharacterMovement : MonoBehaviour
         //Si hay movimiento
         if (direction.magnitude >= 0.1f)
         {
+            //AudioManager.Instance.PlaySFX("SnowWalk", transform.position);
             MovePlayer(direction);
         }
         else

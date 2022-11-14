@@ -38,6 +38,12 @@ public class GameManager : MonoBehaviour
 		}
 
 	}
+
+    private void Start()
+    {
+		Application.targetFrameRate = 60;
+	}
+
 	public void SetScene(string name)
 	{
 		StartCoroutine(SceneTransition(name));

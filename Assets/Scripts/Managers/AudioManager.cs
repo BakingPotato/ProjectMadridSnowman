@@ -53,13 +53,9 @@ public class AudioManager : MonoBehaviour
 		SFXVolume = PlayerPrefs.HasKey("SFXVolume") ? PlayerPrefs.GetFloat("SFXVolume") : DEFAULT_VOLUME;
 	}
 
-	private void Start()
-	{
-		PlayMusic("Level1");	
-	}
-
 	public void PlayMusic(string name)
 	{
+		Debug.Log(name + "playing");
 		Sound s = Array.Find(musicSounds, x => x.name == name);
 
 		if (s != null)

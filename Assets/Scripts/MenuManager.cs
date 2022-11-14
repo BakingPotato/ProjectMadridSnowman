@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 	[SerializeField] Slider sfxSlider;
 	[SerializeField] GameObject introPanel;
 	[SerializeField] VideoPlayer introVideo;
+	[SerializeField] float introTime;
 
 	private void Start()
 	{
@@ -21,7 +22,11 @@ public class MenuManager : MonoBehaviour
 			GameManager.Instance.IntroVideo = false;
 			introPanel.SetActive(true);
 			introVideo.Play();
+			CancelInvoke();
+			Invoke("HideIntroPanel", introTime);
 		}
+
+		AudioManager.Instance.PlayMusic("MainMenu");
 	}
 
 	private void Update()
@@ -48,5 +53,16 @@ public class MenuManager : MonoBehaviour
 	public void SetSFXVolume(float v)
 	{
 		AudioManager.Instance.SFXVolume = v;
+	}
+
+	public void PlayMusic(string name)
+	{
+		AudioManager.Instance.PlayMusic(name);
+	}
+
+	void HideIntroPanel()
+	{
+		introVideo.Stop();
+		introPanel.SetActive(false);
 	}
 }

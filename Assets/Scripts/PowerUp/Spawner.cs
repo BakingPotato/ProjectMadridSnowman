@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject powerUp;
     [SerializeField] float waitTime;

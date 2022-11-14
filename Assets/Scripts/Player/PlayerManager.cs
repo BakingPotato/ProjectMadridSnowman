@@ -22,10 +22,12 @@ public class PlayerManager : MonoBehaviour
 
 	private void Update()
 	{
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
 		{
             Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
             dir.y = 0;
+
+            GameManager.Instance.CurrentLevelManager.DisplayShooting(shootingProjectiles.ShootCooldown);
             shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
         }
 	}

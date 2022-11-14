@@ -108,4 +108,9 @@ public class LevelManager : MonoBehaviour
         UIManager.ShowPause(gamePaused);
 	}
 
+    public void DisplayShooting(float time)
+	{
+        UIManager.ShowShootingBar(time);
+	}
+
 }

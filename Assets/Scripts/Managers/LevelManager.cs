@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
     bool gameOver = false;
     bool gamePaused = false;
 
-    public UIManager UIManager;
-    public Countdown countdown;
+	[SerializeField] UIManager uIManager;
+	public Countdown countdown;
 
     [SerializeField] GameObject effectsCamera;
 
@@ -48,9 +48,10 @@ public class LevelManager : MonoBehaviour
 
     public int KillCount { get => _killCount; set => _killCount = value; }
     public int TotalDamage { get => _totalDamage; set => _totalDamage = value; }
+	public UIManager UIManager { get => uIManager; set => uIManager = value; }
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         HP = MAX_HEALTH;
 
@@ -106,11 +107,6 @@ public class LevelManager : MonoBehaviour
         gamePaused = !gamePaused;
         Time.timeScale = (gamePaused) ? 0 : 1;
         UIManager.ShowPause(gamePaused);
-	}
-
-    public void DisplayShooting(float time)
-	{
-        UIManager.ShowShootingBar(time);
 	}
 
 }

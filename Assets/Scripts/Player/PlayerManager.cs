@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
             Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
             dir.y = 0;
 
-            GameManager.Instance.CurrentLevelManager.DisplayShooting(shootingProjectiles.ShootCooldown);
+            GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
             shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
         }
 	}

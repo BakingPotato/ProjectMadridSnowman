@@ -8,6 +8,6 @@ public class Coin : PickUpObject
 	{
 		GameManager.Instance.CurrentLevelManager.Points += amount;
 
-		AudioManager.Instance.PlaySFX("Coin");
+		AudioManager.Instance.PlaySFX("Coin", target.transform.position);
 	}
 }

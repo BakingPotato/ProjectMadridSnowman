@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
 	public void UpdatePointsText(int points)
 	{
-		_pointsText.text = points.ToString();
+		_pointsText.text = points/100 + "," + (points%100).ToString("00");
 	}
 
 	public void UpdateHealth(int health)

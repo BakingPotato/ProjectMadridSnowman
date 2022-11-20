@@ -7,12 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SnowMain
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Snow00Alt
+  m_Shader: {fileID: 4800000, guid: e52bb9af1fde8f84e978e6e27e785bf8, type: 3}
   m_ValidKeywords:
-  - _DETAIL_MULX2
-  - _GLOSSYREFLECTIONS_OFF
-  - _NORMALMAP
+  - USE_AL
+  - USE_LS
+  - USE_RT
+  - _TESSELLATION_EDGE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -241,7 +242,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AddSnowStrength: 0.52
+    - _AddSnowStrength: 0
     - _BumpScale: 3.44
     - _Cutoff: 0.361
     - _DetailBumpScale: 3.07
@@ -262,8 +263,8 @@ Material:
     - _FogIntensity: 0.3
     - _FogScale: 0.28
     - _GlossMapScale: 1
-    - _Glossiness: 0
-    - _GlossyReflections: 0
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _HeightMultiplier: 0.5
     - _HeightScale: 0.33
     - _ISADD: 0
@@ -272,7 +273,7 @@ Material:
     - _IceScale: 1
     - _IndentDepth: 0.25
     - _IndentStrength: 1.5
-    - _LightHardness: 0.686
+    - _LightHardness: 0.75
     - _LightIntensity: 1
     - _LightOffset: 0.2
     - _LittleSpecForce: 0.5
@@ -288,8 +289,8 @@ Material:
     - _Metallic7: 0
     - _Mode: 0
     - _NormalMultiplier: 0.3
-    - _NormalRTDepth: 0.18
-    - _NormalRTStrength: 3
+    - _NormalRTDepth: 0
+    - _NormalRTStrength: 0
     - _NormalScale: 0.766
     - _NormalScale0: 1
     - _NormalScale1: 1
@@ -309,7 +310,7 @@ Material:
     - _ParallaxStrength: 0
     - _ReflectionOpacity: 0.25
     - _ReflectionStrength: 0.21
-    - _RemoveSnowStrength: 0.5
+    - _RemoveSnowStrength: 0
     - _RoughnessStrength: 1.75
     - _Shininess: 17.3
     - _ShininessIce: 10
@@ -331,7 +332,7 @@ Material:
     - _TransparencyValue: 1
     - _USEINTER: 0
     - _USERT: 1
-    - _USEWC: 1
+    - _USEWC: 0
     - _UVSec: 0
     - _UpVector: 1
     - _UseAmbientLight: 1
@@ -342,7 +343,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BotColor: {r: 0.70908695, g: 0.86564755, b: 0.90099996, a: 1}
-    - _Color: {r: 0.8349056, g: 0.95364785, b: 1, a: 1}
+    - _Color: {r: 0.9198113, g: 1, b: 1, a: 1}
     - _CracksStrength: {r: -1.04, g: 0.125, b: -0.13, a: 0.1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -353,7 +354,7 @@ Material:
     - _ParalaxColor: {r: 0, g: 0, b: 0, a: 1}
     - _ParallaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _ParallaxStrength: {r: 0, g: 0.125, b: -0.13, a: 0.1}
-    - _ProjectedShadowColor: {r: 0.1745283, g: 0.5599734, b: 1, a: 1}
+    - _ProjectedShadowColor: {r: 0.11222855, g: 0.18614766, b: 0.24528301, a: 1}
     - _ReflectionColor: {r: 0, g: 0.099333376, b: 0.14899999, a: 0.8}
     - _RimColor: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

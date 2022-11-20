@@ -16,8 +16,6 @@ public class SnowCubeManager : HealthManager
         public float weight;
 	}
 
-    public static GameManager GM;
-
     [SerializeField] protected List<GameObject> powerUps;
     [SerializeField] protected List<GameObject> coins;
     [SerializeField] protected List<GameObject> cures;

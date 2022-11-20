@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     bool gameOver = false;
-    bool gamePaused = false;
+    bool _gamePaused = false;
 
 	[SerializeField] UIManager uIManager;
 	public Countdown countdown;
@@ -56,6 +56,12 @@ public class LevelManager : MonoBehaviour
     public int BoxCount { get => _boxCount; set => _boxCount = value; }
     public int TotalDamage { get => _totalDamage; set => _totalDamage = value; }
 	public UIManager UIManager { get => uIManager; set => uIManager = value; }
+	public bool GamePaused { get => _gamePaused; set {
+            _gamePaused = value;
+            Time.timeScale = (GamePaused) ? 0 : 1;
+            UIManager.ShowPause(GamePaused);
+        }
+    }
 
 	// Start is called before the first frame update
 	void Start()
@@ -76,25 +82,24 @@ public class LevelManager : MonoBehaviour
 
 	private void Update()
 	{
-		//if (Input.GetKeyDown(KeyCode.Space))
-		//{
-  //          GameManager.Instance.SetScene("Patata");
-		//}
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+		if (!gameOver)
+		{
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                TogglePause();
+            }
 
-        if (countdown.getElapsedTime() <= 0 && !gameOver)
-        {
-            countdown.StopTimer();
-            startGameOver(true);
+            if (countdown.getElapsedTime() <= 0)
+            {
+                countdown.StopTimer();
+                startGameOver(true);
+            }
         }
     }
 
     public void startGameOver(bool alive)
     {
-        gameOver = true;
+        setGameOver(true);
         UIManager.ShowGameOver(alive);
         AudioManager.Instance.PlayMusic("GameOver");
     }
@@ -107,15 +112,13 @@ public class LevelManager : MonoBehaviour
     public void setGameOver(bool enabled)
     {
         gameOver = enabled;
+        Time.timeScale = (gameOver) ? 0 : 1;
     }
 
     public void TogglePause()
 	{
         if (!GameManager.Instance.CanPause())
             return;
-        gamePaused = !gamePaused;
-        Time.timeScale = (gamePaused) ? 0 : 1;
-        UIManager.ShowPause(gamePaused);
+        GamePaused = !GamePaused;
 	}
-
 }

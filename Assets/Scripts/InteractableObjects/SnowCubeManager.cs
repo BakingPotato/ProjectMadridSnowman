@@ -16,10 +16,17 @@ public class SnowCubeManager : HealthManager
         public float weight;
 	}
 
+    public static GameManager GM;
+
     [SerializeField] protected List<GameObject> powerUps;
     [SerializeField] protected List<GameObject> coins;
     [SerializeField] protected List<GameObject> cures;
     [SerializeField] protected Loot[] lootArray;
+
+    public void Start()
+    {
+        GM = GameManager.Instance;
+    }
 
     public override void takeDamage(int amount)
     {
@@ -32,6 +39,7 @@ public class SnowCubeManager : HealthManager
         if (health <= 0)
         {
             InstanceRandomLoot();
+            GM.CurrentLevelManager.BoxCount++;
             AudioManager.Instance.PlaySFX3D("BreakBox", this.gameObject.transform.position);
             Destroy(gameObject);
         }

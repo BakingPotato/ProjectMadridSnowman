@@ -71,10 +71,11 @@ public class GameManager : MonoBehaviour
 		int timeLeft = (int)Mathf.Ceil(CurrentLevelManager.countdown.getElapsedTime());
 		int score = CurrentLevelManager.Points;
 		int enemies = CurrentLevelManager.KillCount;
+		int boxes = CurrentLevelManager.BoxCount;
 		int damage = CurrentLevelManager.TotalDamage;
 
-		int total = (timeLeft * 2) + score + (enemies * 5) - (damage * 10);
+		int total = (timeLeft * 2) + score + (enemies * 5) + (boxes * 5) - (damage * 10);
 
-		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), damage.ToString(), total.ToString(), nextSceneName);
+		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
 }

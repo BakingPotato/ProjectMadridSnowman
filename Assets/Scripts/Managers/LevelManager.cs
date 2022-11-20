@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     int _health;
 
     int _killCount;
+    int _boxCount;
     int _totalDamage;
 
 	public int Points { get => _points; set {
@@ -52,6 +53,7 @@ public class LevelManager : MonoBehaviour
     }
 
     public int KillCount { get => _killCount; set => _killCount = value; }
+    public int BoxCount { get => _boxCount; set => _boxCount = value; }
     public int TotalDamage { get => _totalDamage; set => _totalDamage = value; }
 	public UIManager UIManager { get => uIManager; set => uIManager = value; }
 

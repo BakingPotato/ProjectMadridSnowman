@@ -65,4 +65,9 @@ public class MenuManager : MonoBehaviour
 		introVideo.Stop();
 		introPanel.SetActive(false);
 	}
+
+	public void PlayButtonSound()
+	{
+		AudioManager.Instance.PlaySFX("Button");
+	}
 }

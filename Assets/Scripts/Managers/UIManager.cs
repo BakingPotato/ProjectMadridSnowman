@@ -121,4 +121,9 @@ public class UIManager : MonoBehaviour
 	{
 		_shootingBar.DisplayShootingBar(time);
 	}
+
+	public void PlayButtonSound()
+	{
+		AudioManager.Instance.PlaySFX("Button");
+	}
 }

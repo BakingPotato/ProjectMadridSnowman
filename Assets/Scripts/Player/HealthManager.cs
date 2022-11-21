@@ -36,6 +36,7 @@ public class HealthManager : MonoBehaviour
 
     public virtual void takeDamage(int damage)
     {
+        AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
         GM.CurrentLevelManager.HP -= damage;
         GM.CurrentLevelManager.TotalDamage += damage;
         //GM.score.resetMultiplier();

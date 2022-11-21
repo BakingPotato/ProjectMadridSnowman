@@ -40,6 +40,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1009088202171244811}
     m_Modifications:
+    - target: {fileID: 32381660, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3687
+      objectReference: {fileID: 0}
+    - target: {fileID: 32381660, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.383783
+      objectReference: {fileID: 0}
     - target: {fileID: 838814574, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: maxHealth
       value: 12
@@ -136,7 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
       propertyPath: far clip plane
-      value: 50
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 7933
       objectReference: {fileID: 0}
     - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
       propertyPath: m_CullingMask.m_Bits

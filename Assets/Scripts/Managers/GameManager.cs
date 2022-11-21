@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator SceneTransition(string sceneName)
 	{
+		Time.timeScale = 1;
 		transitionAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(0.4f);
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

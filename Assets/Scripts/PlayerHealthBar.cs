@@ -15,6 +15,13 @@ public class PlayerHealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
+        float lastV = slider.value;
         slider.value = slider.maxValue - health;
+        if (lastV < slider.value)
+		{
+            Debug.Log("aa");
+            GetComponent<Animation>().Play();
+        }
+            
     }
 }

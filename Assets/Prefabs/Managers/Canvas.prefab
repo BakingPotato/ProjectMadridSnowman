@@ -2680,6 +2680,7 @@ GameObject:
   - component: {fileID: 7514699777556693580}
   - component: {fileID: 6572536516903156184}
   - component: {fileID: 8024248309579490999}
+  - component: {fileID: 8195861600146066258}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -2758,6 +2759,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!111 &8195861600146066258
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233234545191001841}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: e4c588d40a458544f85dfd295a251d1d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: e4c588d40a458544f85dfd295a251d1d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2241859329081122064
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,10 +3464,10 @@ RectTransform:
   m_Father: {fileID: 3589115057672212581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.16600001, y: 0.18800001}
-  m_AnchorMax: {x: 0.8316362, y: 0.55376226}
-  m_AnchoredPosition: {x: 0.21160126, y: 0.21940613}
-  m_SizeDelta: {x: -27.735802, y: -7.2824}
+  m_AnchorMin: {x: 0.201, y: 0.1906581}
+  m_AnchorMax: {x: 0.79200006, y: 0.5672483}
+  m_AnchoredPosition: {x: -0.12730026, y: 0}
+  m_SizeDelta: {x: -24.6474, y: -8.2824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2854670915580892764
 CanvasRenderer:
@@ -3507,7 +3524,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 14.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

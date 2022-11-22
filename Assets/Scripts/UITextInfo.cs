@@ -7,6 +7,8 @@ public class UITextInfo : MonoBehaviour
 
     public void SendInfo(string message, float duration)
 	{
+		if (!gameObject.activeSelf || message != _infoText.text)
+			AudioManager.Instance.PlaySFX("Info");
 		gameObject.SetActive(true);
 		_infoText.text = message;
 		CancelInvoke();

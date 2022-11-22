@@ -18,8 +18,9 @@ public class EnemyHealthManager : HealthManager
     {
         health -= damage;
         healthBar.SetHealth(health);
-        AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
-        if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
+		AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
+        StartBlinking();
+		if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
         {
             //Es provocado al ser dañado
             gameObject.GetComponent<EnemyManager>().OnDamageTaken();

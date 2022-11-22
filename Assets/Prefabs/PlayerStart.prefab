@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 838814574, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: blinkingObject
+      value: 
+      objectReference: {fileID: 4722800298656720085}
     - target: {fileID: 1225846169699030624, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -119,6 +123,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1225846169699030624, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
   m_PrefabInstance: {fileID: 1009088202366741406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4722800298656720085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5731887735444180811, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+  m_PrefabInstance: {fileID: 1009088202366741406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4550461314221860126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,10 +154,6 @@ PrefabInstance:
     - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
       propertyPath: far clip plane
       value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 7933
       objectReference: {fileID: 0}
     - target: {fileID: 3541936156967660618, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
       propertyPath: m_CullingMask.m_Bits

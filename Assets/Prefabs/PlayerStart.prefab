@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: blinkingObject
       value: 
       objectReference: {fileID: 4722800298656720085}
+    - target: {fileID: 293860841088380816, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.51503813
+      objectReference: {fileID: 0}
     - target: {fileID: 1225846169699030624, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -128,6 +132,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5731887735444180811, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
   m_PrefabInstance: {fileID: 1009088202366741406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7015280835527160840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8023805537880170390, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+  m_PrefabInstance: {fileID: 1009088202366741406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1818360609 &820105908
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7015280835527160840}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 62, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1009088201734916437}
+    weight: 1
 --- !u!1001 &4550461314221860126
 PrefabInstance:
   m_ObjectHideFlags: 0

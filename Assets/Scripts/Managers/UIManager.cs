@@ -103,7 +103,6 @@ public class UIManager : MonoBehaviour
 
 	public void SwitchScene(string name)
 	{
-		Time.timeScale = 1;
 		GameManager.Instance.SetScene(name);
 	}
 

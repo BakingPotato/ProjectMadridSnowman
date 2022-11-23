@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
 		musicSlider.value = AudioManager.Instance.MusicVolume;
 		sfxSlider.value = AudioManager.Instance.SFXVolume;
 
-		if (GameManager.Instance.IntroVideo)
+		if (GameManager.Instance.IntroVideo && introVideo != null)
 		{
 			GameManager.Instance.IntroVideo = false;
 			introPanel.SetActive(true);

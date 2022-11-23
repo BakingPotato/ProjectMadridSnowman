@@ -103,7 +103,6 @@ public class UIManager : MonoBehaviour
 
 	public void SwitchScene(string name)
 	{
-		Time.timeScale = 1;
 		GameManager.Instance.SetScene(name);
 	}
 
@@ -120,5 +119,10 @@ public class UIManager : MonoBehaviour
 	public void ShowShootingBar(float time)
 	{
 		_shootingBar.DisplayShootingBar(time);
+	}
+
+	public void PlayButtonSound()
+	{
+		AudioManager.Instance.PlaySFX("Button");
 	}
 }

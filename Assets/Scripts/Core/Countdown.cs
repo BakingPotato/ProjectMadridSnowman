@@ -22,6 +22,7 @@ public class Countdown : MonoBehaviour
 
     public void BeginTimer()
     {
+        AudioManager.Instance.PlaySFXRandomPitch("TimerStart");
         timerGoing = true;
         elapsedTime = objectiveTime;
         counting = StartCoroutine(UpdateTimerSequence());

@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     [Header("Vida")]
     [SerializeField] protected int maxHealth = 10;
     [SerializeField] protected int health;
+    [SerializeField] GameObject blinkingObject;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,31 @@ public class HealthManager : MonoBehaviour
 
     public virtual void takeDamage(int damage)
     {
+        AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
+        StartBlinking();
         GM.CurrentLevelManager.HP -= damage;
         GM.CurrentLevelManager.TotalDamage += damage;
         //GM.score.resetMultiplier();
         //GM.score.resetComboFromDamage();
         checkDeath();
+    }
+
+    protected void StartBlinking()
+	{
+        CancelInvoke();
+        Invoke("StopBlinking", 0.6f);
+        InvokeRepeating("Blink", 0, 0.1f);
+	}
+
+    void Blink()
+	{
+        blinkingObject.SetActive(!blinkingObject.activeSelf);
+    }
+
+    void StopBlinking()
+    {
+        CancelInvoke("Blink");
+        blinkingObject.SetActive(true);
     }
 
     public void gainHealth(int cure)

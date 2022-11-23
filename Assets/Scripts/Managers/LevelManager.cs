@@ -42,6 +42,7 @@ public class LevelManager : MonoBehaviour
                 _health = value;
                 if (_health <= 0)
                 {
+                    AudioManager.Instance.PlaySFXRandomPitch("PlayerDeath");
                     startGameOver(false);
                 }
                 else if (_health > MAX_HEALTH)

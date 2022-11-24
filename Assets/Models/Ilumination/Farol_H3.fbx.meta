@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 95738234c7e38234e9cf0f1005387c8a
+guid: bbd6a212715433d42bb010795ab95c1d
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,28 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Amarillo
-    second: {fileID: 2100000, guid: ab808de49d73c3f42b472eea4081065d, type: 2}
+      name: blinn1
+    second: {fileID: 2100000, guid: 75cd1859117f2684a875478dea535951, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Azul
-    second: {fileID: 2100000, guid: 69b46407366f5c5458a81880f8bb7725, type: 2}
+      name: lambert2
+    second: {fileID: 2100000, guid: c381e6fa72bb41c44922651ceeb21b06, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Rojo
-    second: {fileID: 2100000, guid: 2da82609b80806f46b43db5cc9a8777b, type: 2}
+      name: lambert3
+    second: {fileID: 2100000, guid: acbc8a7bc37d6d2439ba78dffee07d8f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Verde
-    second: {fileID: 2100000, guid: c620254f219d8ff4096f8d34f555b249, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: f19a0815009dc9f4b83671f33066d585, type: 2}
+      name: standardSurface2
+    second: {fileID: 2100000, guid: a008410c10557714b94d03665c109063, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -62,7 +57,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1

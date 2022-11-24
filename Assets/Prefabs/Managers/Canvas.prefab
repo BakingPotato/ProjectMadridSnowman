@@ -2587,9 +2587,8 @@ GameObject:
   - component: {fileID: 2665516769484739126}
   - component: {fileID: 2958030176866776403}
   - component: {fileID: 5601099197021277224}
-  - component: {fileID: 8622063506322106265}
   m_Layer: 5
-  m_Name: fps
+  m_Name: showFPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2654,20 +2653,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8622063506322106265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2149891396478291128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db75f8630d84c148a75a23baeb88189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsText: {fileID: 5644948427219579534}
-  deltaTime: 0
 --- !u!1 &2233234545191001841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,6 +3291,7 @@ GameObject:
   - component: {fileID: 2854670915449970538}
   - component: {fileID: 2854670915449970537}
   - component: {fileID: 2854670915449970541}
+  - component: {fileID: 1993258951081416619}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3432,6 +3418,20 @@ MonoBehaviour:
   uITextInfo: {fileID: 4797455588743689462}
   musicSlider: {fileID: 8449486788964022298}
   sfxSlider: {fileID: 8449486790223066149}
+--- !u!114 &1993258951081416619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854670915449970536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db75f8630d84c148a75a23baeb88189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsText: {fileID: 5644948427219579534}
+  fpsObject: {fileID: 2149891396478291128}
 --- !u!1 &2854670915580892761
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,7 +5198,7 @@ GameObject:
   - component: {fileID: 3378309734607624158}
   - component: {fileID: 5644948427219579534}
   m_Layer: 5
-  m_Name: FPSTEXT
+  m_Name: showFPSText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

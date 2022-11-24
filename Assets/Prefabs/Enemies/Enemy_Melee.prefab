@@ -4865,8 +4865,8 @@ GameObject:
   - component: {fileID: 9221771266193707885}
   - component: {fileID: 9221771266193707899}
   - component: {fileID: 9221771266193707876}
-  - component: {fileID: 9221771266193707877}
   - component: {fileID: -4088769267631013877}
+  - component: {fileID: 9221771266193707877}
   m_Layer: 6
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -4962,28 +4962,6 @@ MonoBehaviour:
   chaseRange: 8
   turnSpeed: 5
   enemyDamage: 2
---- !u!195 &9221771266193707877
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9221771266193707887}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.6
-  m_Speed: 4.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &-4088769267631013877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5011,6 +4989,28 @@ MonoBehaviour:
   probEmpty: 5
   probsPowerUps: 01000000010000000100000001000000010000000100000001000000
   probsCoins: 040000000300000002000000
+--- !u!195 &9221771266193707877
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221771266193707887}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.6
+  m_Speed: 4.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &196957417254073989
 PrefabInstance:
   m_ObjectHideFlags: 0

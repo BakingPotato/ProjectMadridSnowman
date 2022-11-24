@@ -6,8 +6,15 @@ using UnityEngine.Video;
 
 public class MenuManager : MonoBehaviour
 {
+	[Header("Botones de opciones")]
+	[SerializeField] GameObject audioPanel;
+	[SerializeField] GameObject videoPanel;
+
+	[Header("Opciones de audio")]
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
+
+	[Header("Variables de intro")]
 	[SerializeField] GameObject introPanel;
 	[SerializeField] VideoPlayer introVideo;
 	[SerializeField] float introTime;
@@ -17,7 +24,7 @@ public class MenuManager : MonoBehaviour
 		musicSlider.value = AudioManager.Instance.MusicVolume;
 		sfxSlider.value = AudioManager.Instance.SFXVolume;
 
-		if (GameManager.Instance.IntroVideo)
+		if (GameManager.Instance.IntroVideo && introVideo != null)
 		{
 			GameManager.Instance.IntroVideo = false;
 			introPanel.SetActive(true);
@@ -69,5 +76,17 @@ public class MenuManager : MonoBehaviour
 	public void PlayButtonSound()
 	{
 		AudioManager.Instance.PlaySFX("Button");
+	}
+
+	public void showAudioSettings()
+    {
+		audioPanel.SetActive(true);
+		videoPanel.SetActive(false);
+    }
+
+	public void showVideoSettings()
+	{
+		audioPanel.SetActive(false);
+		videoPanel.SetActive(true);
 	}
 }

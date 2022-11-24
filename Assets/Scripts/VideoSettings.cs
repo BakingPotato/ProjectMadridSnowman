@@ -69,7 +69,7 @@ public class VideoSettings : MonoBehaviour
         PlayerPrefs.SetInt("selectedFPS", dropdown_fps.value);
 
         int selectedFPS = int.Parse(dropdown_fps.options[index].text);
-        if (index != 1) //60 fps o Unlimited
+        if (index == 2) //Unlimited
         {
             QualitySettings.vSyncCount = 1;
         }

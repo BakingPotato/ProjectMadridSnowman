@@ -38,7 +38,8 @@ public class SnowCubeManager : HealthManager
         {
             InstanceRandomLoot();
             GM.CurrentLevelManager.BoxCount++;
-            AudioManager.Instance.PlaySFX3D("BreakBox", this.gameObject.transform.position);
+            //AudioManager.Instance.PlaySFX3D("BreakBox", this.gameObject.transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/box_is_broken");
             Destroy(gameObject);
         }
     }

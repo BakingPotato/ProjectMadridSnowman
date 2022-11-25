@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
                 _health = value;
                 if (_health <= 0)
                 {
-                    AudioManager.Instance.PlaySFXRandomPitch("PlayerDeath");
+                    //AudioManager.Instance.PlaySFXRandomPitch("PlayerDeath");
                     startGameOver(false);
                 }
                 else if (_health > MAX_HEALTH)
@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour
     {
         setGameOver(true);
         UIManager.ShowGameOver(alive);
-        AudioManager.Instance.PlayMusic("GameOver");
+        //AudioManager.Instance.PlayMusic("GameOver");
     }
 
     public bool getGameOver()

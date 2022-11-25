@@ -19,10 +19,22 @@ public class MenuManager : MonoBehaviour
 	[SerializeField] VideoPlayer introVideo;
 	[SerializeField] float introTime;
 
+	FMOD.Studio.Bus sfxBus;
+	FMOD.Studio.Bus musicBus;
+	//FMOD.Studio.Bus otherBus;
+
 	private void Start()
 	{
+		sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX");
+		musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MUSIC");
+		//otherBus = FMODUnity.RuntimeManager.GetBus("bus:/OTHER");
+
 		//musicSlider.value = AudioManager.Instance.MusicVolume;
 		//sfxSlider.value = AudioManager.Instance.SFXVolume;
+
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		//otherBus.setVolume(DecibelToLinear(musicSlider.value));
 
 		if (GameManager.Instance.IntroVideo && introVideo != null)
 		{
@@ -36,6 +48,12 @@ public class MenuManager : MonoBehaviour
 		//AudioManager.Instance.PlayMusic("MainMenu");
 	}
 
+	private float DecibelToLinear(float dB)
+	{
+		float linear = Mathf.Pow(10.0f, dB/20f);
+		return linear;
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Space))
@@ -43,6 +61,10 @@ public class MenuManager : MonoBehaviour
 			introVideo.Stop();
 			introPanel.SetActive(false);
 		}
+
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		//otherBus.setVolume(DecibelToLinear(musicSlider.value));
 	}
 	public void SwitchScene(string name)
 	{
@@ -75,7 +97,8 @@ public class MenuManager : MonoBehaviour
 
 	public void PlayButtonSound()
 	{
-		AudioManager.Instance.PlaySFX("Button");
+		//AudioManager.Instance.PlaySFX("Button");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/ui_button");
 	}
 
 	public void showAudioSettings()

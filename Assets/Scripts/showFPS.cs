@@ -5,8 +5,21 @@ using UnityEngine;
 
 public class showFPS : MonoBehaviour
 {
+    public GameObject fpsObject;
     public TMP_Text fpsText;
-    public float deltaTime;
+    float deltaTime;
+
+    private void Start()
+    {
+        if(PlayerPrefs.GetInt("showFPS", 0) == 0)
+        {
+            fpsObject.SetActive(false);
+        }
+        else
+        {
+            fpsObject.SetActive(true);
+        }
+    }
 
     void Update()
     {

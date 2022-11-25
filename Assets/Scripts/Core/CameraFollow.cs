@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     Vector3 _offset;
     [SerializeField] Transform target;
     [SerializeField] float smoothTime;
-    [SerializeField] LayerMask buildLayer;
+    [SerializeField] LayerMask buildingLayer;
 
 	private void Start()
 	{
@@ -20,9 +20,14 @@ public class CameraFollow : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = target.position - transform.position;
         direction.z -= 0.5f;
-        if (Physics.Raycast(transform.position, direction, out hit, 100, buildLayer))
-        {
-            Debug.Log(hit.transform.name);
+        if (Physics.BoxCast(transform.position, Vector3.one / 20, direction, out hit, Quaternion.LookRotation(transform.forward, transform.up) , 100, buildingLayer))
+		{
+            AlphaBuilding aB;
+
+            if (aB = hit.collider.transform.GetComponent<AlphaBuilding>())
+                aB.MakeHalfAlpha();
+            else if(aB = hit.collider.transform.parent.GetComponent<AlphaBuilding>())
+                aB.MakeHalfAlpha();
         }
     }
 

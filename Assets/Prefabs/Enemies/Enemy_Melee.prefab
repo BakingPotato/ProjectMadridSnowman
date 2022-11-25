@@ -4865,8 +4865,8 @@ GameObject:
   - component: {fileID: 9221771266193707885}
   - component: {fileID: 9221771266193707899}
   - component: {fileID: 9221771266193707876}
-  - component: {fileID: 9221771266193707877}
   - component: {fileID: -4088769267631013877}
+  - component: {fileID: 9221771266193707877}
   m_Layer: 6
   m_Name: Enemy_Melee
   m_TagString: Untagged
@@ -4944,6 +4944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   health: 3
+  blinkingObject: {fileID: 7695348632504638132}
   healthBar: {fileID: 558791650961061672}
 --- !u!114 &9221771266193707876
 MonoBehaviour:
@@ -4961,28 +4962,6 @@ MonoBehaviour:
   chaseRange: 8
   turnSpeed: 5
   enemyDamage: 2
---- !u!195 &9221771266193707877
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9221771266193707887}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.6
-  m_Speed: 4.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2.2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &-4088769267631013877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,6 +4989,28 @@ MonoBehaviour:
   probEmpty: 5
   probsPowerUps: 01000000010000000100000001000000010000000100000001000000
   probsCoins: 040000000300000002000000
+--- !u!195 &9221771266193707877
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221771266193707887}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.6
+  m_Speed: 4.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &196957417254073989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5198,6 +5199,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 116b63734f6d63c4fbf5622fc4e6637f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     - target: {fileID: 919132149155446097, guid: 116b63734f6d63c4fbf5622fc4e6637f, type: 3}
       propertyPath: m_Name
       value: MunecoCarterista
@@ -5207,5 +5212,10 @@ PrefabInstance:
 --- !u!4 &7025771977328181262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 116b63734f6d63c4fbf5622fc4e6637f, type: 3}
+  m_PrefabInstance: {fileID: 7352749947302127589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7695348632504638132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 116b63734f6d63c4fbf5622fc4e6637f, type: 3}
   m_PrefabInstance: {fileID: 7352749947302127589}
   m_PrefabAsset: {fileID: 0}

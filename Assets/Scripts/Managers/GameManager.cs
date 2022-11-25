@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator SceneTransition(string sceneName)
 	{
+		Time.timeScale = 1;
 		transitionAnimator.SetTrigger("Start");
 		yield return new WaitForSeconds(0.4f);
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
@@ -71,10 +72,11 @@ public class GameManager : MonoBehaviour
 		int timeLeft = (int)Mathf.Ceil(CurrentLevelManager.countdown.getElapsedTime());
 		int score = CurrentLevelManager.Points;
 		int enemies = CurrentLevelManager.KillCount;
+		int boxes = CurrentLevelManager.BoxCount;
 		int damage = CurrentLevelManager.TotalDamage;
 
-		int total = (timeLeft * 2) + score + (enemies * 5) - (damage * 10);
+		int total = (timeLeft * 3) + score + (enemies * 8) + (boxes * 6) - (damage * 10);
 
-		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), damage.ToString(), total.ToString(), nextSceneName);
+		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
 }

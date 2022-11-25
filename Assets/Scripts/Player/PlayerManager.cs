@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject prefab_Umbrella;
     [SerializeField] ShootingProjectiles shootingProjectiles;
     [SerializeField] GameObject prefabHam;
+    [SerializeField] Image powerUpIMG;
+    [SerializeField] Animation powerUpAnim;
 
 
     // Start is called before the first frame update
@@ -22,7 +25,8 @@ public class PlayerManager : MonoBehaviour
 
 	private void Update()
 	{
-        if (Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
+        if (!GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
+            Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
 		{
             Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
             dir.y = 0;
@@ -30,6 +34,12 @@ public class PlayerManager : MonoBehaviour
             GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
             shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
         }
+	}
+
+    public void PlayPowerUpAnim(Sprite s)
+	{
+        powerUpIMG.sprite = s;
+        powerUpAnim.Play();
 	}
 
 	public void increaseMovementSpeed(float amount, float time)

@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] TextMeshProUGUI _timeLeftText;
 	[SerializeField] TextMeshProUGUI _moneyText;
 	[SerializeField] TextMeshProUGUI _enemiesText;
+	[SerializeField] TextMeshProUGUI _boxesText;
 	[SerializeField] TextMeshProUGUI _damageText;
 	[SerializeField] TextMeshProUGUI _totalText;
 	[SerializeField] Animator resultsAnim;
@@ -86,12 +87,13 @@ public class UIManager : MonoBehaviour
 		//AudioManager.Instance.SFXVolume = v;
 	}
 
-	public void ShowResults(string timeLeft, string money, string enemies, string damage, string total, string nextSceneName)
+	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)
     {
 		resultsPanel.SetActive(true);
 		_timeLeftText.text = timeLeft;
 		_moneyText.text = money;
 		_enemiesText.text = enemies;
+		_boxesText.text = boxes;
 		_damageText.text = "- " + damage;
 		_totalText.text = total;
 
@@ -101,7 +103,6 @@ public class UIManager : MonoBehaviour
 
 	public void SwitchScene(string name)
 	{
-		Time.timeScale = 1;
 		GameManager.Instance.SetScene(name);
 	}
 
@@ -118,5 +119,10 @@ public class UIManager : MonoBehaviour
 	public void ShowShootingBar(float time)
 	{
 		_shootingBar.DisplayShootingBar(time);
+	}
+
+	public void PlayButtonSound()
+	{
+		AudioManager.Instance.PlaySFX("Button");
 	}
 }

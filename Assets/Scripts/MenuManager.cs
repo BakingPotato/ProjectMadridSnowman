@@ -14,8 +14,8 @@ public class MenuManager : MonoBehaviour
 
 	private void Start()
 	{
-		musicSlider.value = AudioManager.Instance.MusicVolume;
-		sfxSlider.value = AudioManager.Instance.SFXVolume;
+		//musicSlider.value = AudioManager.Instance.MusicVolume;
+		//sfxSlider.value = AudioManager.Instance.SFXVolume;
 
 		if (GameManager.Instance.IntroVideo)
 		{
@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
 			Invoke("HideIntroPanel", introTime);
 		}
 
-		AudioManager.Instance.PlayMusic("MainMenu");
+		//AudioManager.Instance.PlayMusic("MainMenu");
 	}
 
 	private void Update()
@@ -48,16 +48,16 @@ public class MenuManager : MonoBehaviour
 	}
 	public void SetMusicVolume(float v)
 	{
-		AudioManager.Instance.MusicVolume = v;
+		//AudioManager.Instance.MusicVolume = v;
 	}
 	public void SetSFXVolume(float v)
 	{
-		AudioManager.Instance.SFXVolume = v;
+		//AudioManager.Instance.SFXVolume = v;
 	}
 
 	public void PlayMusic(string name)
 	{
-		AudioManager.Instance.PlayMusic(name);
+		//AudioManager.Instance.PlayMusic(name);
 	}
 
 	void HideIntroPanel()

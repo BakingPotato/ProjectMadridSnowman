@@ -35,8 +35,8 @@ public class UIManager : MonoBehaviour
 	private void Start()
     {
 		GM = GameManager.Instance;
-		musicSlider.value = AudioManager.Instance.MusicVolume;
-		sfxSlider.value = AudioManager.Instance.SFXVolume;
+		//musicSlider.value = AudioManager.Instance.MusicVolume;
+		//sfxSlider.value = AudioManager.Instance.SFXVolume;
 		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
 	}
 
@@ -79,11 +79,11 @@ public class UIManager : MonoBehaviour
 
 	public void SetMusicVolume(float v)
 	{
-		AudioManager.Instance.MusicVolume = v;
+		//AudioManager.Instance.MusicVolume = v;
 	}
 	public void SetSFXVolume(float v)
 	{
-		AudioManager.Instance.SFXVolume = v;
+		//AudioManager.Instance.SFXVolume = v;
 	}
 
 	public void ShowResults(string timeLeft, string money, string enemies, string damage, string total, string nextSceneName)

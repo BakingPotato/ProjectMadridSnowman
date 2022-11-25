@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour
     {
         HP = MAX_HEALTH;
 
-        //La camara de efectos debe empezar desactivada para no fallar la rotación del personaje
+        //La camara de efectos debe empezar desactivada para no fallar la rotaciï¿½n del personaje
         effectsCamera.SetActive(true);
 
         //Inicializamos el contador
@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.CurrentLevelManager = this;
 
-        AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
+        //AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
     }
 
 	private void Update()

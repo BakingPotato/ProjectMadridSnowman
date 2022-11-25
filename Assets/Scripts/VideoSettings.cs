@@ -69,14 +69,14 @@ public class VideoSettings : MonoBehaviour
         PlayerPrefs.SetInt("selectedFPS", dropdown_fps.value);
 
         int selectedFPS = int.Parse(dropdown_fps.options[index].text);
-        if (index == 2) //Unlimited
-        {
-            QualitySettings.vSyncCount = 1;
-        }
-        else if(index == 1) //30 fps
-        {
-            QualitySettings.vSyncCount = 0;
-        }
+        //if (index == 2) //Unlimited
+        //{
+        //    QualitySettings.vSyncCount = 1;
+        //}
+        //else if(index == 1) //30 fps
+        //{
+        //    QualitySettings.vSyncCount = 0;
+        //}
 
         Application.targetFrameRate = selectedFPS;
 

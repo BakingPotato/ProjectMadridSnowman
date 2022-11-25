@@ -13,6 +13,7 @@ public class Ham : PickUpObject
 
 		target.GetComponent<PlayerManager>().instantiateHam(time);
 
-		AudioManager.Instance.PlaySFX3D("PowerUp", target.transform.position);
+		//AudioManager.Instance.PlaySFX3D("PowerUp", target.transform.position);
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_get_power_up");
 	}
 }

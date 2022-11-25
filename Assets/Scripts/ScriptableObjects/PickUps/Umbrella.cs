@@ -10,5 +10,7 @@ public class Umbrella : PickUpObject
 		target.GetComponent<PlayerManager>().instantiateUmbrella(time);
 
 		//AudioManager.Instance.PlaySFX("VelocityUp");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_get_power_up");
+
 	}
 }

@@ -89,13 +89,13 @@ public class VideoSettings : MonoBehaviour
         List<string> options = new List<string>();
         int actualResolution = 0;
 
-        //Añadimos las posibles resoluciones al dropdown
+        //Aï¿½adimos las posibles resoluciones al dropdown
         for(int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
-            //Detectamos la resolución actual
+            //Detectamos la resoluciï¿½n actual
             if(Screen.fullScreen && resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
                 actualResolution = i;
         }

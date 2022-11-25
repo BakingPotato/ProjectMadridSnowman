@@ -87,6 +87,7 @@ public class CharacterMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             //AudioManager.Instance.PlaySFX("SnowWalk", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_moves");
             MovePlayer(direction);
         }
         else

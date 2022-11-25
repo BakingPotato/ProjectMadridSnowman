@@ -9,7 +9,8 @@ public class ShootingSpeed : PickUpObject
 	public override void Apply(GameObject target)
 	{
 		target.GetComponent<PlayerManager>().IncreaseShootingSpeed(multiplier, time);
-		AudioManager.Instance.PlaySFX3D("PowerUp", target.transform.position);
+		//AudioManager.Instance.PlaySFX3D("PowerUp", target.transform.position);
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_get_power_up");
 		target.GetComponent<PlayerManager>().PlayPowerUpAnim(icon);
 	}
 }

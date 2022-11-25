@@ -37,7 +37,8 @@ public class HealthManager : MonoBehaviour
 
     public virtual void takeDamage(int damage)
     {
-        AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
+        //AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_is_hurt");
         StartBlinking();
         GM.CurrentLevelManager.HP -= damage;
         GM.CurrentLevelManager.TotalDamage += damage;
@@ -78,7 +79,7 @@ public class HealthManager : MonoBehaviour
     {
         //if (health <= 0)
         //{
-        //    //Aqui se debería llamar a un objeto padre que decida que hacer, empezar gameover si es jugador o solo destruir el objeto y sumar puntos si es Enemigo
+        //    //Aqui se deberï¿½a llamar a un objeto padre que decida que hacer, empezar gameover si es jugador o solo destruir el objeto y sumar puntos si es Enemigo
         //    if (gameObject.tag == "Player")
         //    {
 

@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
 	LayerMask _ignoringLayer;
 
 	public LayerMask IgnoringLayer { get => _ignoringLayer; set => _ignoringLayer = value; }
+	public int Damage { get => damage; set => damage = value; }
 
 	public GameObject snow;
 
@@ -29,7 +30,7 @@ public class Projectile : MonoBehaviour
 		{
 			HealthManager hM = other.GetComponent<HealthManager>();
 			if (hM)
-				hM.takeDamage(damage);
+				hM.takeDamage(Damage);
 			else if(other.gameObject.name == "SnowBall(Clone)a")
             {
 				//Mantener Combo
@@ -50,7 +51,7 @@ public class Projectile : MonoBehaviour
 
 	public void Throw(Vector3 direction, int inputDamage = -1)
 	{
-		damage = (inputDamage == -1) ? damage : inputDamage;
+		Damage = (inputDamage == -1) ? Damage : inputDamage;
 		direction.Normalize();
 		GetComponent<Rigidbody>().AddForce(direction * impulseForce, ForceMode.Impulse);
 	}

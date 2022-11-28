@@ -20,7 +20,6 @@ public class ProjectileSnow : MonoBehaviour
 
     private void DestroyObject()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits");
         Destroy(this.gameObject);
     }
 

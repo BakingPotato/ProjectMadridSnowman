@@ -58,10 +58,15 @@ public class PlayerManager : MonoBehaviour
             shootingProjectiles.IncreaseShootingSpeed_temp(multiplier, time);
     }
 
-    public void SetTripleShoot(float time)
+    public void SetTripleShot(float time)
 	{
         shootingProjectiles.ActiveTripleShot(time);
 	}
+
+    public void IncreaseShotSize(float time)
+    {
+        shootingProjectiles.IncreaseShotSize(time);
+    }
 
     public void instantiateUmbrella(float time)
     {

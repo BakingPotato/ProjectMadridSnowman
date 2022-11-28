@@ -15,6 +15,8 @@ public class ShootingProjectiles : MonoBehaviour
     bool _shooting = false;
     bool _tripleShoot = false;
     float _tripleShootAngle = 20;
+    float _scaleFactor = 1;
+    int _buffDamage = 0;
 
 	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
 	public Transform Hand { get => hand; set => hand = value; }
@@ -39,7 +41,8 @@ public class ShootingProjectiles : MonoBehaviour
         _currentTime = ShootCooldown;
 
         Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-
+        proj.transform.localScale *= _scaleFactor;
+        proj.Damage += _buffDamage;
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if (isPlayer)
         {
@@ -52,11 +55,14 @@ public class ShootingProjectiles : MonoBehaviour
             proj.IgnoringLayer = 999;
 
             proj.Throw(direction, inputDamage);
+            proj.Damage += _buffDamage;
 
-		if (_tripleShoot)
+        if (_tripleShoot)
 		{
             Projectile proj2 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-			Projectile proj3 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj2.transform.localScale *= _scaleFactor;
+            Projectile proj3 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj3.transform.localScale *= _scaleFactor;
             if (isPlayer)
 			{
                 proj2.IgnoringLayer = gameObject.layer;
@@ -66,11 +72,13 @@ public class ShootingProjectiles : MonoBehaviour
 			{
                 proj2.IgnoringLayer = 999;
                 proj3.IgnoringLayer = 999;
-            }
-            proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
+			}
+			proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
+            proj2.Damage += _buffDamage;
             proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
+            proj3.Damage += _buffDamage;
         }
-    }
+	}
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{
@@ -79,6 +87,7 @@ public class ShootingProjectiles : MonoBehaviour
 
 	public void IncreaseShootingSpeed_temp(float multiplier, float time)
     {
+        StopCoroutine("StartBoost");
         StartCoroutine(StartBoost(multiplier, time));
     }
 
@@ -92,13 +101,29 @@ public class ShootingProjectiles : MonoBehaviour
 
     public void ActiveTripleShot(float time)
 	{
-        StartCoroutine(StartTripleShoot(time));
+        StopCoroutine("StartTripleShot");
+        StartCoroutine(StartTripleShot(time));
     }
 
-    IEnumerator StartTripleShoot(float time)
+    IEnumerator StartTripleShot(float time)
     {
         _tripleShoot = true;
         yield return new WaitForSeconds(time);
         _tripleShoot = false;
+    }
+
+    public void IncreaseShotSize(float time)
+    {
+        StopCoroutine("StartShotSize");
+        StartCoroutine(StartShotSize(time));
+    }
+
+    IEnumerator StartShotSize(float time)
+    {
+        _scaleFactor += 0.5f;
+        _buffDamage += 1;
+        yield return new WaitForSeconds(time);
+        _scaleFactor = 1.0f;
+        _buffDamage = 0;
     }
 }

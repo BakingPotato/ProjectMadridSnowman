@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using System;
 
@@ -132,3 +133,4 @@ public class AudioManager : MonoBehaviour
 		return aSource; // return the AudioSource reference
 	}
 }
+ */

@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour
                 _health = value;
                 if (_health <= 0)
                 {
-                    AudioManager.Instance.PlaySFXRandomPitch("PlayerDeath");
+                    //AudioManager.Instance.PlaySFXRandomPitch("PlayerDeath");
                     startGameOver(false);
                 }
                 else if (_health > MAX_HEALTH)
@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
     {
         HP = MAX_HEALTH;
 
-        //La camara de efectos debe empezar desactivada para no fallar la rotación del personaje
+        //La camara de efectos debe empezar desactivada para no fallar la rotaciï¿½n del personaje
         effectsCamera.SetActive(true);
 
         //Inicializamos el contador
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
 
         GameManager.Instance.CurrentLevelManager = this;
 
-        AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
+        //AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
     }
 
 	private void Update()
@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour
     {
         setGameOver(true);
         UIManager.ShowGameOver(alive);
-        AudioManager.Instance.PlayMusic("GameOver");
+        //AudioManager.Instance.PlayMusic("GameOver");
     }
 
     public bool getGameOver()

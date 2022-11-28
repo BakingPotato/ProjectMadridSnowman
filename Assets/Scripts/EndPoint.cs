@@ -12,6 +12,6 @@ public class EndPoint : MonoBehaviour
 		if (pM && GameManager.Instance.CurrentLevelManager.Points >= minPoints)
 			GameManager.Instance.ShowResults(nextSceneName);
 		else if(pM)
-			GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo("Necesitas como mínimo " + minPoints / 100 + "," + (minPoints % 100).ToString("00") + " para pasar a la estación.", 4.5f);
+			GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo("Necesitas como mï¿½nimo " + minPoints / 100 + "," + (minPoints % 100).ToString("00") + " para pasar a la estaciï¿½n.", 4.5f);
 	}
 }

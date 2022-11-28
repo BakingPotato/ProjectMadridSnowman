@@ -8,6 +8,7 @@ public class Coin : PickUpObject
 	{
 		GameManager.Instance.CurrentLevelManager.Points += amount;
 
-		AudioManager.Instance.PlaySFX("Coin");
+		//AudioManager.Instance.PlaySFX("Coin");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_get_coin");
 	}
 }

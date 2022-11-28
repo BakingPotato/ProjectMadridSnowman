@@ -44,7 +44,9 @@ public class ShootingProjectiles : MonoBehaviour
         if (isPlayer)
         {
             proj.IgnoringLayer = gameObject.layer;
-            AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+            //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+
         }
         else
             proj.IgnoringLayer = 999;

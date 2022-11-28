@@ -33,12 +33,38 @@ public class UIManager : MonoBehaviour
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
 
+	FMOD.Studio.Bus sfxBus;
+	FMOD.Studio.Bus musicBus;
+	//FMOD.Studio.Bus otherBus;
+
 	private void Start()
     {
+
+		sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX");
+		musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MUSIC");
+		//otherBus = FMODUnity.RuntimeManager.GetBus("bus:/OTHER");
+
 		GM = GameManager.Instance;
-		musicSlider.value = AudioManager.Instance.MusicVolume;
-		sfxSlider.value = AudioManager.Instance.SFXVolume;
+
+		//musicSlider.value = AudioManager.Instance.MusicVolume;
+		//sfxSlider.value = AudioManager.Instance.SFXVolume;
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+
 		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
+	}
+
+	private float DecibelToLinear(float dB)
+	{
+		float linear = Mathf.Pow(10.0f, dB/20f);
+		return linear;
+	}
+
+	private void Update()
+	{
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		//otherBus.setVolume(DecibelToLinear(musicSlider.value));
 	}
 
 	public void UpdatePointsText(int points)
@@ -80,11 +106,11 @@ public class UIManager : MonoBehaviour
 
 	public void SetMusicVolume(float v)
 	{
-		AudioManager.Instance.MusicVolume = v;
+		//AudioManager.Instance.MusicVolume = v;
 	}
 	public void SetSFXVolume(float v)
 	{
-		AudioManager.Instance.SFXVolume = v;
+		//AudioManager.Instance.SFXVolume = v;
 	}
 
 	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)
@@ -123,6 +149,8 @@ public class UIManager : MonoBehaviour
 
 	public void PlayButtonSound()
 	{
-		AudioManager.Instance.PlaySFX("Button");
+		//AudioManager.Instance.PlaySFX("Button");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/ui_button");
+
 	}
 }

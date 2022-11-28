@@ -69,14 +69,14 @@ public class VideoSettings : MonoBehaviour
         PlayerPrefs.SetInt("selectedFPS", dropdown_fps.value);
 
         int selectedFPS = int.Parse(dropdown_fps.options[index].text);
-        if (index != 1) //60 fps o Unlimited
-        {
-            QualitySettings.vSyncCount = 1;
-        }
-        else if(index == 1) //30 fps
-        {
-            QualitySettings.vSyncCount = 0;
-        }
+        //if (index == 2) //Unlimited
+        //{
+        //    QualitySettings.vSyncCount = 1;
+        //}
+        //else if(index == 1) //30 fps
+        //{
+        //    QualitySettings.vSyncCount = 0;
+        //}
 
         Application.targetFrameRate = selectedFPS;
 
@@ -89,13 +89,13 @@ public class VideoSettings : MonoBehaviour
         List<string> options = new List<string>();
         int actualResolution = 0;
 
-        //Añadimos las posibles resoluciones al dropdown
+        //Aï¿½adimos las posibles resoluciones al dropdown
         for(int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
-            //Detectamos la resolución actual
+            //Detectamos la resoluciï¿½n actual
             if(Screen.fullScreen && resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
                 actualResolution = i;
         }

@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d5218c0b279ae429dc745c0eee630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
-  health: 1
+  maxHealth: 2
+  health: 2
   blinkingObject: {fileID: 3925307855687841048}
   healthBar: {fileID: 6589639775652944004}
 --- !u!114 &2542405573610683592
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  chaseRange: 8
+  chaseRange: 10
   turnSpeed: 5
   enemyDamage: 2
 --- !u!114 &2014206887225536423
@@ -148,7 +148,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 6
+  m_Speed: 7
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120

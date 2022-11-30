@@ -1,5 +1,6 @@
 public enum enemyClass
 {
     Melee,
-    Ranged
+    Ranged,
+    Boss
 }

@@ -7,16 +7,22 @@ public class BossHealthManager : HealthManager
 	[SerializeField] EnemyHealthBar healthBar;
 
     [Header("Variables de jefe")]
-    [SerializeField] int Boss_HP;
-    [SerializeField] int Boss_Phase;
+    [SerializeField] BossManager BM;
+    public int Boss_HP;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        BM = GetComponent<BossManager>();
+        BM.setBossHP();
+        BM.ChangePhase();
 
         GM = GameManager.Instance;
+    }
+
+    public void setHealth(int new_health)
+    {
+        health = new_health;
     }
 
     public override void takeDamage(int damage)
@@ -38,27 +44,22 @@ public class BossHealthManager : HealthManager
     {
         if (health <= 0)
         {
-            if(Boss_HP <= 1)
+        if(Boss_HP == 0)
             {
                 //Parar las corrutinas
                 //Contamos la muerte
                 //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyDeath", transform.position);
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_dead");
                 GM.CurrentLevelManager.KillCount++;
-                Destroy(gameObject);
+                BM.ProcessDeath();
             }
             else
             {
-                changePhase();
+                Boss_HP--;
+                BM.ChangePhase();
             }
 
         }
     }
 
-    private void changePhase()
-    {
-        Boss_HP--;
-        Boss_Phase++;
-        health = maxHealth;
-    }
 }

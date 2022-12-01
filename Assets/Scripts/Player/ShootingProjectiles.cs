@@ -49,7 +49,6 @@ public class ShootingProjectiles : MonoBehaviour
             proj.IgnoringLayer = gameObject.layer;
             //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
-
         }
         else
             proj.IgnoringLayer = 999;
@@ -85,11 +84,17 @@ public class ShootingProjectiles : MonoBehaviour
         shootCooldown /= multiplier;
     }
 
-	public void IncreaseShootingSpeed_temp(float multiplier, float time)
+    public void DecreaseShootingSpeed(float multiplier)
+    {
+        shootCooldown *= multiplier;
+    }
+
+    public void IncreaseShootingSpeed_temp(float multiplier, float time)
     {
         StopCoroutine("StartBoost");
         StartCoroutine(StartBoost(multiplier, time));
     }
+
 
     IEnumerator StartBoost(float multiplier, float time)
     {
@@ -105,6 +110,17 @@ public class ShootingProjectiles : MonoBehaviour
         StartCoroutine(StartTripleShot(time));
     }
 
+    public void Activate_TripleShot()
+    {
+        _tripleShoot = true;
+    }
+
+    public void Deactivate_TripleShot()
+    {
+        _tripleShoot = false;
+    }
+
+
     IEnumerator StartTripleShot(float time)
     {
         _tripleShoot = true;
@@ -116,6 +132,18 @@ public class ShootingProjectiles : MonoBehaviour
     {
         StopCoroutine("StartShotSize");
         StartCoroutine(StartShotSize(time));
+    }
+
+    public void IncreaseShotSize_Permanent()
+    {
+        _scaleFactor += 0.5f;
+        _buffDamage += 1;
+    }
+
+    public void DecreaseShotSize()
+    {
+        _scaleFactor -= 0.5f;
+        _buffDamage -= 1;
     }
 
     IEnumerator StartShotSize(float time)

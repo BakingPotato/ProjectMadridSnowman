@@ -31,11 +31,6 @@ public class Projectile : MonoBehaviour
 			HealthManager hM = other.GetComponent<HealthManager>();
 			if (hM)
 				hM.takeDamage(Damage);
-			else if(other.gameObject.name == "SnowBall(Clone)a")
-            {
-				//Mantener Combo
-				Debug.Log("PinPon");
-            }
 
 			DestroyProjectile();
 		}

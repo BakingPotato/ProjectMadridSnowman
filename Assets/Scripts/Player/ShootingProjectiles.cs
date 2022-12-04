@@ -82,12 +82,12 @@ public class ShootingProjectiles : MonoBehaviour
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{
-        shootCooldown /= multiplier;
+        shootCooldown += multiplier;
     }
 
     public void DecreaseShootingSpeed(float multiplier)
     {
-        shootCooldown *= multiplier;
+        shootCooldown -= multiplier;
     }
 
     public void IncreaseShootingSpeed_temp(float multiplier, float time)

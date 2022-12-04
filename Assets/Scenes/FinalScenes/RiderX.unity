@@ -946,6 +946,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
+      propertyPath: phases.Array.data[1].health
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6313598589350772151, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: m_Name
       value: RiderX
@@ -1127,7 +1131,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.57
+  m_Intensity: 0.65
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1474,11 +1478,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1622839028
-      Data2: 1319932021
-      Data3: -1188065357
-      Data4: 372831071
-    Path: event:/MUSIC/LEVELS/music_lvl
+      Data1: 1494954742
+      Data2: 1118701287
+      Data3: -1918084697
+      Data4: -825929235
+    Path: event:/MUSIC/LEVELS/music_lvl_extra
   Event: 
   PlayEvent: 11
   StopEvent: 12

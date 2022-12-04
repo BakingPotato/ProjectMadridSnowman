@@ -40,7 +40,10 @@ public class BossManager : EnemyManager
 
     private void LateUpdate()
     {
-        AttackTarget();
+        if (isProvoked)
+        {
+            AttackTarget();
+        }
     }
 
     public override void AttackTarget()
@@ -62,7 +65,7 @@ public class BossManager : EnemyManager
         Phase phase = phases[phase_id];
 
         //Definimos la vida máxima de la fase actual
-        BHM.setHealth(phase.health);
+        BHM.setMaxHealth(phase.health);
 
         //Procesamos las variables de movimiento, si no estan definidas en la fase se dejan las viejas
         movement.speed = phase.speed == 0 ? movement.speed : phase.speed;
@@ -83,6 +86,7 @@ public class BossManager : EnemyManager
 
         //Destruir
         Destroy(gameObject);
+        GameManager.Instance.ShowResults("LevelMenu");
     }
 
 
@@ -113,6 +117,9 @@ public class BossManager : EnemyManager
             case "tripleshoot":
                 SetTripleShot(phase_id);
                 break;
+            case "bigshot":
+                IncreaseBigShot(phase_id);
+                break;
         }
     }
 
@@ -129,6 +136,11 @@ public class BossManager : EnemyManager
     public void IncreaseShootingSpeed(int actual_phase, float multiplier)
     {
         StartCoroutine(powerUpShootingSpeed(actual_phase, multiplier));
+    }
+
+    public void IncreaseBigShot(int actual_phase)
+    {
+        StartCoroutine(powerUpBigShot(actual_phase));
     }
 
     public void SetTripleShot(int actual_phase)
@@ -194,18 +206,17 @@ public class BossManager : EnemyManager
         shootingProjectiles.Deactivate_TripleShot();
     }
 
-    IEnumerator powerUpShotShize(int actual_phase)
+    IEnumerator powerUpBigShot(int actual_phase)
     {
-        //Lo instanciamos en el padre de 
-        prefab_Ham.GetComponent<HamController>().player = this.gameObject;
-        GameObject actualHam = Instantiate(prefab_Ham, transform.parent);
+        //Lo activamos
+        shootingProjectiles.IncreaseShotSize_Permanent();
+
 
         while (phase_id == actual_phase)
         {
             yield return new WaitForEndOfFrame();
         }
 
-        //Destruimos el objeto
-        Destroy(actualHam);
+        shootingProjectiles.DecreaseShotSize();
     }
 }

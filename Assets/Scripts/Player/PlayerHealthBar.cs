@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    [SerializeField] Slider slider;
-    [SerializeField] Image frostIMG;
+    [SerializeField] protected Slider slider;
+    [SerializeField] private Image frostIMG;
 
-    public void SetMaxHealth(int health)
+    public virtual void SetMaxHealth(int health)
     {
         slider.maxValue = health;
         slider.value = 0;
     }
 
-    public void SetHealth(int health)
+    public virtual void SetHealth(int health)
     {
         float lastV = slider.value;
         slider.value = slider.maxValue - health;

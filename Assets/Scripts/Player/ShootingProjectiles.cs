@@ -8,6 +8,7 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
+    [SerializeField] float minShootCooldown = 0.15f;
 
     [SerializeField] bool isPlayer;
 
@@ -81,27 +82,39 @@ public class ShootingProjectiles : MonoBehaviour
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{
-        shootCooldown /= multiplier;
+        shootCooldown += multiplier;
     }
 
     public void DecreaseShootingSpeed(float multiplier)
     {
-        shootCooldown *= multiplier;
+        shootCooldown -= multiplier;
     }
 
     public void IncreaseShootingSpeed_temp(float multiplier, float time)
     {
-        StopCoroutine("StartBoost");
-        StartCoroutine(StartBoost(multiplier, time));
+        StartCoroutine(StartShootingSpeedBoost(multiplier, time));
     }
 
 
-    IEnumerator StartBoost(float multiplier, float time)
+    IEnumerator StartShootingSpeedBoost(float speedBoost, float time)
     {
         float initial = shootCooldown;
-        shootCooldown /= multiplier;
+        //Esperamos a aplicar el boost, shootcoldown debe ser mayor que el minimo para poder aplicarlo
+        while (shootCooldown <= minShootCooldown)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        //Nos aseguramos de que no vamos a pasar el limite
+        if (shootCooldown - speedBoost < minShootCooldown)
+            shootCooldown = minShootCooldown;
+        else
+            shootCooldown -= speedBoost;
+
+        //Esperamos a que se pase el boost para revertirlo
         yield return new WaitForSeconds(time);
-        shootCooldown = initial;
+        shootCooldown += speedBoost;
+
     }
 
     public void ActiveTripleShot(float time)
@@ -130,7 +143,6 @@ public class ShootingProjectiles : MonoBehaviour
 
     public void IncreaseShotSize(float time)
     {
-        StopCoroutine("StartShotSize");
         StartCoroutine(StartShotSize(time));
     }
 
@@ -148,10 +160,12 @@ public class ShootingProjectiles : MonoBehaviour
 
     IEnumerator StartShotSize(float time)
     {
+        //Subimos el tamaño y el daño
         _scaleFactor += 0.5f;
         _buffDamage += 1;
         yield return new WaitForSeconds(time);
-        _scaleFactor = 1.0f;
-        _buffDamage = 0;
+        //Reducimos el tamaño y daño, con esto aseguramos que por muchos powerups que se acumulen, siempre volveremos al tamaño original de forma progresiva
+        _scaleFactor -= 0.5f;
+        _buffDamage -= 1;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossHealthManager : HealthManager
 {
-	[SerializeField] EnemyHealthBar healthBar;
+	[SerializeField] BossHealthBar healthBar;
 
     [Header("Variables de jefe")]
     [SerializeField] BossManager BM;
@@ -20,9 +20,11 @@ public class BossHealthManager : HealthManager
         GM = GameManager.Instance;
     }
 
-    public void setHealth(int new_health)
+
+    public void setMaxHealth(int new_health)
     {
         health = new_health;
+        healthBar.SetMaxHealth(health);
     }
 
     public override void takeDamage(int damage)

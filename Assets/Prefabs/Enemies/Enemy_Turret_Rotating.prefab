@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  blinkingObject: {fileID: 0}
   healthBar: {fileID: 5512454042933294868}
 --- !u!114 &6318355564131823051
 MonoBehaviour:
@@ -187,6 +188,7 @@ MonoBehaviour:
   turnSpeed: 5
   enemyDamage: 2
   shootingProjectiles: {fileID: 6134405397140165324}
+  shootingProjectiles2: {fileID: 0}
   isTurret: 1
 --- !u!195 &6318355564131823050
 NavMeshAgent:
@@ -225,6 +227,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 172704135531579475, guid: da28f40e19d6190428fafa625c31496b, type: 3}
   hand: {fileID: 5512454042069746074}
   shootCooldown: 0.3
+  minShootCooldown: 0.15
   isPlayer: 0
 --- !u!114 &-4304346564137992501
 MonoBehaviour:
@@ -244,6 +247,7 @@ MonoBehaviour:
   - {fileID: 7231588800726985224, guid: 5fbac39148df21741bce8dd1de1de1f7, type: 3}
   - {fileID: 4527598319436771267, guid: e1d4ed29230d100499e047a0ea32c230, type: 3}
   - {fileID: 1001422031073888443, guid: 1b2da22e772f29b41a38638bc0366fe0, type: 3}
+  - {fileID: 4527598319436771267, guid: 5bc2332a36152244aac3a7a3244fd3f0, type: 3}
   - {fileID: 7231588800726985224, guid: bf9942de134ee0747bd0f952c6e844d1, type: 3}
   - {fileID: 1199948504117343226, guid: ab85099225e821f46bec18554f54e7d5, type: 3}
   coins:
@@ -251,7 +255,7 @@ MonoBehaviour:
   - {fileID: 1841091080672440815, guid: 12fdc4958832ad643bcd300244e0eafa, type: 3}
   - {fileID: 5273330667590922035, guid: 2f13f8c2c9a216f47983ff59fca0ba5d, type: 3}
   probEmpty: 1
-  probsPowerUps: 00000000000000000000000000000000000000000000000000000000
+  probsPowerUps: 0100000000000000000000000000000000000000000000000000000000000000
   probsCoins: 020000000300000005000000
 --- !u!114 &-3921518419456227122
 MonoBehaviour:

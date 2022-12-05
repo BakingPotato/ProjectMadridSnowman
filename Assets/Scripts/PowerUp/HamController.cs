@@ -6,7 +6,7 @@ public class HamController : UmbrellaController
 {
     public int damage = 1;
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         transform.position = player.transform.position;
         transform.Rotate(Vector3.down * speed);
@@ -35,7 +35,6 @@ public class HamController : UmbrellaController
                     scm.takeDamage(damage);
                 }
                 break;
-
             default:
                 break;
         }

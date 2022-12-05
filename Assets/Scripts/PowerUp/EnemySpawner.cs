@@ -25,12 +25,13 @@ public class EnemySpawner : MonoBehaviour
     public bool isSpawning { get { return spawning != null; } }
     Coroutine spawning = null;
 
+    [SerializeField] float initial_waitTime;
     [SerializeField] float waitTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnRandomEnemy();
+        spawning = StartCoroutine(spawnEnemy(initial_waitTime));
     }
 
     // Update is called once per frame
@@ -39,13 +40,13 @@ public class EnemySpawner : MonoBehaviour
         if(!isSpawning)
         {
             //Paramos la corrutina por si entro uno antes y empezamos
-            spawning = StartCoroutine(spawnEnemy());
+            spawning = StartCoroutine(spawnEnemy(waitTime));
         }
     }
 
-    IEnumerator spawnEnemy()
+    IEnumerator spawnEnemy(float time)
     {
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(time);
 
         SpawnRandomEnemy();
         spawning = null;

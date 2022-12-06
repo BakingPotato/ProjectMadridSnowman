@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] GameObject effectsCamera;
 
-    const int MAX_POINTS = 999;
+    const int MAX_POINTS = 9999;
     int _points;
 
     public const int MAX_HEALTH = 10;

@@ -8,6 +8,7 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
+    [SerializeField] float minShootCooldown = 0.15f;
 
     [SerializeField] bool isPlayer;
 
@@ -15,6 +16,8 @@ public class ShootingProjectiles : MonoBehaviour
     bool _shooting = false;
     bool _tripleShoot = false;
     float _tripleShootAngle = 20;
+    float _scaleFactor = 1;
+    int _buffDamage = 0;
 
 	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
 	public Transform Hand { get => hand; set => hand = value; }
@@ -39,24 +42,27 @@ public class ShootingProjectiles : MonoBehaviour
         _currentTime = ShootCooldown;
 
         Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-
+        proj.transform.localScale *= _scaleFactor;
+        proj.Damage += _buffDamage;
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if (isPlayer)
         {
             proj.IgnoringLayer = gameObject.layer;
             //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
-
         }
         else
             proj.IgnoringLayer = 999;
 
             proj.Throw(direction, inputDamage);
+            proj.Damage += _buffDamage;
 
-		if (_tripleShoot)
+        if (_tripleShoot)
 		{
             Projectile proj2 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-			Projectile proj3 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj2.transform.localScale *= _scaleFactor;
+            Projectile proj3 = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj3.transform.localScale *= _scaleFactor;
             if (isPlayer)
 			{
                 proj2.IgnoringLayer = gameObject.layer;
@@ -66,39 +72,100 @@ public class ShootingProjectiles : MonoBehaviour
 			{
                 proj2.IgnoringLayer = 999;
                 proj3.IgnoringLayer = 999;
-            }
-            proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
+			}
+			proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
+            proj2.Damage += _buffDamage;
             proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
+            proj3.Damage += _buffDamage;
         }
-    }
+	}
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{
-        shootCooldown /= multiplier;
+        shootCooldown += multiplier;
     }
 
-	public void IncreaseShootingSpeed_temp(float multiplier, float time)
+    public void DecreaseShootingSpeed(float multiplier)
     {
-        StartCoroutine(StartBoost(multiplier, time));
+        shootCooldown -= multiplier;
     }
 
-    IEnumerator StartBoost(float multiplier, float time)
+    public void IncreaseShootingSpeed_temp(float multiplier, float time)
+    {
+        StartCoroutine(StartShootingSpeedBoost(multiplier, time));
+    }
+
+
+    IEnumerator StartShootingSpeedBoost(float speedBoost, float time)
     {
         float initial = shootCooldown;
-        shootCooldown /= multiplier;
+        //Esperamos a aplicar el boost, shootcoldown debe ser mayor que el minimo para poder aplicarlo
+        while (shootCooldown <= minShootCooldown)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        //Nos aseguramos de que no vamos a pasar el limite
+        if (shootCooldown - speedBoost < minShootCooldown)
+            shootCooldown = minShootCooldown;
+        else
+            shootCooldown -= speedBoost;
+
+        //Esperamos a que se pase el boost para revertirlo
         yield return new WaitForSeconds(time);
-        shootCooldown = initial;
+        shootCooldown += speedBoost;
+
     }
 
     public void ActiveTripleShot(float time)
 	{
-        StartCoroutine(StartTripleShoot(time));
+        StopCoroutine("StartTripleShot");
+        StartCoroutine(StartTripleShot(time));
     }
 
-    IEnumerator StartTripleShoot(float time)
+    public void Activate_TripleShot()
+    {
+        _tripleShoot = true;
+    }
+
+    public void Deactivate_TripleShot()
+    {
+        _tripleShoot = false;
+    }
+
+
+    IEnumerator StartTripleShot(float time)
     {
         _tripleShoot = true;
         yield return new WaitForSeconds(time);
         _tripleShoot = false;
+    }
+
+    public void IncreaseShotSize(float time)
+    {
+        StartCoroutine(StartShotSize(time));
+    }
+
+    public void IncreaseShotSize_Permanent()
+    {
+        _scaleFactor += 0.5f;
+        _buffDamage += 1;
+    }
+
+    public void DecreaseShotSize()
+    {
+        _scaleFactor -= 0.5f;
+        _buffDamage -= 1;
+    }
+
+    IEnumerator StartShotSize(float time)
+    {
+        //Subimos el tamaño y el daño
+        _scaleFactor += 0.5f;
+        _buffDamage += 1;
+        yield return new WaitForSeconds(time);
+        //Reducimos el tamaño y daño, con esto aseguramos que por muchos powerups que se acumulen, siempre volveremos al tamaño original de forma progresiva
+        _scaleFactor -= 0.5f;
+        _buffDamage -= 1;
     }
 }

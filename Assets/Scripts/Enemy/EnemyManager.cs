@@ -5,23 +5,23 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] enemyClass type = enemyClass.Melee;
+    [SerializeField] protected enemyClass type = enemyClass.Melee;
 
     [Header("Movimiento")]
-    [SerializeField] float chaseRange = 15f;
-    [SerializeField] float turnSpeed = 5f;
+    [SerializeField] protected float chaseRange = 15f;
+    [SerializeField] protected float turnSpeed = 5f;
 
     [Header("Da�o")]
     [SerializeField] protected int enemyDamage = 2;
 
     //Si es provocado persiguira al jugador
-    bool isProvoked = false;
+    protected bool isProvoked = false;
 
     [Header("Distancia al jugador")]
-    float distanceToTarget = Mathf.Infinity;
-    Transform target;
+    protected float distanceToTarget = Mathf.Infinity;
+    protected Transform target;
 
-    HealthManager health;
+    protected HealthManager health;
     protected NavMeshAgent navMeshAgent;
 
     public enemyClass getEnemyClass()
@@ -54,6 +54,8 @@ public class EnemyManager : MonoBehaviour
                 isProvoked = true;
             }
         }
+
+
     }
 
     public void OnDamageTaken()
@@ -69,7 +71,7 @@ public class EnemyManager : MonoBehaviour
             ChaseTarget();
         }
 
-        if (distanceToTarget <= navMeshAgent.stoppingDistance)
+        if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)
         {
             AttackTarget();
         }

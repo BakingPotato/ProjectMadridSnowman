@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> ranged;
     [SerializeField] List<GameObject> melee;
+    [SerializeField] int maxEnemyCount;
 
     public enum EnemyType
     {
@@ -54,17 +55,21 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
+        if (transform.childCount >= maxEnemyCount)
+            return;
         EnemyType randomType = GetRandomEnemyType();
-
+        GameObject enemy = null;
         switch (randomType)
         {
             case EnemyType.Ranged:
-                Instantiate(ranged[Random.Range(0, ranged.Count)], transform.position, Quaternion.identity);
+                enemy = Instantiate(ranged[Random.Range(0, ranged.Count)], transform.position, Quaternion.identity);
                 break;
             case EnemyType.Melee:
-                Instantiate(melee[Random.Range(0, melee.Count)], transform.position, Quaternion.identity);
+                enemy = Instantiate(melee[Random.Range(0, melee.Count)], transform.position, Quaternion.identity);
                 break;
         }
+        if (enemy)
+            enemy.transform.parent = transform;
     }
 
     protected EnemyType GetRandomEnemyType()

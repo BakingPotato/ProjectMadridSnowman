@@ -9,6 +9,7 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
     [SerializeField] float minShootCooldown = 0.15f;
+    [SerializeField] bool auto = false;
 
     [SerializeField] bool isPlayer;
 
@@ -23,20 +24,33 @@ public class ShootingProjectiles : MonoBehaviour
 	public Transform Hand { get => hand; set => hand = value; }
 	public bool Shooting { get => _shooting; set => _shooting = value; }
 
-	// Update is called once per frame
-	void Update()
+    private void Start()
+    {
+        if (auto)
+        {
+            Shooting = true;
+        }
+    }
+    // Update is called once per frame
+    void Update()
     {
         if (Shooting)
         {
             _currentTime -= Time.deltaTime;
             if (_currentTime <= 0)
+            {
                 Shooting = false;
+                if (auto)
+                {
+                    Shoot(transform.forward, 1);
+                }
+            }
         }
     }
 
     public void Shoot(Vector3 direction, int inputDamage = -1)
     {
-        if (Shooting)
+        if (Shooting && !auto)
             return;
         Shooting = true;
         _currentTime = ShootCooldown;

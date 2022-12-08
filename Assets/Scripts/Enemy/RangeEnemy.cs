@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,4 +20,39 @@ public class RangeEnemy : EnemyManager
         if(!isTurret)
 		    base.FaceTarget();
 	}
+
+    protected override void EngageTarget()
+    {
+        if (!isTurret)
+        {
+            FaceTarget();
+            if (distanceToTarget >= navMeshAgent.stoppingDistance)
+            {
+                ChaseTarget();
+            }
+
+            if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)
+            {
+                AttackTarget();
+            }
+            else
+            {
+                //Cancelar animaci�n de ataque
+            }
+        }
+        else {
+
+            FaceTarget();
+
+            if (type != enemyClass.Boss && distanceToTarget <= chaseRange)
+            {
+                AttackTarget();
+            }
+            else
+            {
+                //Cancelar animaci�n de ataque
+            }
+        }
+
+    }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthManager : HealthManager
+public class SpecialEnemyHealthManager : HealthManager
 {
-	[SerializeField] EnemyHealthBar healthBar;
+	[SerializeField] BossHealthBar healthBar;
 
     public bool invincible = false;
 	// Start is called before the first frame update
@@ -42,9 +42,11 @@ public class EnemyHealthManager : HealthManager
             //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyDeath", transform.position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_dead");
             GM.CurrentLevelManager.KillCount++;
-            this.GetComponent<EnemiesLootManager>().InstanceRandomLoot();
+            //Destruir
             Destroy(gameObject);
+            GameManager.Instance.ShowResults("LevelMenu");
         }
     }
 
 }
+

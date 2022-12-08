@@ -34,7 +34,7 @@ public class BossHealthManager : HealthManager
 		//AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt");
         StartBlinking();
-		if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
+		if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Boss)
         {
             //Es provocado al ser da�ado
             gameObject.GetComponent<EnemyManager>().OnDamageTaken();

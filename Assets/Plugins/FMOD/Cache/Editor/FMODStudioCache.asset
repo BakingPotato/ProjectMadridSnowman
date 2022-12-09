@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 140792
+--- !u!114 &-8886369295905974914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/LEVELS/music_game_over
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/LEVELS/music_game_over
+  Guid:
+    Data1: -1654642721
+    Data2: 1089861434
+    Data3: 1076860082
+    Data4: -492181222
+  Banks:
+  - {fileID: 6361618777128300209}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 140792
 --- !u!114 &-8584016742351760429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +122,7 @@ MonoBehaviour:
     Data4: -1461067803
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 1
@@ -123,6 +151,7 @@ MonoBehaviour:
     Data4: 826969711
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -131,33 +160,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-7168817305419902111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/LEVELS/music_game_over
-  m_EditorClassIdentifier: 
-  Path: event:/MUSIC/LEVELS/music_game_over
-  Guid:
-    Data1: -1654642721
-    Data2: 1089861434
-    Data3: 1076860082
-    Data4: -492181222
-  Banks:
-  - {fileID: 6361618777128300209}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 140792
 --- !u!114 &-7165642322877692405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +180,7 @@ MonoBehaviour:
     Data4: 718036928
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -206,6 +209,7 @@ MonoBehaviour:
     Data4: 1330949949
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -310,6 +314,7 @@ MonoBehaviour:
     Data4: -1901257710
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 1
@@ -421,6 +426,7 @@ MonoBehaviour:
     Data4: -646776454
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 1
@@ -499,7 +505,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_EXTRA.bank
   Name: LVL_EXTRA
   StudioPath: bank:/LVL_EXTRA
-  lastModified: 638052520940097609
+  lastModified: 638060954721821928
   FileSizes:
   - Name: Desktop
     Value: 1390784
@@ -559,6 +565,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 87719
+--- !u!114 &-2984121402565475754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LVL_BOSS.bank
+  m_EditorClassIdentifier: 
+  Path: fmod/Build/Desktop/LVL_BOSS.bank
+  Name: LVL_BOSS
+  StudioPath: bank:/LVL_BOSS
+  lastModified: 638060954704243438
+  FileSizes:
+  - Name: Desktop
+    Value: 1707136
+  Exists: 1
 --- !u!114 &-2748246284088060527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +655,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/CREDITOS.bank
   Name: CREDITOS
   StudioPath: bank:/CREDITOS
-  lastModified: 638052520939647503
+  lastModified: 638060954650221087
   FileSizes:
   - Name: Desktop
     Value: 864768
@@ -683,6 +709,7 @@ MonoBehaviour:
     Data4: -1360546072
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -711,6 +738,7 @@ MonoBehaviour:
     Data4: 1631075104
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -762,7 +790,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638052520940217636
+  lastModified: 638060954721848112
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -815,6 +843,7 @@ MonoBehaviour:
     Data4: -1771657885
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 1
@@ -843,6 +872,7 @@ MonoBehaviour:
     Data4: 529435277
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -871,10 +901,10 @@ MonoBehaviour:
   - {fileID: -3744305297151220316}
   - {fileID: -928744740349331906}
   - {fileID: 1070700464702902277}
+  - {fileID: -2984121402565475754}
   EditorEvents:
   - {fileID: -1913726620195766064}
   - {fileID: -5886434991952745117}
-  - {fileID: -7168817305419902111}
   - {fileID: -5265815362459814874}
   - {fileID: -7202205944200265518}
   - {fileID: -5286515243931053656}
@@ -891,12 +921,14 @@ MonoBehaviour:
   - {fileID: 3179237250221628445}
   - {fileID: 5563536319253161059}
   - {fileID: -2998768764912740446}
+  - {fileID: -8886369295905974914}
+  - {fileID: 1270125579114494212}
   EditorParameters: []
   MasterBanks:
   - {fileID: -928744740349331906}
   StringsBanks:
   - {fileID: 2916376535521585510}
-  cacheTime: 638052520940217636
+  cacheTime: 638060954742251971
   cacheVersion: 131593
 --- !u!114 &892012938927149170
 MonoBehaviour:
@@ -941,11 +973,38 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638052520940207637
+  lastModified: 638060954742251971
   FileSizes:
   - Name: Desktop
     Value: 2125952
   Exists: 1
+--- !u!114 &1270125579114494212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/LEVELS/music_lvl_boss
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/LEVELS/music_lvl_boss
+  Guid:
+    Data1: -356796547
+    Data2: 1131104449
+    Data3: 540664225
+    Data4: 1077252775
+  Banks:
+  - {fileID: -2984121402565475754}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 89652
 --- !u!114 &2064563702460068465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,10 +1075,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638052520940217636
+  lastModified: 638060954721878474
   FileSizes:
   - Name: Desktop
-    Value: 2040
+    Value: 2122
   Exists: 1
 --- !u!114 &3179237250221628445
 MonoBehaviour:
@@ -1068,6 +1127,7 @@ MonoBehaviour:
     Data4: 505270213
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -1091,7 +1151,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_1.bank
   Name: LVL_1
   StudioPath: bank:/LVL_1
-  lastModified: 638052520939957575
+  lastModified: 638060954703746749
   FileSizes:
   - Name: Desktop
     Value: 1553280
@@ -1183,6 +1243,7 @@ MonoBehaviour:
     Data4: 2085526896
   Banks:
   - {fileID: 3866355099248652853}
+  - {fileID: -2984121402565475754}
   - {fileID: -3744305297151220316}
   IsStream: 0
   Is3D: 0
@@ -1281,7 +1342,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/GAME_OVER.bank
   Name: GAME_OVER
   StudioPath: bank:/GAME_OVER
-  lastModified: 638052520939797540
+  lastModified: 638060954683664068
   FileSizes:
   - Name: Desktop
     Value: 1954336

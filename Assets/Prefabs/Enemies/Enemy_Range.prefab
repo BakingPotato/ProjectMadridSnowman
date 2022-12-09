@@ -140,6 +140,7 @@ MonoBehaviour:
   health: 0
   blinkingObject: {fileID: 7385373316205516079}
   healthBar: {fileID: 5340287607419617217}
+  invincible: 0
 --- !u!114 &2028618551108284982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  chaseRange: 7
+  chaseRange: 8
   turnSpeed: 5
   enemyDamage: 2
   shootingProjectiles: {fileID: 2899144740668757358}
@@ -197,6 +198,7 @@ MonoBehaviour:
   hand: {fileID: 2899144741195498785}
   shootCooldown: 1
   minShootCooldown: 0.15
+  auto: 0
   isPlayer: 0
 --- !u!114 &19492699365721325
 MonoBehaviour:

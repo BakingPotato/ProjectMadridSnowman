@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
 		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
-		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
+		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
 	}
 
 	private float DecibelToLinear(float dB)

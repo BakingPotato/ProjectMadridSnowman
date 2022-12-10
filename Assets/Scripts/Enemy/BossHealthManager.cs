@@ -32,7 +32,7 @@ public class BossHealthManager : HealthManager
         health -= damage;
         healthBar.SetHealth(health);
 		//AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
         StartBlinking();
 		if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Boss)
         {
@@ -51,7 +51,7 @@ public class BossHealthManager : HealthManager
                 //Parar las corrutinas
                 //Contamos la muerte
                 //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyDeath", transform.position);
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_dead");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_dead", transform.position);
                 GM.CurrentLevelManager.KillCount++;
                 BM.ProcessDeath();
             }

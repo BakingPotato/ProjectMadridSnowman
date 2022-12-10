@@ -46,7 +46,7 @@ public class BossHealthManager : HealthManager
     {
         if (health <= 0)
         {
-        if(Boss_HP == 0)
+            if(Boss_HP == 0)
             {
                 //Parar las corrutinas
                 //Contamos la muerte

@@ -35,6 +35,15 @@ public class HealthManager : MonoBehaviour
         return GM.CurrentLevelManager.HP;
     }
 
+    public int getThisHealth()
+    {
+        return health;
+    }
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
+
     public virtual void takeDamage(int damage)
     {
         //AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
@@ -49,9 +58,12 @@ public class HealthManager : MonoBehaviour
 
     protected void StartBlinking()
 	{
-        CancelInvoke();
-        Invoke("StopBlinking", 0.6f);
-        InvokeRepeating("Blink", 0, 0.1f);
+        if(blinkingObject != null)
+        {
+            CancelInvoke();
+            Invoke("StopBlinking", 0.6f);
+            InvokeRepeating("Blink", 0, 0.1f);
+        }
 	}
 
     void Blink()

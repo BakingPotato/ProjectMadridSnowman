@@ -14,8 +14,9 @@ public class LevelManager : MonoBehaviour
 
     const int MAX_POINTS = 9999;
     int _points;
-
-    public const int MAX_HEALTH = 10;
+    
+    //Esto define la vida máxima del jugador
+    public int MAX_HEALTH = 12;
     int _health;
 
     int _killCount;
@@ -64,6 +65,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+	private void Awake()
+	{
+        GameManager.Instance.CurrentLevelManager = this;
+    }
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -76,7 +82,7 @@ public class LevelManager : MonoBehaviour
         countdown = GetComponent<Countdown>();
         countdown.BeginTimer();
 
-        GameManager.Instance.CurrentLevelManager = this;
+        
 
         //AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
     }

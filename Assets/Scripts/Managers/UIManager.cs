@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
 	private static GameManager GM;
 
+    [SerializeField] TextMeshProUGUI _titleText;
     [SerializeField] TextMeshProUGUI _pointsText;
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] PlayerHealthBar _healthBar;
@@ -53,6 +54,12 @@ public class UIManager : MonoBehaviour
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
+	}
+
+	public void StartLevelFromUI()
+	{
+		GM.CurrentLevelManager.StartLevel();
+		_titleText.text = GM.CurrentLevelManager.LevelName;
 	}
 
 	private float DecibelToLinear(float dB)

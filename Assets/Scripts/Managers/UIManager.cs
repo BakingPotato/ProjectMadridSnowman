@@ -46,8 +46,9 @@ public class UIManager : MonoBehaviour
 
 		GM = GameManager.Instance;
 
-		//musicSlider.value = AudioManager.Instance.MusicVolume;
-		//sfxSlider.value = AudioManager.Instance.SFXVolume;
+		musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+		sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+
 		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
@@ -107,10 +108,14 @@ public class UIManager : MonoBehaviour
 	public void SetMusicVolume(float v)
 	{
 		//AudioManager.Instance.MusicVolume = v;
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
 	}
 	public void SetSFXVolume(float v)
 	{
 		//AudioManager.Instance.SFXVolume = v;
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
 	}
 
 	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)

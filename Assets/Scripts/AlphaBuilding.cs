@@ -56,8 +56,8 @@ public class AlphaBuilding : MonoBehaviour
 
 			Color alphaColor = mat.color;
 
-			mat.shader = Shader.Find("Standard");
-			alphaColor.a = 0.45f;
+			//mat.shader = Shader.Find("Standard");
+			alphaColor.a = 0.35f;
 			mat.color = alphaColor;
 		}
 
@@ -70,8 +70,8 @@ public class AlphaBuilding : MonoBehaviour
 
 				Color alphaColor = r.material.color;
 
-				r.material.shader = Shader.Find("Standard");
-				alphaColor.a = 0.45f;
+				//r.material.shader = Shader.Find("Standard");
+				alphaColor.a = 0.35f;
 				r.material.color = alphaColor;
 			}
 		}
@@ -90,8 +90,8 @@ public class AlphaBuilding : MonoBehaviour
 			Color alphaColor = mat.color;
 
 			//En caso de ser material nieve, le devolvemos su shader original
-			if (mat.name.Contains("Snow"))
-				mat.shader = Shader.Find("BruteForce/Standard/SnowIceNoTessellation");
+			//if (mat.name.Contains("Snow"))
+			//	mat.shader = Shader.Find("BruteForce/Standard/SnowIceNoTessellation");
 			alphaColor.a = 1f;
 			mat.color = alphaColor;
 		}
@@ -104,8 +104,8 @@ public class AlphaBuilding : MonoBehaviour
 				ResetMatValues(r.material);
 
 				Color alphaColor = r.material.color;
-				if (r.material.name.Contains("Snow"))
-					r.material.shader = Shader.Find("BruteForce/Standard/SnowIceNoTessellation");
+				//if (r.material.name.Contains("Snow"))
+				//	r.material.shader = Shader.Find("BruteForce/Standard/SnowIceNoTessellation");
 				alphaColor.a = 1f;
 				r.material.color = alphaColor;
 			}

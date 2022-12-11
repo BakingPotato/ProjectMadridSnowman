@@ -18,6 +18,8 @@ public class Countdown : MonoBehaviour
 
     private void Start()
     {
+        string timePlayingStr = TimeSpan.FromSeconds(objectiveTime).ToString("mm':'ss'.'ff");
+        LM.UIManager.UpdateTimerText(timePlayingStr);
     }
 
     public void BeginTimer()

@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    bool gameOver = true;
+    bool gameOver = false;
+    bool _gameStarted = false;
     bool _gamePaused = false;
 
 	[SerializeField] string levelName;
@@ -67,6 +68,7 @@ public class LevelManager : MonoBehaviour
     }
 
 	public string LevelName { get => levelName; set => levelName = value; }
+	public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
 
 	private void Awake()
 	{
@@ -86,6 +88,9 @@ public class LevelManager : MonoBehaviour
 
 	private void Update()
 	{
+        if (!GameStarted)
+            return;
+
 		if (!gameOver)
 		{
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -106,7 +111,7 @@ public class LevelManager : MonoBehaviour
         //Inicializamos el contador
         countdown = GetComponent<Countdown>();
         countdown.BeginTimer();
-        gameOver = false;
+        GameStarted = true;
         Time.timeScale = 1;
     }
 
@@ -130,7 +135,7 @@ public class LevelManager : MonoBehaviour
 
     public void TogglePause()
 	{
-        if (!GameManager.Instance.CanPause() && !gameOver)
+        if (!GameManager.Instance.CanPause())
             return;
         GamePaused = !GamePaused;
 	}

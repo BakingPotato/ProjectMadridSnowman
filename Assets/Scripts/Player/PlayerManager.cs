@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
 
 	private void Update()
 	{
-        if (!GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
+        if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
             Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
 		{
             Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     public void PlayPowerUpAnim(Sprite s)
 	{
         powerUpIMG.sprite = s;
+        powerUpAnim.Rewind();
         powerUpAnim.Play();
 	}
 

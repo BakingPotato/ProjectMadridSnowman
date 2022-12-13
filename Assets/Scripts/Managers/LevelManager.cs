@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     bool gameOver = false;
+    bool _gameStarted = false;
     bool _gamePaused = false;
 
+	[SerializeField] string levelName;
 	[SerializeField] UIManager uIManager;
 	public Countdown countdown;
 
@@ -14,8 +16,9 @@ public class LevelManager : MonoBehaviour
 
     const int MAX_POINTS = 9999;
     int _points;
-
-    public const int MAX_HEALTH = 10;
+    
+    //Esto define la vida máxima del jugador
+    public int MAX_HEALTH = 12;
     int _health;
 
     int _killCount;
@@ -64,6 +67,14 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+	public string LevelName { get => levelName; set => levelName = value; }
+	public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
+
+	private void Awake()
+	{
+        GameManager.Instance.CurrentLevelManager = this;
+    }
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -72,17 +83,14 @@ public class LevelManager : MonoBehaviour
         //La camara de efectos debe empezar desactivada para no fallar la rotaci�n del personaje
         effectsCamera.SetActive(true);
 
-        //Inicializamos el contador
-        countdown = GetComponent<Countdown>();
-        countdown.BeginTimer();
-
-        GameManager.Instance.CurrentLevelManager = this;
-
-        //AudioManager.Instance.PlayMusic(SceneManager.GetActiveScene().name);
+        Time.timeScale = 0;
     }
 
 	private void Update()
 	{
+        if (!GameStarted)
+            return;
+
 		if (!gameOver)
 		{
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -96,6 +104,15 @@ public class LevelManager : MonoBehaviour
                 startGameOver(true);
             }
         }
+    }
+
+    public void StartLevel()
+	{
+        //Inicializamos el contador
+        countdown = GetComponent<Countdown>();
+        countdown.BeginTimer();
+        GameStarted = true;
+        Time.timeScale = 1;
     }
 
     public void startGameOver(bool alive)

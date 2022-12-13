@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
 	private static GameManager GM;
 
+    [SerializeField] TextMeshProUGUI _titleText;
     [SerializeField] TextMeshProUGUI _pointsText;
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] PlayerHealthBar _healthBar;
@@ -46,12 +47,19 @@ public class UIManager : MonoBehaviour
 
 		GM = GameManager.Instance;
 
-		//musicSlider.value = AudioManager.Instance.MusicVolume;
-		//sfxSlider.value = AudioManager.Instance.SFXVolume;
+		musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+		sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+
 		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
-		_healthBar.SetMaxHealth(LevelManager.MAX_HEALTH);
+		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
+	}
+
+	public void StartLevelFromUI()
+	{
+		GM.CurrentLevelManager.StartLevel();
+		_titleText.text = GM.CurrentLevelManager.LevelName;
 	}
 
 	private float DecibelToLinear(float dB)
@@ -107,10 +115,14 @@ public class UIManager : MonoBehaviour
 	public void SetMusicVolume(float v)
 	{
 		//AudioManager.Instance.MusicVolume = v;
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
 	}
 	public void SetSFXVolume(float v)
 	{
 		//AudioManager.Instance.SFXVolume = v;
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
 	}
 
 	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)

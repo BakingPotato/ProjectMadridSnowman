@@ -140,6 +140,7 @@ MonoBehaviour:
   health: 0
   blinkingObject: {fileID: 2028618551108284963}
   healthBar: {fileID: 5340287607419617217}
+  invincible: 0
 --- !u!114 &2028618551108284982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +198,7 @@ MonoBehaviour:
   hand: {fileID: 2899144741195498785}
   shootCooldown: 1
   minShootCooldown: 0.15
+  auto: 0
   isPlayer: 0
 --- !u!114 &19492699365721325
 MonoBehaviour:
@@ -5292,6 +5294,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6d1197e20d2f0ba49b4e3a581ef912ee, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     - target: {fileID: 919132149155446097, guid: 6d1197e20d2f0ba49b4e3a581ef912ee, type: 3}
       propertyPath: m_Name
       value: MunecoMilitar

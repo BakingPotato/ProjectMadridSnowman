@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
 	void DestroyProjectile()
 	{
 		//AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
-		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits");
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits", transform.position);
 		TriggerSnow();
 		Destroy(gameObject);
 	}

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using FMOD.Studio;
+using FMODUnity;
+
 public class StopMusic : MonoBehaviour
 {
     [SerializeField] GameObject _musicaPorDefecto;

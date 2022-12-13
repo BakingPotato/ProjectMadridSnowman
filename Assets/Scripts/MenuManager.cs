@@ -29,8 +29,8 @@ public class MenuManager : MonoBehaviour
 		musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MUSIC");
 		//otherBus = FMODUnity.RuntimeManager.GetBus("bus:/OTHER");
 
-		//musicSlider.value = AudioManager.Instance.MusicVolume;
-		//sfxSlider.value = AudioManager.Instance.SFXVolume;
+		musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+		sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
 
 		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
@@ -61,9 +61,6 @@ public class MenuManager : MonoBehaviour
 			introVideo.Stop();
 			introPanel.SetActive(false);
 		}
-
-		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
-		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 		//otherBus.setVolume(DecibelToLinear(musicSlider.value));
 	}
 	public void SwitchScene(string name)
@@ -75,13 +72,23 @@ public class MenuManager : MonoBehaviour
 	{
 		Application.Quit();
 	}
+
+	public void OpenURL(string url)
+	{
+		Application.OpenURL(url);
+	}
+
 	public void SetMusicVolume(float v)
 	{
 		//AudioManager.Instance.MusicVolume = v;
+		musicBus.setVolume(DecibelToLinear(musicSlider.value));
+		PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
 	}
 	public void SetSFXVolume(float v)
 	{
 		//AudioManager.Instance.SFXVolume = v;
+		sfxBus.setVolume(DecibelToLinear(sfxSlider.value));
+		PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
 	}
 
 	public void PlayMusic(string name)

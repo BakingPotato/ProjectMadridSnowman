@@ -63,7 +63,7 @@ public class EnemyManager : MonoBehaviour
         isProvoked = true;
     }
 
-    private void EngageTarget()
+    protected virtual void EngageTarget()
     {
         FaceTarget();
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
@@ -82,7 +82,7 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-    private void ChaseTarget()
+    protected void ChaseTarget()
     {
         if (navMeshAgent.isActiveAndEnabled)
         {

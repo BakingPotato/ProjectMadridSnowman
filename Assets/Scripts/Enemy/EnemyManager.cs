@@ -100,7 +100,16 @@ public class EnemyManager : MonoBehaviour
 
     public virtual void AttackTarget() {}
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            HealthManager playerHealth = collision.gameObject.GetComponent<HealthManager>();
+            playerHealth.takeDamage(enemyDamage);
+        }
+    }
+
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {

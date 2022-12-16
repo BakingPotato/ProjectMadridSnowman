@@ -138,11 +138,16 @@ public class UIManager : MonoBehaviour
 	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)
     {
 		resultsPanel.SetActive(true);
-		_timeLeftText.text = timeLeft;
-		_moneyText.text = money;
-		_enemiesText.text = enemies;
-		_boxesText.text = boxes;
-		_damageText.text = "- " + damage;
+		if (_timeLeftText)
+			_timeLeftText.text = timeLeft;
+		if (_moneyText)
+			_moneyText.text = money;
+		if (_enemiesText)
+			_enemiesText.text = enemies;
+		if(_boxesText)
+			_boxesText.text = boxes;
+		if (_damageText)
+			_damageText.text = "- " + damage;
 		_totalText.text = total;
 
 		resultsAnim.SetTrigger("showResults");

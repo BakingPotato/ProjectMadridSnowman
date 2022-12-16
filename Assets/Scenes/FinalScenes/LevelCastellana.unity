@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.16862746, g: 0.26666668, b: 0.3372549, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.02
@@ -4074,6 +4074,7 @@ MonoBehaviour:
   shootCooldown: 1
   minShootCooldown: 0.15
   auto: 1
+  canShoot: 1
   isPlayer: 0
 --- !u!23 &315158798
 MeshRenderer:
@@ -8605,6 +8606,7 @@ MonoBehaviour:
   shootCooldown: 1
   minShootCooldown: 0.15
   auto: 1
+  canShoot: 1
   isPlayer: 0
 --- !u!23 &712705522
 MeshRenderer:
@@ -10927,6 +10929,10 @@ PrefabInstance:
       propertyPath: effectsCamera
       value: 
       objectReference: {fileID: 928996607}
+    - target: {fileID: 6314233767906031451, guid: 2dc6c4165a00c764887db7a464898687, type: 3}
+      propertyPath: countdownToGameOver
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc6c4165a00c764887db7a464898687, type: 3}
 --- !u!1001 &907661435
@@ -14384,6 +14390,7 @@ MonoBehaviour:
   shootCooldown: 1
   minShootCooldown: 0.15
   auto: 1
+  canShoot: 1
   isPlayer: 0
 --- !u!23 &1294325152
 MeshRenderer:
@@ -20433,6 +20440,7 @@ MonoBehaviour:
   shootCooldown: 1
   minShootCooldown: 0.15
   auto: 1
+  canShoot: 1
   isPlayer: 0
 --- !u!23 &1890580761
 MeshRenderer:

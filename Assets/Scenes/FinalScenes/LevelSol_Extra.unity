@@ -5805,6 +5805,10 @@ PrefabInstance:
       propertyPath: effectsCamera
       value: 
       objectReference: {fileID: 928996607}
+    - target: {fileID: 6314233767906031451, guid: 2dc6c4165a00c764887db7a464898687, type: 3}
+      propertyPath: countdownToGameOver
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc6c4165a00c764887db7a464898687, type: 3}
 --- !u!1001 &903089020
@@ -18458,6 +18462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -19122,6 +19127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39164,6 +39170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39188,6 +39195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39212,6 +39220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39758,6 +39767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39782,6 +39792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:
@@ -39806,6 +39817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 0}
   powerUps: []
   coins:

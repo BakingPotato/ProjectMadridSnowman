@@ -57,7 +57,6 @@ public class ShootingProjectiles : MonoBehaviour
 
         Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
         proj.transform.localScale *= _scaleFactor;
-        proj.Damage += _buffDamage;
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if (isPlayer)
         {
@@ -68,8 +67,8 @@ public class ShootingProjectiles : MonoBehaviour
         else
             proj.IgnoringLayer = 999;
 
-            proj.Throw(direction, inputDamage);
             proj.Damage += _buffDamage;
+            proj.Throw(direction, inputDamage);
 
         if (_tripleShoot)
 		{
@@ -87,12 +86,12 @@ public class ShootingProjectiles : MonoBehaviour
                 proj2.IgnoringLayer = 999;
                 proj3.IgnoringLayer = 999;
 			}
-			proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
             proj2.Damage += _buffDamage;
-            proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
+            proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
             proj3.Damage += _buffDamage;
+            proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
         }
-	}
+    }
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{

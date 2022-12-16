@@ -18,7 +18,7 @@ public class LVLvsGOMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_altMusic1.activeSelf | _altMusic2.activeSelf | _altMusic3.activeSelf)
+        if ((_altMusic1 && _altMusic1.activeSelf) | (_altMusic2 && _altMusic2.activeSelf) | (_altMusic3 && _altMusic3.activeSelf))
         {
             _lvlMusic.SetActive(false);
         }

@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 913288575}
   - component: {fileID: 1828491381473244179}
   - component: {fileID: 913288576}
+  - component: {fileID: 902255006442317325}
   m_Layer: 5
   m_Name: ResultsPanel
   m_TagString: Untagged
@@ -700,6 +701,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &902255006442317325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913288572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -604312514
+      Data2: 1195140771
+      Data3: -100327278
+      Data4: 563153348
+    Path: event:/MUSIC/MENU/music_results
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1026408759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,6 +3447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titleText: {fileID: 3550107069727717888}
   _pointsText: {fileID: 2854670916348282124}
+  money: 1
   _timerText: {fileID: 2854670915580892763}
   _healthBar: {fileID: 5051813650209942333}
   _shootingBar: {fileID: 4592875863787849654}
@@ -3676,7 +3708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.95
+  m_fontSize: 22.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3946,7 +3978,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.75
+  m_fontSize: 45.8
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5508,7 +5540,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.5
+  m_fontSize: 21.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -2046,6 +2046,7 @@ MonoBehaviour:
   _lvlMusic: {fileID: 1917206446}
   _altMusic1: {fileID: 1700229241}
   _altMusic2: {fileID: 1150255522}
+  _altMusic3: {fileID: 0}
 --- !u!4 &958450292
 Transform:
   m_ObjectHideFlags: 0
@@ -2333,6 +2334,10 @@ PrefabInstance:
     - target: {fileID: 4577538615118894319, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088360522559111437, guid: c7bef674351da374daf1a680172981e9, type: 3}
+      propertyPath: canShoot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6156423307443421044, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: m_Layer

@@ -27,7 +27,7 @@ public class ShootingProjectiles : MonoBehaviour
 
     private void Start()
     {
-        if (auto || !canShoot)
+        if (auto || (!canShoot && isPlayer))
         {
             Shooting = true;
         }
@@ -35,8 +35,12 @@ public class ShootingProjectiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canShoot)
+        if (!canShoot && isPlayer)
         {
+            return;
+        }
+        else {
+        
             if (Shooting)
             {
                 _currentTime -= Time.deltaTime;

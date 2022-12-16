@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.16862746, g: 0.26666668, b: 0.3372549, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.045186214, g: 0.29613832, b: 0.5840786, a: 1}
@@ -24189,6 +24189,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.19998169
       objectReference: {fileID: 0}
+    - target: {fileID: 4517657445601523990, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.100616455
+      objectReference: {fileID: 0}
     - target: {fileID: 5054048683048065507, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.92479706
@@ -24527,6 +24531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 60
   health: 60
+  invincibilityTime: 0.1
   blinkingObject: {fileID: 703759968}
   healthBar: {fileID: 121998575}
   invincible: 1

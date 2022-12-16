@@ -82,6 +82,18 @@ public class EnemyManager : MonoBehaviour
 
     }
 
+    public void changeTarget(GameObject newTarget)
+    {
+        if(newTarget == null)
+        {
+            target = null;
+        }
+        else
+        {
+            target = newTarget.transform;
+        }
+    }
+
     protected void ChaseTarget()
     {
         if (navMeshAgent.isActiveAndEnabled)

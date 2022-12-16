@@ -8,8 +8,10 @@ public class UIManager : MonoBehaviour
 {
 	private static GameManager GM;
 
-    [SerializeField] TextMeshProUGUI _titleText;
+	[Header("Game UI")]
+	[SerializeField] TextMeshProUGUI _titleText;
     [SerializeField] TextMeshProUGUI _pointsText;
+	[SerializeField] bool money = true;
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] PlayerHealthBar _healthBar;
     [SerializeField] PlayerShootingBar _shootingBar;
@@ -77,7 +79,15 @@ public class UIManager : MonoBehaviour
 
 	public void UpdatePointsText(int points)
 	{
-		_pointsText.text = points/100 + "," + (points%100).ToString("00");
+        if (money)
+        {
+			_pointsText.text = points / 100 + "," + (points % 100).ToString("00");
+
+		}
+		else
+        {
+			_pointsText.text = points.ToString();
+		}
 	}
 
 	public void UpdateHealth(int health)

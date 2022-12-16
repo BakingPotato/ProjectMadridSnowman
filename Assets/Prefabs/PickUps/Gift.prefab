@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 822819719359881662}
   - component: {fileID: 185901926765877778}
   - component: {fileID: 2928569256635769865}
-  - component: {fileID: 185901926765877779}
+  - component: {fileID: 3992545998935175312}
   m_Layer: 8
   m_Name: Gift
-  m_TagString: Untagged
+  m_TagString: gift
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -99,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.83613306, y: 0.80632365, z: 0.6099493}
-  m_Center: {x: -0.0046018846, y: 0.34526902, z: 0.00392567}
+  m_Size: {x: 0.83613306, y: 0.9454091, z: 0.6099493}
+  m_Center: {x: -0.0046018846, y: 0.27572632, z: 0.00392567}
 --- !u!54 &2928569256635769865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,8 +116,8 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &185901926765877779
+  m_CollisionDetection: 1
+--- !u!114 &3992545998935175312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,10 +126,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3189701186550366963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e687fac6315653d47b25df3bc9ca1006, type: 3}
+  m_Script: {fileID: 11500000, guid: 622c7e8decb06d7438f8d7f2cfc0eef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpEffect: {fileID: 11400000, guid: f26a3331c81538d40a461744362ebb85, type: 2}
+  pickUpEffect: {fileID: 11400000, guid: 9f28d01f05a735e4898ebefe7f1c737d, type: 2}
 --- !u!1 &7771620351535226121
 GameObject:
   m_ObjectHideFlags: 0

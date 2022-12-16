@@ -8,8 +8,10 @@ public class UIManager : MonoBehaviour
 {
 	private static GameManager GM;
 
-    [SerializeField] TextMeshProUGUI _titleText;
+	[Header("Game UI")]
+	[SerializeField] TextMeshProUGUI _titleText;
     [SerializeField] TextMeshProUGUI _pointsText;
+	[SerializeField] bool money = true;
     [SerializeField] TextMeshProUGUI _timerText;
     [SerializeField] PlayerHealthBar _healthBar;
     [SerializeField] PlayerShootingBar _shootingBar;
@@ -77,7 +79,15 @@ public class UIManager : MonoBehaviour
 
 	public void UpdatePointsText(int points)
 	{
-		_pointsText.text = points/100 + "," + (points%100).ToString("00");
+        if (money)
+        {
+			_pointsText.text = points / 100 + "," + (points % 100).ToString("00");
+
+		}
+		else
+        {
+			_pointsText.text = points.ToString();
+		}
 	}
 
 	public void UpdateHealth(int health)
@@ -128,11 +138,16 @@ public class UIManager : MonoBehaviour
 	public void ShowResults(string timeLeft, string money, string enemies, string boxes, string damage, string total, string nextSceneName)
     {
 		resultsPanel.SetActive(true);
-		_timeLeftText.text = timeLeft;
-		_moneyText.text = money;
-		_enemiesText.text = enemies;
-		_boxesText.text = boxes;
-		_damageText.text = "- " + damage;
+		if (_timeLeftText)
+			_timeLeftText.text = timeLeft;
+		if (_moneyText)
+			_moneyText.text = money;
+		if (_enemiesText)
+			_enemiesText.text = enemies;
+		if(_boxesText)
+			_boxesText.text = boxes;
+		if (_damageText)
+			_damageText.text = "- " + damage;
 		_totalText.text = total;
 
 		resultsAnim.SetTrigger("showResults");

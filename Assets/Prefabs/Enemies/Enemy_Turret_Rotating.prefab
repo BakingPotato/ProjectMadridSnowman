@@ -168,9 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
-  health: 2
+  health: 0
   blinkingObject: {fileID: 5016217096684034788}
   healthBar: {fileID: 5512454042933294868}
+  invincible: 0
 --- !u!114 &6318355564131823051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   hand: {fileID: 5512454042069746074}
   shootCooldown: 0.3
   minShootCooldown: 0.15
+  auto: 0
   isPlayer: 0
 --- !u!114 &-4304346564137992501
 MonoBehaviour:

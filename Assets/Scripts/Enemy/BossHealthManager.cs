@@ -29,17 +29,20 @@ public class BossHealthManager : HealthManager
 
     public override void takeDamage(int damage)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
-		//AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
-        StartBlinking();
-		if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Boss)
+        if (!invencible)
         {
-            //Es provocado al ser da�ado
-            gameObject.GetComponent<EnemyManager>().OnDamageTaken();
+            health -= damage;
+            healthBar.SetHealth(health);
+            //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
+            StartBlinking();
+            if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Boss)
+            {
+                //Es provocado al ser da�ado
+                gameObject.GetComponent<EnemyManager>().OnDamageTaken();
+            }
+            checkDeath();
         }
-        checkDeath();
     }
 
     protected override void checkDeath()

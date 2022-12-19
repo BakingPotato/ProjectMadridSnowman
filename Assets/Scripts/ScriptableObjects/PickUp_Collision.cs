@@ -18,4 +18,13 @@ public class PickUp_Collision : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+		if (other.gameObject.tag == "PowerUp")
+		{
+			pickUpEffect.Apply(GameObject.FindGameObjectWithTag("Player"));
+			Destroy(gameObject);
+		}
+	}
 }

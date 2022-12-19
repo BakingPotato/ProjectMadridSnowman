@@ -12,7 +12,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] protected float invincibilityTime = 0.1f;
     [SerializeField] GameObject blinkingObject;
 
-    bool invencible = false;
+    public bool invencible = false;
 
     // Start is called before the first frame update
     void Start()

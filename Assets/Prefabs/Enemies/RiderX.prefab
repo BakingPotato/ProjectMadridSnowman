@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 119742848417563071}
   - component: {fileID: 5301916788124337087}
   - component: {fileID: 4974231678155014267}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Abrigo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2898444485496709821}
   - component: {fileID: 1576942167544196411}
   - component: {fileID: 3812133013315550899}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 170413056799948328}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: IDLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8695950066954419735}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 5385010219707619774}
   - component: {fileID: 2456085907857888661}
   - component: {fileID: 8040549964711564276}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: polySurface2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 1678571935362459892}
   - component: {fileID: 8403928859295391904}
   - component: {fileID: 2833955635209108864}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Pie_Der
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 1749076971793587860}
   - component: {fileID: 5266176837675392046}
   - component: {fileID: 5266176837675392047}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: PowerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 3939909725228139275}
   - component: {fileID: 1856205658509808141}
   - component: {fileID: 5896185777573084016}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Cabeza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 7480390743264336885}
   - component: {fileID: 5330420785718613829}
   - component: {fileID: 2456109949087120260}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Pie_Izq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2964537028148162715}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Nieve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 6313598589350772145}
   - component: {fileID: 6313598589350772147}
   - component: {fileID: 6313598589350772146}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: RiderX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,6 +864,8 @@ MonoBehaviour:
   hand: {fileID: 8695950066954419735}
   shootCooldown: 0.8
   minShootCooldown: 0.15
+  auto: 0
+  canShoot: 1
   isPlayer: 1
 --- !u!114 &6313598589350772145
 MonoBehaviour:
@@ -879,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   health: 0
+  invincibilityTime: 1.8
   blinkingObject: {fileID: 654919055187534994}
   healthBar: {fileID: 0}
   BM: {fileID: 6313598589350772147}
@@ -897,7 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   chaseRange: 15
-  turnSpeed: 5
+  turnSpeed: 8
   enemyDamage: 3
   BHM: {fileID: 6313598589350772145}
   movement: {fileID: 6313598589350772146}
@@ -906,37 +909,69 @@ MonoBehaviour:
   shootingProjectiles: {fileID: 5088360522559111437}
   powerUpIMG: {fileID: 3812133013315550899}
   phases:
-  - powerUps:
-    - tripleshoot
-    spawningTime: 2
+  - powerUps: []
+    spawningTime: 0
     shootingSpeedBuff: 1.5
-    health: 1
-    speed: 5
-    acceleration: 4
-    stoppingDistance: 8
+    health: 7
+    speed: 6
+    acceleration: 5
+    stoppingDistance: 5
     autoBraking: 1
   - powerUps:
     - ham
     - ham
-    spawningTime: 0.8
+    spawningTime: 0.85
     shootingSpeedBuff: 0
-    health: 3
-    speed: 10
+    health: 7
+    speed: 9
     acceleration: 7
     stoppingDistance: 0.5
     autoBraking: 0
+  - powerUps:
+    - tripleshoot
+    spawningTime: 0
+    shootingSpeedBuff: 1.5
+    health: 6
+    speed: 5
+    acceleration: 4
+    stoppingDistance: 3
+    autoBraking: 1
   - powerUps:
     - shottingSpeed
     - umbrella
     - umbrella
     - umbrella
-    spawningTime: 2
-    shootingSpeedBuff: 1.5
-    health: 5
+    spawningTime: 1
+    shootingSpeedBuff: 0.15
+    health: 6
     speed: 5
     acceleration: 4
     stoppingDistance: 8
     autoBraking: 1
+  - powerUps:
+    - shottingSpeed
+    - bigShot
+    - TripleShoot
+    spawningTime: 0
+    shootingSpeedBuff: 0.15
+    health: 7
+    speed: 5
+    acceleration: 4
+    stoppingDistance: 2.5
+    autoBraking: 0
+  - powerUps:
+    - shottingSpeed
+    - TripleShoot
+    - bigShot
+    - umbrella
+    - ham
+    spawningTime: 0.5
+    shootingSpeedBuff: 0.2
+    health: 5
+    speed: 9
+    acceleration: 7
+    stoppingDistance: 0.5
+    autoBraking: 0
   phase_id: -1
 --- !u!195 &6313598589350772146
 NavMeshAgent:
@@ -971,7 +1006,7 @@ GameObject:
   - component: {fileID: 4721619851799987324}
   - component: {fileID: 970119658728375910}
   - component: {fileID: 7888263024187278146}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: Mochila
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,9 +1103,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8541225091459217542}
-  m_LocalRotation: {x: -0, y: -0.007689774, z: -0, w: 0.99997044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3687, y: 1, z: 1.383783}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6313598589350772153}
@@ -5905,7 +5940,7 @@ GameObject:
   - component: {fileID: 2333893412345056720}
   - component: {fileID: 1904592631944366401}
   - component: {fileID: 8972385385168002622}
-  m_Layer: 6
+  m_Layer: 14
   m_Name: polySurface1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

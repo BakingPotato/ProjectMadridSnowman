@@ -10,6 +10,7 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] float shootCooldown;
     [SerializeField] float minShootCooldown = 0.15f;
     [SerializeField] bool auto = false;
+    [SerializeField] bool canShoot = true;
 
     [SerializeField] bool isPlayer;
 
@@ -26,7 +27,7 @@ public class ShootingProjectiles : MonoBehaviour
 
     private void Start()
     {
-        if (auto)
+        if (auto || (!canShoot && isPlayer))
         {
             Shooting = true;
         }
@@ -34,18 +35,26 @@ public class ShootingProjectiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Shooting)
+        if (!canShoot && isPlayer)
         {
-            _currentTime -= Time.deltaTime;
-            if (_currentTime <= 0)
+            return;
+        }
+        else {
+        
+            if (Shooting)
             {
-                Shooting = false;
-                if (auto)
+                _currentTime -= Time.deltaTime;
+                if (_currentTime <= 0)
                 {
-                    Shoot(transform.forward, 1);
+                    Shooting = false;
+                    if (auto)
+                    {
+                        Shoot(transform.forward, 1);
+                    }
                 }
             }
         }
+
     }
 
     public void Shoot(Vector3 direction, int inputDamage = -1)
@@ -57,7 +66,6 @@ public class ShootingProjectiles : MonoBehaviour
 
         Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
         proj.transform.localScale *= _scaleFactor;
-        proj.Damage += _buffDamage;
         //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
         if (isPlayer)
         {
@@ -68,8 +76,8 @@ public class ShootingProjectiles : MonoBehaviour
         else
             proj.IgnoringLayer = 999;
 
-            proj.Throw(direction, inputDamage);
             proj.Damage += _buffDamage;
+            proj.Throw(direction, inputDamage);
 
         if (_tripleShoot)
 		{
@@ -87,12 +95,12 @@ public class ShootingProjectiles : MonoBehaviour
                 proj2.IgnoringLayer = 999;
                 proj3.IgnoringLayer = 999;
 			}
-			proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
             proj2.Damage += _buffDamage;
-            proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
+            proj2.Throw(Quaternion.Euler(0, _tripleShootAngle, 0) * direction, inputDamage);
             proj3.Damage += _buffDamage;
+            proj3.Throw(Quaternion.Euler(0, -_tripleShootAngle, 0) * direction, inputDamage);
         }
-	}
+    }
 
 	public void IncreaseShootingSpeed(float multiplier)
 	{

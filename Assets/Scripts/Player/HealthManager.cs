@@ -9,7 +9,10 @@ public class HealthManager : MonoBehaviour
     [Header("Vida")]
     [SerializeField] protected int maxHealth = 10;
     [SerializeField] protected int health;
+    [SerializeField] protected float invincibilityTime = 0.1f;
     [SerializeField] GameObject blinkingObject;
+
+    public bool invencible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,25 +49,41 @@ public class HealthManager : MonoBehaviour
 
     public virtual void takeDamage(int damage)
     {
-        //AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_is_hurt");
-        StartBlinking();
-        GM.CurrentLevelManager.HP -= damage;
-        GM.CurrentLevelManager.TotalDamage += damage;
-        //GM.score.resetMultiplier();
-        //GM.score.resetComboFromDamage();
-        checkDeath();
+        if(!invencible)
+        {
+            //AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_is_hurt");
+            StartBlinking();
+            GM.CurrentLevelManager.HP -= damage;
+            GM.CurrentLevelManager.TotalDamage += damage;
+            //GM.score.resetMultiplier();
+            //GM.score.resetComboFromDamage();
+            checkDeath();
+        }
     }
 
     protected void StartBlinking()
 	{
+        StartCoroutine(SetInvencibility(invincibilityTime));
+        CancelInvoke();
+        Invoke("StopBlinking", invincibilityTime);
+        InvokeRepeating("Blink", 0, 0.1f);
+ 
         if(blinkingObject != null)
         {
             CancelInvoke();
-            Invoke("StopBlinking", 0.6f);
+            Invoke("StopBlinking", invincibilityTime);
             InvokeRepeating("Blink", 0, 0.1f);
         }
+ 
 	}
+
+    IEnumerator SetInvencibility(float time)
+    {
+        invencible = true;
+        yield return new WaitForSeconds(time);
+        invencible = false;
+    }
 
     void Blink()
 	{

@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] UIManager uIManager;
 	public Countdown countdown;
 
+    [SerializeField] bool countdownToGameOver = true;
+
     [SerializeField] GameObject effectsCamera;
 
     const int MAX_POINTS = 9999;
@@ -100,8 +102,17 @@ public class LevelManager : MonoBehaviour
 
             if (countdown.getElapsedTime() <= 0)
             {
-                countdown.StopTimer();
-                startGameOver(true);
+                if (countdownToGameOver)
+                {
+                    countdown.StopTimer();
+                    startGameOver(true);
+                }
+                else
+                {
+                    countdown.StopTimer();
+                    GameManager.Instance.ShowResults("LevelMenu");
+                }
+
             }
         }
     }

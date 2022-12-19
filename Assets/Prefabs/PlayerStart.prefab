@@ -56,13 +56,25 @@ PrefabInstance:
       propertyPath: blinkingObject
       value: 
       objectReference: {fileID: 4722800298656720085}
+    - target: {fileID: 838814574, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: invincibilityTime
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2126916308, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: hand
       value: 
       objectReference: {fileID: 3472913248738000464}
     - target: {fileID: 2126916308, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: canShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126916308, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: shootCooldown
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 293860841088380816, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8571673
       objectReference: {fileID: 0}
     - target: {fileID: 293860841088380816, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
       propertyPath: m_LocalRotation.x

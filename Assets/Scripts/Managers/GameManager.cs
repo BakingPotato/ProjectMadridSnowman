@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 		int boxes = CurrentLevelManager.BoxCount;
 		int damage = CurrentLevelManager.TotalDamage;
 
-		int total = (timeLeft * 4) + (score * 2) + (enemies * 8) + (boxes * 6) - (damage * 10);
+		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
 
 		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}

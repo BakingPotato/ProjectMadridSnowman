@@ -27,6 +27,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 89652
+--- !u!114 &-8050739383199467281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LVL_TUT.bank
+  m_EditorClassIdentifier: 
+  Path: fmod/Build/Desktop/LVL_TUT.bank
+  Name: LVL_TUT
+  StudioPath: bank:/LVL_TUT
+  lastModified: 638071629177434975
+  FileSizes:
+  - Name: Desktop
+    Value: 1330528
+  Exists: 1
 --- !u!114 &-7749496614096234226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,7 +69,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -57,6 +79,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6887616237119437595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/LVL_JINGLE.bank
+  m_EditorClassIdentifier: 
+  Path: fmod/Build/Desktop/LVL_JINGLE.bank
+  Name: LVL_JINGLE
+  StudioPath: bank:/LVL_JINGLE
+  lastModified: 638071629178253575
+  FileSizes:
+  - Name: Desktop
+    Value: 1480704
+  Exists: 1
 --- !u!114 &-6253746760216180244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +121,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -109,7 +153,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -159,10 +205,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_BOSS.bank
   Name: LVL_BOSS
   StudioPath: bank:/LVL_BOSS
-  lastModified: 638070726726050526
+  lastModified: 638071629175821529
   FileSizes:
   - Name: Desktop
-    Value: 2302496
+    Value: 2340992
   Exists: 1
 --- !u!114 &-4630657119937760557
 MonoBehaviour:
@@ -186,7 +232,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -222,6 +270,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 63272
+--- !u!114 &-4101329566661199203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/LEVELS/music_lvl_jingle
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/LEVELS/music_lvl_jingle
+  Guid:
+    Data1: -1163023833
+    Data2: 1306412980
+    Data3: -648402002
+    Data4: -756271198
+  Banks:
+  - {fileID: -6887616237119437595}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 70844
 --- !u!114 &-3870425552425420249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +319,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -274,7 +351,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -351,10 +430,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_1.bank
   Name: LVL_1
   StudioPath: bank:/LVL_1
-  lastModified: 638070726725920499
+  lastModified: 638071629175211858
   FileSizes:
   - Name: Desktop
-    Value: 2148640
+    Value: 2148160
   Exists: 1
 --- !u!114 &-124308324169092293
 MonoBehaviour:
@@ -371,7 +450,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/GAME_OVER.bank
   Name: GAME_OVER
   StudioPath: bank:/GAME_OVER
-  lastModified: 638063601512588507
+  lastModified: 638071629174458441
   FileSizes:
   - Name: Desktop
     Value: 1954336
@@ -398,6 +477,8 @@ MonoBehaviour:
   - {fileID: 1822799934944177398}
   - {fileID: 4513969336944622171}
   - {fileID: 5043192590721842170}
+  - {fileID: -8050739383199467281}
+  - {fileID: -6887616237119437595}
   EditorEvents:
   - {fileID: 3928234184145713467}
   - {fileID: -4103897806827703039}
@@ -421,12 +502,14 @@ MonoBehaviour:
   - {fileID: -5369586273922417624}
   - {fileID: 8555092237820812109}
   - {fileID: -405703470360041543}
+  - {fileID: 3416804505759436603}
+  - {fileID: -4101329566661199203}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4513969336944622171}
   StringsBanks:
   - {fileID: 5958512563411632230}
-  cacheTime: 638070726726450611
+  cacheTime: 638071629178253575
   cacheVersion: 131593
 --- !u!114 &1487377487873823414
 MonoBehaviour:
@@ -477,7 +560,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -500,10 +585,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_PERSEC.bank
   Name: LVL_PERSEC
   StudioPath: bank:/LVL_PERSEC
-  lastModified: 638070726726270571
+  lastModified: 638071629176984635
   FileSizes:
   - Name: Desktop
-    Value: 1935456
+    Value: 1934976
   Exists: 1
 --- !u!114 &2678019249950318381
 MonoBehaviour:
@@ -554,7 +639,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -562,6 +649,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3416804505759436603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/LEVELS/music_lvl_tutorial
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/LEVELS/music_lvl_tutorial
+  Guid:
+    Data1: 2085503134
+    Data2: 1316751989
+    Data3: -712332385
+    Data4: -1239271445
+  Banks:
+  - {fileID: -8050739383199467281}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 66403
 --- !u!114 &3904196118579997736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +698,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -644,7 +760,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -667,7 +785,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638052520940217636
+  lastModified: 638071629177457906
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -718,10 +836,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/MENU.bank
   Name: MENU
   StudioPath: bank:/MENU
-  lastModified: 638070726726440611
+  lastModified: 638071629177946664
   FileSizes:
   - Name: Desktop
-    Value: 2721312
+    Value: 2720832
   Exists: 1
 --- !u!114 &5777345549487166966
 MonoBehaviour:
@@ -745,7 +863,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -768,10 +888,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638070726726450611
+  lastModified: 638071629177466291
   FileSizes:
   - Name: Desktop
-    Value: 2234
+    Value: 2382
   Exists: 1
 --- !u!114 &6664053849960088827
 MonoBehaviour:
@@ -788,10 +908,10 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/LVL_EXTRA.bank
   Name: LVL_EXTRA
   StudioPath: bank:/LVL_EXTRA
-  lastModified: 638070726726170555
+  lastModified: 638071629176425329
   FileSizes:
   - Name: Desktop
-    Value: 1986144
+    Value: 1985664
   Exists: 1
 --- !u!114 &6984257611120891763
 MonoBehaviour:
@@ -808,7 +928,7 @@ MonoBehaviour:
   Path: fmod/Build/Desktop/CREDITOS.bank
   Name: CREDITOS
   StudioPath: bank:/CREDITOS
-  lastModified: 638063601512448464
+  lastModified: 638071629173527308
   FileSizes:
   - Name: Desktop
     Value: 864768
@@ -835,7 +955,9 @@ MonoBehaviour:
   - {fileID: -215928222319605712}
   - {fileID: -5310452235701299348}
   - {fileID: 6664053849960088827}
+  - {fileID: -6887616237119437595}
   - {fileID: 1822799934944177398}
+  - {fileID: -8050739383199467281}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

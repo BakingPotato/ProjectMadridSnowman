@@ -25520,10 +25520,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4517657445601523990, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.10064697
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517657445601523990, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0.100616455
       objectReference: {fileID: 0}
     - target: {fileID: 5054048683048065507, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
@@ -25645,36 +25641,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 913288572, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
   m_PrefabInstance: {fileID: 8449486790450635214}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8449486790450635216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8449486790450635215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -604312514
-      Data2: 1195140771
-      Data3: -100327278
-      Data4: 563153348
-    Path: event:/MUSIC/MENU/music_results
-  Event: 
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!4 &8559702399470426306
 Transform:
   m_ObjectHideFlags: 0

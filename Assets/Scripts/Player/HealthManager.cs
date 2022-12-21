@@ -9,7 +9,8 @@ public class HealthManager : MonoBehaviour
     [Header("Vida")]
     [SerializeField] protected int maxHealth = 10;
     [SerializeField] protected int health;
-    [SerializeField] protected float invincibilityTime = 0.1f;
+    [SerializeField] protected bool hasInvencibilityFrames = false;
+    [SerializeField] protected float invincibilityTime = 1.0f;
     [SerializeField] GameObject blinkingObject;
 
     public bool invencible = false;
@@ -64,7 +65,8 @@ public class HealthManager : MonoBehaviour
 
     protected void StartBlinking()
 	{
-        StartCoroutine(SetInvencibility(invincibilityTime));
+        if(hasInvencibilityFrames)
+            StartCoroutine(SetInvencibility(invincibilityTime));
         CancelInvoke();
         Invoke("StopBlinking", invincibilityTime);
         InvokeRepeating("Blink", 0, 0.1f);

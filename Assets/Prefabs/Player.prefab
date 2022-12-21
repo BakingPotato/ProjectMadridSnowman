@@ -4971,7 +4971,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 0
+  hasInvencibilityFrames: 1
+  invincibilityTime: 1
   blinkingObject: {fileID: 0}
+  invencible: 0
 --- !u!95 &1570589173
 Animator:
   serializedVersion: 4
@@ -5008,6 +5011,8 @@ MonoBehaviour:
   hand: {fileID: 8050565140837604162}
   shootCooldown: 0.5
   minShootCooldown: 0.15
+  auto: 0
+  canShoot: 1
   isPlayer: 1
 --- !u!1 &5191342195832676582
 GameObject:
@@ -5145,7 +5150,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023805537880170390}
-  m_LocalRotation: {x: 0.41968983, y: -0, z: -0, w: 0.9076676}
+  m_LocalRotation: {x: 0.5150382, y: -0, z: -0, w: 0.8571673}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
   m_ConstrainProportionsScale: 1

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1685049734}
-  m_IndirectSpecularColor: {r: 0.17799118, g: 0.5824124, b: 0.73250407, a: 1}
+  m_IndirectSpecularColor: {r: 0.17804325, g: 0.5823826, b: 0.732514, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21425,36 +21425,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2854670915401280551, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
   m_PrefabInstance: {fileID: 8449486790450635214}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1917206450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917206446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -343185209
-      Data2: 1108693770
-      Data3: 787547296
-      Data4: 1186037406
-    Path: event:/MUSIC/LEVELS/music_lvl_persec
-  Event: 
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!224 &1917206451 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2854670915401280554, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
@@ -24838,6 +24808,26 @@ PrefabInstance:
     - target: {fileID: 286819579631920806, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.2000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 623260618886209706, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/MUSIC/LEVELS/music_lvl_persec
+      objectReference: {fileID: 0}
+    - target: {fileID: 623260618886209706, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -343185209
+      objectReference: {fileID: 0}
+    - target: {fileID: 623260618886209706, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1108693770
+      objectReference: {fileID: 0}
+    - target: {fileID: 623260618886209706, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 787547296
+      objectReference: {fileID: 0}
+    - target: {fileID: 623260618886209706, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1186037406
       objectReference: {fileID: 0}
     - target: {fileID: 762116378709129149, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.x

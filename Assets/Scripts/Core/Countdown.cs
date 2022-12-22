@@ -16,6 +16,9 @@ public class Countdown : MonoBehaviour
     IEnumerator countingFunc = null;
     Coroutine counting = null;
 
+    float warningTime = 30;
+    bool warning = false;
+
     private void Start()
     {
         string timePlayingStr = TimeSpan.FromSeconds(objectiveTime).ToString("mm':'ss'.'ff");
@@ -80,6 +83,13 @@ public class Countdown : MonoBehaviour
             //Actualizamos el contador si esta activado
             string timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
             LM.UIManager.UpdateTimerText(timePlayingStr);
+
+            if(!warning && timePlaying.TotalSeconds <= warningTime)
+			{
+                warning = true;
+                //TIMER WARNING SFX
+                LM.UIManager.SetTimerColor(Color.red);
+			}
 
             yield return null;
         }

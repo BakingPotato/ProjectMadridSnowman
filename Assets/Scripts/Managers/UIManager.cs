@@ -57,12 +57,13 @@ public class UIManager : MonoBehaviour
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
+
+		_titleText.text = GM.CurrentLevelManager.LevelName;
 	}
 
 	public void StartLevelFromUI()
 	{
 		GM.CurrentLevelManager.StartLevel();
-		_titleText.text = GM.CurrentLevelManager.LevelName;
 	}
 
 	private float DecibelToLinear(float dB)

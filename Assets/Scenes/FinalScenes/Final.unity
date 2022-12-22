@@ -196,7 +196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0513312, y: 0}
   m_AnchorMax: {x: 0.94866884, y: 0.40235257}
-  m_AnchoredPosition: {x: -0.00018310547, y: 0.17000198}
+  m_AnchoredPosition: {x: -0.00018310547, y: 0.16999817}
   m_SizeDelta: {x: 315.33, y: 11.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12919589
@@ -2486,7 +2486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999847, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1030161414
@@ -2745,7 +2745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34625003, y: 0.40222043}
   m_AnchorMax: {x: 0.65749997, y: 0.45333058}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.31000137}
+  m_AnchoredPosition: {x: 0, y: -0.30999756}
   m_SizeDelta: {x: -22.790802, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135170840
@@ -3691,7 +3691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.051337607, y: 0}
   m_AnchorMax: {x: 0.94400007, y: 0.344}
-  m_AnchoredPosition: {x: 0.9998169, y: 1.670002}
+  m_AnchoredPosition: {x: 0.9998169, y: 1.6700058}
   m_SizeDelta: {x: 317.33, y: 14.184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616998146
@@ -4054,7 +4054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999847, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1716548129
@@ -4297,6 +4297,7 @@ GameObject:
   - component: {fileID: 1786801207}
   - component: {fileID: 1786801209}
   - component: {fileID: 1786801208}
+  - component: {fileID: 1786801210}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -4365,6 +4366,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786801206}
   m_CullTransparentMesh: 1
+--- !u!114 &1786801210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786801206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -604312514
+      Data2: 1195140771
+      Data3: -100327278
+      Data4: 563153348
+    Path: event:/MUSIC/MENU/music_results
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1901832985
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,7 +4433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34625003, y: 0.50888985}
   m_AnchorMax: {x: 0.65749997, y: 0.5578898}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.099998474}
+  m_AnchoredPosition: {x: 0, y: -0.099998474}
   m_SizeDelta: {x: -22.790802, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901832987
@@ -4503,7 +4534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.45625, y: 0.45333058}
   m_AnchorMax: {x: 0.5487501, y: 0.50888985}
-  m_AnchoredPosition: {x: -0.50001144, y: -1}
+  m_AnchoredPosition: {x: -0.50001526, y: -1}
   m_SizeDelta: {x: 58.8883, y: 14.1854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936020693
@@ -4638,7 +4669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.45625, y: 0.5623348}
   m_AnchorMax: {x: 0.5475001, y: 0.6156652}
-  m_AnchoredPosition: {x: -0.000011444092, y: 0}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
   m_SizeDelta: {x: 59.8883, y: 15.1854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947846146
@@ -5162,6 +5193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075ce24525aa3a44ca0200e07d6542bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPanel: {fileID: 0}
+  videoPanel: {fileID: 0}
   musicSlider: {fileID: 1901832987}
   sfxSlider: {fileID: 1135170840}
   introPanel: {fileID: 0}

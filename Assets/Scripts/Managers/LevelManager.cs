@@ -86,6 +86,9 @@ public class LevelManager : MonoBehaviour
         effectsCamera.SetActive(true);
 
         Time.timeScale = 0;
+
+        //DEBUG (this should be called from StartLevelFromUI)
+        StartLevel();
     }
 
 	private void Update()

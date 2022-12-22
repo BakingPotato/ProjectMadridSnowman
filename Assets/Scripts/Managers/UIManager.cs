@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] GameObject deathGameOverPanel;
 	[SerializeField] GameObject gamePanel;
 	[SerializeField] GameObject pausePanel;
+	[SerializeField] GameObject settingsPanel;
 	[SerializeField] GameObject resultsPanel;
 	[SerializeField] UITextInfo uITextInfo;
 
@@ -120,6 +121,7 @@ public class UIManager : MonoBehaviour
 	public void ShowPause(bool b)
 	{
 		pausePanel.SetActive(b);
+		settingsPanel.SetActive(false);
 	}
 
 	public void SetMusicVolume(float v)

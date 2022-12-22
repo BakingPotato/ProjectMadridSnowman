@@ -104,6 +104,13 @@ public class UIManager : MonoBehaviour
 			_timerText.text = time;
 		}
 	}
+	public void SetTimerColor(Color c)
+	{
+		if (_timerText != null)
+		{
+			_timerText.color = c;
+		}
+	}
 
 	public void replayButton()
     {

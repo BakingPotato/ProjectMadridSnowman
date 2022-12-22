@@ -2598,6 +2598,7 @@ GameObject:
   - component: {fileID: 1667209089467946915}
   - component: {fileID: 2010793796833178214}
   - component: {fileID: 8578958304045249362}
+  - component: {fileID: 7057260318744751996}
   m_Layer: 5
   m_Name: GameOverPanelTime
   m_TagString: Untagged
@@ -2666,6 +2667,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7057260318744751996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031229953937616696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1654642721
+      Data2: 1089861434
+      Data3: 1076860082
+      Data4: -492181222
+    Path: event:/MUSIC/LEVELS/music_game_over
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1110647223064845692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,8 +4463,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 15198183
-  m_fontColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5245,6 +5276,7 @@ GameObject:
   - component: {fileID: 2854670915401280554}
   - component: {fileID: 2854670915401280553}
   - component: {fileID: 2854670915401280552}
+  - component: {fileID: 623260618886209706}
   m_Layer: 5
   m_Name: GamePanel
   m_TagString: Untagged
@@ -5318,6 +5350,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &623260618886209706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854670915401280551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1622839028
+      Data2: 1319932021
+      Data3: -1188065357
+      Data4: 372831071
+    Path: event:/MUSIC/LEVELS/music_lvl
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2854670915449970536
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,7 +7077,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 1
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
@@ -12378,6 +12440,7 @@ GameObject:
   - component: {fileID: 8449486789019126759}
   - component: {fileID: 8449486789019126757}
   - component: {fileID: 8449486789019126756}
+  - component: {fileID: 6009354381363903067}
   m_Layer: 5
   m_Name: GameOverPanelDeath
   m_TagString: Untagged
@@ -12446,6 +12509,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6009354381363903067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8449486789019126758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1654642721
+      Data2: 1089861434
+      Data3: 1076860082
+      Data4: -492181222
+    Path: event:/MUSIC/LEVELS/music_game_over
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8449486789131770350
 GameObject:
   m_ObjectHideFlags: 0

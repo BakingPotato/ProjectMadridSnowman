@@ -21,7 +21,15 @@ public class GameManager : MonoBehaviour
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
 	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
 	public LevelScriptableObject[] LevelsSO { get => levelsSO; set => levelsSO = value; }
-	public int CurrentLevelIdx { get => _currentLevelIdx; set => _currentLevelIdx = value; }
+	public int CurrentLevelIdx { get => _currentLevelIdx; set 
+		{
+			_currentLevelIdx = value;
+			if (_currentLevelIdx >= LevelsSO.Length)
+				_currentLevelIdx = 0;
+			else if (_currentLevelIdx < 0)
+				_currentLevelIdx = LevelsSO.Length - 1;
+		} 
+	}
 
 	LevelManager _currentLevelManager;
 
@@ -95,12 +103,26 @@ public class GameManager : MonoBehaviour
 					SaveManager.GameDataInstance.levels[i].unlocked = true;
 					break;
 				}
-					
 			}
 		}
 
+		CurrentLevelIdx++;
+
 		SaveManager.WriteData();
 	}
+#if UNITY_EDITOR
+	public void SetLevelIdxForScene()
+	{
+		for (int i = 0; i < levelsSO.Length; i++)
+		{
+			if (SceneManager.GetActiveScene().name == levelsSO[i].sceneName)
+			{
+				CurrentLevelIdx = i;
+				break;
+			}
+		}
+	}
+#endif
 
 	public void SetScene(string name)
 	{

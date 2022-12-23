@@ -84,6 +84,9 @@ public class LevelManager : MonoBehaviour
 
         Time.timeScale = 0;
 
+#if UNITY_EDITOR
+        GameManager.Instance.SetLevelIdxForScene();
+#endif
         //DEBUG (this should be called from StartLevelFromUI)
         StartLevel();
     }

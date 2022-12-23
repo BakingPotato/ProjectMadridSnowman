@@ -107,16 +107,14 @@ public class UILevelSelector : MonoBehaviour
     public void NextLevel()
 	{
         GameManager.Instance.CurrentLevelIdx++;
-        if (GameManager.Instance.CurrentLevelIdx >= GameManager.Instance.LevelsSO.Length)
-            GameManager.Instance.CurrentLevelIdx = 0;
+        
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
 	}
 
     public void PreviousLevel()
     {
         GameManager.Instance.CurrentLevelIdx--;
-        if (GameManager.Instance.CurrentLevelIdx < 0)
-            GameManager.Instance.CurrentLevelIdx = GameManager.Instance.LevelsSO.Length - 1;
+        
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
     }
 }

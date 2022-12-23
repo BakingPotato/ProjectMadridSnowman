@@ -42,23 +42,27 @@ public class SpawnerGeneric : MonoBehaviour
         pool = new Queue<Spawned>(maxElems);
         spawnedObjects = new Dictionary<int, Spawned>(maxElems);
         //Aqui iria un switch case con los tipos de elementos spawneables
+        GameObject modelCopy = Instantiate(model); //para no modificar el prefab
+       
         if(contactPlayerDespawn)
         {
-            model.AddComponent<SpanwedOnPlayerCollision>();
+            modelCopy.AddComponent<SpanwedOnPlayerCollision>();
         }
         else
         {
-
+            modelCopy.AddComponent<Spawned>();
         }
-        model.GetComponent<Spawned>().mySpawner = this;
+
+        modelCopy.GetComponent<Spawned>().mySpawner = this;
 
         for (int i = 0; i< maxElems; i++)
         {
-            GameObject obj = Instantiate(model);
+            GameObject obj = Instantiate(modelCopy);
             obj.SetActive(false);
             obj.transform.position = this.transform.position;
             pool.Enqueue(obj.GetComponent<Spawned>());
         }
+        Destroy(modelCopy);
     }
 
     void Start()
@@ -150,6 +154,12 @@ public class SpawnerGeneric : MonoBehaviour
     }
 
     #endregion ObjectsLifeTime
+
+    //para que nose queje unity de que modificamos el prefab en ejecucion
+    //private void OnApplicationQuit()
+    //{
+    //    Destroy(model.GetComponent<Spawned>());
+    //}
 
 }
 

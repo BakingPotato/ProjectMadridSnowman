@@ -21,7 +21,7 @@ public class UILevelSelector : MonoBehaviour
 
     private void Start()
 	{
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName);
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
 	}
 
 	private void Update()
@@ -47,7 +47,7 @@ public class UILevelSelector : MonoBehaviour
         {
             // Cheat code successfully inputted!
             GameManager.Instance.UnlockAllLevels();
-            DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName);
+            DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
             index = 0;
         }
     }
@@ -56,12 +56,12 @@ public class UILevelSelector : MonoBehaviour
 	public void ResetSaveFile()
 	{
         GameManager.Instance.NewLevelsData();
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName);
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
     }
 
 	public void PlayLevel()
 	{
-        GameManager.Instance.SetScene(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].sceneName);
+        GameManager.Instance.SetScene(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sceneName);
 	}
 
     void DisplayLevel(string levelName)
@@ -96,27 +96,27 @@ public class UILevelSelector : MonoBehaviour
             lockedButton.SetActive(false);
             lockedPanel.SetActive(false);
             playButton.SetActive(true);
-            descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].description;
+            descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
             recordText.text = "Record: " + displayLevel.record;
         }
 
-        backgroundImg.sprite = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].sprite;
-        levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName;
+        backgroundImg.sprite = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sprite;
+        levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
     }
 
     public void NextLevel()
 	{
-        GameManager.Instance.CurrentLevelIndex++;
-        if (GameManager.Instance.CurrentLevelIndex >= GameManager.Instance.LevelsSO.Length)
-            GameManager.Instance.CurrentLevelIndex = 0;
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName);
+        GameManager.Instance.CurrentLevelIdx++;
+        if (GameManager.Instance.CurrentLevelIdx >= GameManager.Instance.LevelsSO.Length)
+            GameManager.Instance.CurrentLevelIdx = 0;
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
 	}
 
     public void PreviousLevel()
     {
-        GameManager.Instance.CurrentLevelIndex--;
-        if (GameManager.Instance.CurrentLevelIndex < 0)
-            GameManager.Instance.CurrentLevelIndex = GameManager.Instance.LevelsSO.Length - 1;
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIndex].levelName);
+        GameManager.Instance.CurrentLevelIdx--;
+        if (GameManager.Instance.CurrentLevelIdx < 0)
+            GameManager.Instance.CurrentLevelIdx = GameManager.Instance.LevelsSO.Length - 1;
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
     }
 }

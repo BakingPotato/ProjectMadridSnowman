@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
 
-		_titleText.text = GM.CurrentLevelManager.LevelName;
+		_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
 	}
 
 	public void StartLevelFromUI()

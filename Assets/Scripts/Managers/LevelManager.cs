@@ -8,7 +8,6 @@ public class LevelManager : MonoBehaviour
     bool _gameStarted = false;
     bool _gamePaused = false;
 
-	[SerializeField] string levelName;
 	[SerializeField] UIManager uIManager;
 	public Countdown countdown;
 
@@ -68,8 +67,6 @@ public class LevelManager : MonoBehaviour
             UIManager.ShowPause(GamePaused);
         }
     }
-
-	public string LevelName { get => levelName; set => levelName = value; }
 	public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
 
 	private void Awake()

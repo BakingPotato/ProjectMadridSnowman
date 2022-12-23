@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
 	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
 	public LevelScriptableObject[] LevelsSO { get => levelsSO; set => levelsSO = value; }
-	public int CurrentLevelIndex { get => _currentLevelIndex; set => _currentLevelIndex = value; }
+	public int CurrentLevelIdx { get => _currentLevelIdx; set => _currentLevelIdx = value; }
 
 	LevelManager _currentLevelManager;
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
 	bool _introVideo = true;
 
-	int _currentLevelIndex = 0;
+	int _currentLevelIdx = 0;
 
 	private void Awake()
 	{
@@ -84,9 +84,9 @@ public class GameManager : MonoBehaviour
 
 	public void CompleteLevel(int score)
 	{
-		if(score > 0 && SaveManager.GameDataInstance.levels[CurrentLevelIndex].record < score)
-			SaveManager.GameDataInstance.levels[CurrentLevelIndex].record = score;
-		foreach (string levelName in levelsSO[CurrentLevelIndex].unlocks)
+		if(score > 0 && SaveManager.GameDataInstance.levels[CurrentLevelIdx].record < score)
+			SaveManager.GameDataInstance.levels[CurrentLevelIdx].record = score;
+		foreach (string levelName in levelsSO[CurrentLevelIdx].unlocks)
 		{
 			for (int i = 0; i < SaveManager.GameDataInstance.levels.Length; i++)
 			{

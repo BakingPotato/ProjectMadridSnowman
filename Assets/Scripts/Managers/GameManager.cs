@@ -20,10 +20,26 @@ public class GameManager : MonoBehaviour
 
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
 	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
+	public LevelScriptableObject[] LevelsSO { get => levelsSO; set => levelsSO = value; }
+	public int CurrentLevelIdx { get => _currentLevelIdx; set 
+		{
+			_currentLevelIdx = value;
+			if (_currentLevelIdx >= LevelsSO.Length)
+				_currentLevelIdx = 0;
+			else if (_currentLevelIdx < 0)
+				_currentLevelIdx = LevelsSO.Length - 1;
+		} 
+	}
 
 	LevelManager _currentLevelManager;
 
 	[SerializeField] Animator transitionAnimator;
+
+	[SerializeField] LevelScriptableObject[] levelsSO;
+
+	bool _introVideo = true;
+
+	int _currentLevelIdx = 0;
 
 	private void Awake()
 	{
@@ -38,14 +54,99 @@ public class GameManager : MonoBehaviour
 			DontDestroyOnLoad(gameObject);
 		}
 
+		if (SaveManager.CheckData())
+			RefreshData();
+		else
+			NewLevelsData();
 	}
-
-	bool _introVideo = true;
 
     private void Start()
     {
 		Application.targetFrameRate = 60;
 	}
+
+	public void NewLevelsData()
+	{
+		SaveManager.GameDataInstance.levels = new SaveManager.LevelData[levelsSO.Length];
+		for (int i = 0; i < levelsSO.Length; i++)
+		{
+			SaveManager.GameDataInstance.levels[i].levelName = levelsSO[i].levelName;
+			SaveManager.GameDataInstance.levels[i].record = 0;
+			SaveManager.GameDataInstance.levels[i].unlocked = false;
+		}
+		//Unlock tutorial
+		SaveManager.GameDataInstance.levels[0].unlocked = true;
+
+		SaveManager.WriteData();
+	}
+
+	/// <summary>
+	/// If you contain an old version of the save file, this method will update it
+	/// </summary>
+	public void RefreshData()
+	{
+		SaveManager.ReadData();
+		SaveManager.LevelData[] auxLevels = SaveManager.GameDataInstance.levels;
+		NewLevelsData();
+
+		for (int i = 0; i < auxLevels.Length; i++)
+		{
+			for (int j = 0; j < SaveManager.GameDataInstance.levels.Length; j++)
+			{
+				if(auxLevels[i].levelName == SaveManager.GameDataInstance.levels[j].levelName)
+				{
+					SaveManager.GameDataInstance.levels[j] = auxLevels[i];
+					break;
+				}
+			}
+		}
+
+		SaveManager.WriteData();
+	}
+
+	public void UnlockAllLevels()
+	{
+		for (int i = 0; i < SaveManager.GameDataInstance.levels.Length; i++)
+		{
+			SaveManager.GameDataInstance.levels[i].unlocked = true;
+		}
+
+		SaveManager.WriteData();
+	}
+
+	public void CompleteLevel(int score)
+	{
+		if(score > 0 && SaveManager.GameDataInstance.levels[CurrentLevelIdx].record < score)
+			SaveManager.GameDataInstance.levels[CurrentLevelIdx].record = score;
+		foreach (string levelName in levelsSO[CurrentLevelIdx].unlocks)
+		{
+			for (int i = 0; i < SaveManager.GameDataInstance.levels.Length; i++)
+			{
+				if (levelName == SaveManager.GameDataInstance.levels[i].levelName)
+				{
+					SaveManager.GameDataInstance.levels[i].unlocked = true;
+					break;
+				}
+			}
+		}
+
+		CurrentLevelIdx++;
+
+		SaveManager.WriteData();
+	}
+#if UNITY_EDITOR
+	public void SetLevelIdxForScene()
+	{
+		for (int i = 0; i < levelsSO.Length; i++)
+		{
+			if (SceneManager.GetActiveScene().name == levelsSO[i].sceneName)
+			{
+				CurrentLevelIdx = i;
+				break;
+			}
+		}
+	}
+#endif
 
 	public void SetScene(string name)
 	{
@@ -76,7 +177,7 @@ public class GameManager : MonoBehaviour
 		int damage = CurrentLevelManager.TotalDamage;
 
 		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
-
+		CompleteLevel(total);
 		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
 }

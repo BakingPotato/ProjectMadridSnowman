@@ -11,6 +11,7 @@ public class TriggerInfoSender : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo(message, messageDuration);
+			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Objects/info_box");
 		}
 	}
 }

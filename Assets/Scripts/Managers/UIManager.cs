@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] GameObject deathGameOverPanel;
 	[SerializeField] GameObject gamePanel;
 	[SerializeField] GameObject pausePanel;
+	[SerializeField] GameObject settingsPanel;
 	[SerializeField] GameObject resultsPanel;
 	[SerializeField] UITextInfo uITextInfo;
 
@@ -56,12 +57,13 @@ public class UIManager : MonoBehaviour
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
+
+		_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
 	}
 
 	public void StartLevelFromUI()
 	{
 		GM.CurrentLevelManager.StartLevel();
-		_titleText.text = GM.CurrentLevelManager.LevelName;
 	}
 
 	private float DecibelToLinear(float dB)
@@ -102,6 +104,13 @@ public class UIManager : MonoBehaviour
 			_timerText.text = time;
 		}
 	}
+	public void SetTimerColor(Color c)
+	{
+		if (_timerText != null)
+		{
+			_timerText.color = c;
+		}
+	}
 
 	public void replayButton()
     {
@@ -120,6 +129,7 @@ public class UIManager : MonoBehaviour
 	public void ShowPause(bool b)
 	{
 		pausePanel.SetActive(b);
+		settingsPanel.SetActive(false);
 	}
 
 	public void SetMusicVolume(float v)

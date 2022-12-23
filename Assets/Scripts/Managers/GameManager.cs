@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 		}
 
 		if (SaveManager.CheckData())
-			SaveManager.ReadData();
+			RefreshData();
 		else
 			NewLevelsData();
 	}
@@ -76,6 +76,30 @@ public class GameManager : MonoBehaviour
 		}
 		//Unlock tutorial
 		SaveManager.GameDataInstance.levels[0].unlocked = true;
+
+		SaveManager.WriteData();
+	}
+
+	/// <summary>
+	/// If you contain an old version of the save file, this method will update it
+	/// </summary>
+	public void RefreshData()
+	{
+		SaveManager.ReadData();
+		SaveManager.LevelData[] auxLevels = SaveManager.GameDataInstance.levels;
+		NewLevelsData();
+
+		for (int i = 0; i < auxLevels.Length; i++)
+		{
+			for (int j = 0; j < SaveManager.GameDataInstance.levels.Length; j++)
+			{
+				if(auxLevels[i].levelName == SaveManager.GameDataInstance.levels[j].levelName)
+				{
+					SaveManager.GameDataInstance.levels[j] = auxLevels[i];
+					break;
+				}
+			}
+		}
 
 		SaveManager.WriteData();
 	}

@@ -89,6 +89,8 @@ public class Countdown : MonoBehaviour
                 warning = true;
                 //TIMER WARNING SFX
                 LM.UIManager.SetTimerColor(Color.red);
+                //AudioManager.Instance.PlaySFXRandomPitch("TimerStart");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/timer");
 			}
 
             yield return null;

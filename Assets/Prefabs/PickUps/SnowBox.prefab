@@ -4982,7 +4982,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  hasInvencibilityFrames: 0
+  invincibilityTime: 1
   blinkingObject: {fileID: 0}
+  invencible: 0
   powerUps:
   - {fileID: 7231588800726985224, guid: bf9942de134ee0747bd0f952c6e844d1, type: 3}
   - {fileID: 7231588800726985224, guid: 5fbac39148df21741bce8dd1de1de1f7, type: 3}
@@ -5001,11 +5004,11 @@ MonoBehaviour:
   - type: 0
     weight: 8
   - type: 1
-    weight: 3
+    weight: 4
   - type: 2
     weight: 3
   - type: 3
-    weight: 3
+    weight: 2
 --- !u!1001 &6819305997157772986
 PrefabInstance:
   m_ObjectHideFlags: 0

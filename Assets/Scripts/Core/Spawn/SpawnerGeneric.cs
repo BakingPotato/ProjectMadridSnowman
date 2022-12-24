@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +14,7 @@ public class SpawnerGeneric : MonoBehaviour
     public List<GameObject> spawnPositions;
 
     public bool contactPlayerDespawn = true;
+    public PickUpObject pickUpEffect;
     public bool lifeTimeDespawn;
     [Tooltip("Make Object has lifeTime")]
     [Range(0.1f, 999.0f)]
@@ -47,6 +48,7 @@ public class SpawnerGeneric : MonoBehaviour
         if(contactPlayerDespawn)
         {
             modelCopy.AddComponent<SpanwedOnPlayerCollision>();
+            modelCopy.GetComponent<SpanwedOnPlayerCollision>().pickUpEffect = pickUpEffect;
         }
         else
         {
@@ -174,9 +176,11 @@ public class SpanwedLifeTimeDespawn : Spawned
 }
 public class SpanwedOnPlayerCollision: Spawned
 {
+
+    public PickUpObject pickUpEffect;
+
     public void Awake()
     {
- 
     }
 
     public void Start()
@@ -189,9 +193,19 @@ public class SpanwedOnPlayerCollision: Spawned
         if (collision.gameObject.tag == "Player")
         {
             //pickUpEffect.Apply(collision.gameObject);
+            pickUpEffect.Apply(GameObject.FindGameObjectWithTag("Player"));
             mySpawner.DespawnObject(this);
         }
     }
- 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "PowerUp")
+        {
+            pickUpEffect.Apply(GameObject.FindGameObjectWithTag("Player"));
+            mySpawner.DespawnObject(this);
+        }
+    }
+
 
 }

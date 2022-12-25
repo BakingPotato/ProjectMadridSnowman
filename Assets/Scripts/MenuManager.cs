@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+
 
 public class MenuManager : MonoBehaviour
 {
@@ -36,7 +38,7 @@ public class MenuManager : MonoBehaviour
 		musicBus.setVolume(DecibelToLinear(musicSlider.value));
 		//otherBus.setVolume(DecibelToLinear(musicSlider.value));
 
-		if (GameManager.Instance.IntroVideo && introVideo != null)
+		if (GameManager.Instance.IntroVideo && introVideo != null || SceneManager.GetActiveScene().name == "DemoEnding")
 		{
 			GameManager.Instance.IntroVideo = false;
 			introPanel.SetActive(true);

@@ -17,7 +17,7 @@ public class TotalRecord : MonoBehaviour
             totalRecord += levelData.record;
         }
 
-        record.text = "Puntuación Media: " + (totalRecord / 4);
+        record.text = "Puntuación Media: " + (totalRecord / SaveManager.GameDataInstance.levels.Length);
     }
 
     // Update is called once per frame

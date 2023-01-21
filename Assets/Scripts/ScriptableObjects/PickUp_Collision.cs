@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp_Collision : MonoBehaviour
 {
-	[SerializeField] PickUpObject pickUpEffect;
+	public PickUpObject pickUpEffect;
 
 	private void OnCollisionEnter(Collision collision)
 	{

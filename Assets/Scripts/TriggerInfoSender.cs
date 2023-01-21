@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerInfoSender : MonoBehaviour
 {
-	[SerializeField] string message;
+	[SerializeField] [TextArea] string message;
 	[SerializeField] float messageDuration;
 	private void OnTriggerEnter(Collider other)
 	{

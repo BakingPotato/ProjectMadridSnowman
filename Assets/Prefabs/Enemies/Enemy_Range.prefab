@@ -138,7 +138,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   health: 0
+  hasInvencibilityFrames: 0
+  invincibilityTime: 1
   blinkingObject: {fileID: 7385373316205516079}
+  invencible: 0
   healthBar: {fileID: 5340287607419617217}
   invincible: 0
 --- !u!114 &2028618551108284982
@@ -199,6 +202,7 @@ MonoBehaviour:
   shootCooldown: 1
   minShootCooldown: 0.15
   auto: 0
+  canShoot: 1
   isPlayer: 0
 --- !u!114 &19492699365721325
 MonoBehaviour:
@@ -226,7 +230,7 @@ MonoBehaviour:
   - {fileID: 1841091080672440815, guid: 12fdc4958832ad643bcd300244e0eafa, type: 3}
   - {fileID: 5273330667590922035, guid: 2f13f8c2c9a216f47983ff59fca0ba5d, type: 3}
   probEmpty: 5
-  probsPowerUps: 0100000001000000010000000100000001000000000000000000000001000000
+  probsPowerUps: 0100000002000000020000000200000002000000000000000000000001000000
   probsCoins: 040000000300000002000000
 --- !u!1 &2899144741195498790
 GameObject:

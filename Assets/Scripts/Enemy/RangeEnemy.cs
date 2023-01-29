@@ -30,7 +30,7 @@ public class RangeEnemy : EnemyManager
             if (distanceToTarget >= navMeshAgent.stoppingDistance)
             {
                 ChaseTarget();
-                RangeEnemyAnimator.SetTrigger("Move");
+                if(RangeEnemyAnimator) RangeEnemyAnimator.SetTrigger("Move");
             }
 
             if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)

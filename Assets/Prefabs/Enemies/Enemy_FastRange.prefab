@@ -169,8 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   health: 0
+  hasInvencibilityFrames: 0
+  invincibilityTime: 1
   blinkingObject: {fileID: 5615406486358100572}
+  invencible: 0
   healthBar: {fileID: 7029961636235583666}
+  invincible: 0
+  snowExplosion: {fileID: 3354943827875239630, guid: bf5b6c60c52477d428b0657c4090c0bc, type: 3}
 --- !u!114 &4014090757304167749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +233,8 @@ MonoBehaviour:
   hand: {fileID: 263503856132872786}
   shootCooldown: 0.4
   minShootCooldown: 0.15
+  auto: 0
+  canShoot: 1
   isPlayer: 0
 --- !u!114 &3158909095511120798
 MonoBehaviour:

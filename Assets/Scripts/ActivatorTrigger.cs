@@ -11,6 +11,7 @@ public class ActivatorTrigger : MonoBehaviour
 
     public bool terrorEnd = false;
     [SerializeField] Button replayButton;
+    [SerializeField] Button backButton;
     [SerializeField] UIManager UI;
 
     // Start is called before the first frame update
@@ -40,6 +41,9 @@ public class ActivatorTrigger : MonoBehaviour
                 replayButton.onClick.RemoveAllListeners();
                 replayButton.onClick.AddListener(tutorialEnd);
                 replayButton.onClick.AddListener(UI.PlayButtonSound);
+                backButton.onClick.RemoveAllListeners();
+                backButton.onClick.AddListener(tutorialEnd);
+                backButton.onClick.AddListener(UI.PlayButtonSound);
             }
         }
     }

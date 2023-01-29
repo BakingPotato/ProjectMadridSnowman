@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivatorTrigger : MonoBehaviour
 {
     public List<GameObject> objectsToActivate;
     public List<GameObject> objectsToDeactivate;
     bool firstTime = true;
+
+    public bool terrorEnd = false;
+    [SerializeField] Button replayButton;
+    [SerializeField] UIManager UI;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,18 @@ public class ActivatorTrigger : MonoBehaviour
             }
 
             firstTime = false;
+
+            if (terrorEnd)
+            {
+                replayButton.onClick.RemoveAllListeners();
+                replayButton.onClick.AddListener(tutorialEnd);
+                replayButton.onClick.AddListener(UI.PlayButtonSound);
+            }
         }
+    }
+
+    void tutorialEnd()
+    {
+        UI.SwitchScene("TutorialExtraEnd");
     }
 }

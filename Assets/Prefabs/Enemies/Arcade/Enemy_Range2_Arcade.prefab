@@ -146,6 +146,7 @@ MonoBehaviour:
   invencible: 0
   healthBar: {fileID: 4645971318503696756}
   invincible: 0
+  snowExplosion: {fileID: 3354943827875239630, guid: bf5b6c60c52477d428b0657c4090c0bc, type: 3}
 --- !u!114 &1603937697161405571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +207,8 @@ MonoBehaviour:
   auto: 0
   canShoot: 1
   isPlayer: 0
+  shootAnim: {fileID: 0}
+  DoShootAnim: 0
 --- !u!114 &729598005318128217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +228,8 @@ MonoBehaviour:
   auto: 0
   canShoot: 1
   isPlayer: 0
+  shootAnim: {fileID: 0}
+  DoShootAnim: 0
 --- !u!114 &729598005318128216
 MonoBehaviour:
   m_ObjectHideFlags: 0

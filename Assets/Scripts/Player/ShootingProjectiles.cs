@@ -24,12 +24,16 @@ public class ShootingProjectiles : MonoBehaviour
 	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
 	public Transform Hand { get => hand; set => hand = value; }
 	public bool Shooting { get => _shooting; set => _shooting = value; }
+    //added by me
+    public Animator enemyAnimator;
+
 
     private void Start()
     {
         if (auto || (!canShoot && isPlayer))
         {
             Shooting = true;
+
         }
     }
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class ShootingProjectiles : MonoBehaviour
             return;
         }
         else {
-        
+
             if (Shooting)
             {
                 _currentTime -= Time.deltaTime;
@@ -50,6 +54,7 @@ public class ShootingProjectiles : MonoBehaviour
                     if (auto)
                     {
                         Shoot(transform.forward, 1);
+
                     }
                 }
             }
@@ -76,8 +81,10 @@ public class ShootingProjectiles : MonoBehaviour
         else
             proj.IgnoringLayer = 999;
 
-            proj.Damage += _buffDamage;
-            proj.Throw(direction, inputDamage);
+        proj.Damage += _buffDamage;
+        proj.Throw(direction, inputDamage);
+        //added by me, hace la animacion de atacar
+        if(enemyAnimator) enemyAnimator.SetTrigger("Attack");
 
         if (_tripleShoot)
 		{

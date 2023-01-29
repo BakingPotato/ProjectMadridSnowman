@@ -121,7 +121,10 @@ public class UIManager : MonoBehaviour
 	{
 		gamePanel.SetActive(false);
 		if (alive)
-			gameOverPanel.SetActive(true);
+			if (money)
+				gameOverPanel.SetActive(true);
+			else
+				GameManager.Instance.ShowResults("LevelMenu");
 		else
 			deathGameOverPanel.SetActive(true);
 	}

@@ -7,6 +7,7 @@ public class LevelScriptableObject : ScriptableObject
 {
     public string levelName;
     public string sceneName;
+    [TextArea]
     public string description;
     public Sprite sprite;
     public string[] unlocks;

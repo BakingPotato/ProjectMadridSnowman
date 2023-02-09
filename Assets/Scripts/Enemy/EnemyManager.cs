@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
+    public Animator anime;
     [SerializeField] protected enemyClass type = enemyClass.Melee;
 
     [Header("Movimiento")]
@@ -69,6 +70,7 @@ public class EnemyManager : MonoBehaviour
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
+            anime.SetTrigger("Move");
         }
 
         if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)

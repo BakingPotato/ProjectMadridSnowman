@@ -47,7 +47,7 @@ public class ShootingProjectiles : MonoBehaviour
 
             if (Shooting)
             {
-                _currentTime -= Time.deltaTime;
+               _currentTime -= Time.deltaTime;
                 if (_currentTime <= 0)
                 {
                     Shooting = false;
@@ -69,22 +69,42 @@ public class ShootingProjectiles : MonoBehaviour
         Shooting = true;
         _currentTime = ShootCooldown;
 
-        Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-        proj.transform.localScale *= _scaleFactor;
-        //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
-        if (isPlayer)
-        {
-            proj.IgnoringLayer = gameObject.layer;
-            //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
-        }
-        else
-            proj.IgnoringLayer = 999;
+        Projectile proj = projectilePrefab.GetComponent<Projectile>();
 
-        proj.Damage += _buffDamage;
-        proj.Throw(direction, inputDamage);
-        //added by me, hace la animacion de atacar
-        if(enemyAnimator) enemyAnimator.SetTrigger("Attack");
+        if (proj)
+        {
+            proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj.transform.localScale *= _scaleFactor;
+            //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
+            if (isPlayer)
+            {
+                proj.IgnoringLayer = gameObject.layer;
+                //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+            }
+            else
+                proj.IgnoringLayer = 999;
+
+            proj.Damage += _buffDamage;
+            proj.Throw(direction, inputDamage);
+            //added by me, hace la animacion de atacar
+        }
+        else //En caso de no ser projectile, es un projectileHolder
+        {
+            ProjectileHolder projHold = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<ProjectileHolder>();
+            projHold.transform.localScale *= _scaleFactor;
+            //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
+            if (isPlayer)
+            {
+                //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+            }
+
+            projHold.Throw(direction, inputDamage);
+            //added by me, hace la animacion de atacar
+        }
+
+        if (enemyAnimator) enemyAnimator.SetTrigger("Attack");
 
         if (_tripleShoot)
 		{

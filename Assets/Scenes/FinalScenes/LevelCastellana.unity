@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1685049734}
-  m_IndirectSpecularColor: {r: 0.17804325, g: 0.5823826, b: 0.732514, a: 1}
+  m_IndirectSpecularColor: {r: 0.17799118, g: 0.5824124, b: 0.73250407, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4320,6 +4320,7 @@ MonoBehaviour:
   auto: 1
   canShoot: 1
   isPlayer: 0
+  enemyAnimator: {fileID: 0}
 --- !u!23 &315158798
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8910,6 +8911,7 @@ MonoBehaviour:
   auto: 1
   canShoot: 1
   isPlayer: 0
+  enemyAnimator: {fileID: 0}
 --- !u!23 &712705522
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14908,6 +14910,7 @@ MonoBehaviour:
   auto: 1
   canShoot: 1
   isPlayer: 0
+  enemyAnimator: {fileID: 0}
 --- !u!23 &1294325152
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20942,6 +20945,7 @@ MonoBehaviour:
   auto: 1
   canShoot: 1
   isPlayer: 0
+  enemyAnimator: {fileID: 0}
 --- !u!23 &1890580761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24771,7 +24775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 396105906, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Final
+      value: LevelMenu
       objectReference: {fileID: 0}
     - target: {fileID: 913288573, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -24991,7 +24995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242604667280348328, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9248047
+      value: -0.9248028
       objectReference: {fileID: 0}
     - target: {fileID: 4517657445601523990, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -25349,6 +25353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3104c377461f1a54a81a3ab28f3a0dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anime: {fileID: 0}
   type: 0
   chaseRange: 15
   turnSpeed: 5

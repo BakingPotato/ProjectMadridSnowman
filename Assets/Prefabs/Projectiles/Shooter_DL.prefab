@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8089665013928579373}
   - component: {fileID: 8089665013928579372}
   - component: {fileID: 8089665013928579379}
+  - component: {fileID: 2633638302585649581}
   m_Layer: 14
   m_Name: Shooter_DL
   m_TagString: Untagged
@@ -98,9 +99,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 172704135531579475, guid: c56f6df82096116439c77c9413905b01, type: 3}
   hand: {fileID: 8089665013928579374}
-  shootCooldown: 2
-  minShootCooldown: 2
+  shootCooldown: 5
+  minShootCooldown: 5
   auto: 1
   canShoot: 1
   isPlayer: 0
   enemyAnimator: {fileID: 0}
+--- !u!114 &2633638302585649581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089665013928579378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1698ecf6e0fa3479e2f7e80df03e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 2

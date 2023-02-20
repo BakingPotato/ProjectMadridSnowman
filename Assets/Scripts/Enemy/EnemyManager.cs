@@ -70,7 +70,8 @@ public class EnemyManager : MonoBehaviour
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
             ChaseTarget();
-            anime.SetTrigger("Move");
+            if(anime)
+                anime.SetTrigger("Move");
         }
 
         if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)

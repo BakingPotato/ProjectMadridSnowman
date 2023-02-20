@@ -8109,8 +8109,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4103687328913204104, guid: 8fcb04ea71ff5d74aaa9ceccb970cec4, type: 3}
+      propertyPath: transitionAnimator
+      value: 
+      objectReference: {fileID: 1716548130}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcb04ea71ff5d74aaa9ceccb970cec4, type: 3}
+--- !u!95 &1716548130 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2223158031663789092, guid: 8fcb04ea71ff5d74aaa9ceccb970cec4, type: 3}
+  m_PrefabInstance: {fileID: 1716548129}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721287063
 GameObject:
   m_ObjectHideFlags: 0
@@ -10669,7 +10678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 396105906, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: DemoEnding
+      value: LevelMenu
       objectReference: {fileID: 0}
     - target: {fileID: 913288572, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_IsActive
@@ -10921,7 +10930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242604667280348328, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9248009
+      value: -0.9248028
       objectReference: {fileID: 0}
     - target: {fileID: 4377961491530694211, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_RootOrder

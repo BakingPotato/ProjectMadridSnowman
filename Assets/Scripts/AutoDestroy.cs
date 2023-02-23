@@ -12,7 +12,7 @@ public class AutoDestroy : MonoBehaviour
     {
         if(Time.time > timer)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

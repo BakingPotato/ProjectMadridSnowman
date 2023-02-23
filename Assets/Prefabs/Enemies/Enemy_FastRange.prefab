@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc9c700e4e73794ca7bfd339026d8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anime: {fileID: 0}
   type: 1
   chaseRange: 8
   turnSpeed: 4
@@ -5539,6 +5540,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4014090757304167774}
     m_Modifications:
+    - target: {fileID: 317466938767479690, guid: c9610fbc914ca78438675860746903f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     - target: {fileID: 1323024019024687196, guid: c9610fbc914ca78438675860746903f9, type: 3}
       propertyPath: m_Name
       value: "Mu\xF1ecoMilitar"
@@ -5587,6 +5592,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3119000349068450825, guid: c9610fbc914ca78438675860746903f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
+    - target: {fileID: 5751573808547822503, guid: c9610fbc914ca78438675860746903f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9610fbc914ca78438675860746903f9, type: 3}
 --- !u!95 &2682750970767015590 stripped

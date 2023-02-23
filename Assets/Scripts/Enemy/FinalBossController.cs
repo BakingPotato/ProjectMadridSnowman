@@ -7,7 +7,7 @@ public class FinalBossController : EnemyManager
 
     public enum AttackType
     {
-        DT, DP, DL, SD
+        DT, DP, DL, SD, SD2, SD3, WD
     }
 
     [System.Serializable]
@@ -17,13 +17,13 @@ public class FinalBossController : EnemyManager
         public int repetitions;
         public float duration;
         public float cooldown;
+        public float timeBeforeNextAttack;
     }
 
     [System.Serializable]
     public struct Phase
     {
         public Attack[] attacks;
-        public float cooldown;
         public int HPLimit;
         public bool random;
     }
@@ -35,10 +35,10 @@ public class FinalBossController : EnemyManager
     [Header("Contenedores")]
     public GameObject DL_object;
     public GameObject SD_object;
+    public GameObject SD2_object;
+    public GameObject SD3_object;
     public GameObject DT_object;
-
-
-
+    public GameObject WD_object;
 
     public override void Start()
     {
@@ -62,7 +62,7 @@ public class FinalBossController : EnemyManager
         Coroutine actualPhase = null;
         for(int i = 0; i < Phases.Length; i++)
         {
-            actualPhase = StartCoroutine(ProccessPhase(Phases[0]));
+            actualPhase = StartCoroutine(ProccessPhase(Phases[i]));
             //while (HP > Phases[i].HPlimit)
             //{
             //    yield return new WaitForSeconds(1);
@@ -75,7 +75,7 @@ public class FinalBossController : EnemyManager
             //{
             //    yield return new WaitForEndOfFrame();
             //}
-
+            yield return new WaitForSeconds(9999999);
         }
         yield return new WaitForEndOfFrame();
     }
@@ -89,8 +89,8 @@ public class FinalBossController : EnemyManager
             {
                 if (j == phase.attacks.Length) j = 0;
                 startAttack(phase.attacks[j]);
+                yield return new WaitForSeconds(phase.attacks[j].timeBeforeNextAttack);
                 j++;
-                yield return new WaitForSeconds(phase.cooldown);
             }
         }
     }
@@ -110,6 +110,9 @@ public class FinalBossController : EnemyManager
             case AttackType.SD:
                 StartCoroutine(ActivateShooter(SD_object, attack.repetitions, attack.duration, attack.cooldown));
                 break;
+            case AttackType.WD:
+                StartCoroutine(ActivateShooter(WD_object, attack.duration));
+                break;
         }
     }
 
@@ -120,6 +123,17 @@ public class FinalBossController : EnemyManager
         ShootingProjectiles sp = shooter.GetComponent<ShootingProjectiles>();
 
         sp.ShootCooldown = cooldown;
+        yield return new WaitForSeconds(duration);
+
+        shooter.SetActive(false);
+        attack_numbers--;
+    }
+
+    public IEnumerator ActivateShooter(GameObject shooter, float duration)
+    {
+        attack_numbers++;
+        shooter.SetActive(true);
+
         yield return new WaitForSeconds(duration);
 
         shooter.SetActive(false);
@@ -152,14 +166,15 @@ public class FinalBossController : EnemyManager
     }
 
     public IEnumerator InvokeShooters(GameObject shooter, int repetitions, float cooldown)
-    {
+    { 
         attack_numbers++;
         for (int i = 0; i < repetitions; i++)
         {
-            for(int j = 0; j < Random.Range(5, 8); j++)
+            int limit = Random.Range(5, 8);
+            for (int j = 0; j < limit; j++)
             {
                 Instantiate(shooter, getRandomPosAbovePlayer(), Quaternion.Euler(new Vector3(90, 0, 0)));
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.8f);
             }
             yield return new WaitForSeconds(cooldown);
         }

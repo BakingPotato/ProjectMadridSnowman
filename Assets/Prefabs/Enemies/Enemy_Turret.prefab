@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc9c700e4e73794ca7bfd339026d8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anime: {fileID: 0}
   type: 1
   chaseRange: 14
   turnSpeed: 5
@@ -272,6 +273,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6318355564131822645}
     m_Modifications:
+    - target: {fileID: 441275062456465255, guid: 2257a20054309824793e795731d726bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
+    - target: {fileID: 4300856659500068450, guid: 2257a20054309824793e795731d726bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     - target: {fileID: 5950216254411923157, guid: 2257a20054309824793e795731d726bd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -320,6 +329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Mu\xF1ecoNormal"
       objectReference: {fileID: 0}
+    - target: {fileID: 7495052463299719303, guid: 2257a20054309824793e795731d726bd, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2257a20054309824793e795731d726bd, type: 3}
 --- !u!4 &1405568744901411019 stripped

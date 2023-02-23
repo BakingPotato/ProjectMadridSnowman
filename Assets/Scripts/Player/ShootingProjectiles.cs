@@ -9,8 +9,8 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
     [SerializeField] float minShootCooldown = 0.15f;
-    [SerializeField] bool auto = false;
-    [SerializeField] bool canShoot = true;
+    public bool auto = false;
+    public bool canShoot = true;
 
     [SerializeField] bool isPlayer;
 

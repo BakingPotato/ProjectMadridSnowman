@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     HealthManager _health;
     CharacterMovement _movement;
 
+    bool _autoShoot = false;
+
     [Header("Prefabs de PowerUps")]
     [SerializeField] GameObject prefab_Umbrella;
     [SerializeField] ShootingProjectiles shootingProjectiles;
@@ -20,21 +22,36 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _health = GetComponent<HealthManager>();
-        _movement = GetComponent<CharacterMovement>();   
+        _movement = GetComponent<CharacterMovement>();
     }
 
 	private void Update()
 	{
-        if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
-            Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
-		{
+        //      if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
+        //          Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
+        //{
+        //          Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
+        //          dir.y = 0;
+
+        //          GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
+        //          shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+        //      }
+
+        //Tipo disparo 2
+        if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            _autoShoot = !_autoShoot;
+        }
+
+        if (_autoShoot && !shootingProjectiles.Shooting)
+        {
             Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
             dir.y = 0;
 
             GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
             shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
         }
-	}
+    }
 
     public void PlayPowerUpAnim(Sprite s)
 	{

@@ -7,7 +7,7 @@ public class FinalBossController : EnemyManager
 
     public enum AttackType
     {
-        DT, DP, DL, SD, SD2, SD3, WD
+        DT, DF, DP, DL, SD, SD2, SD3, WD, DG, DASH, JUMP, KICK
     }
 
     [System.Serializable]
@@ -26,6 +26,7 @@ public class FinalBossController : EnemyManager
         public Attack[] attacks;
         public int HPLimit;
         public bool random;
+        public bool transition;
     }
 
     [Header("Fases")]
@@ -36,9 +37,10 @@ public class FinalBossController : EnemyManager
     public GameObject DL_object;
     public GameObject SD_object;
     public GameObject SD2_object;
-    public GameObject SD3_object;
     public GameObject DT_object;
     public GameObject WD_object;
+    public GameObject DG_object;
+    public GameObject DF_object;
 
     public override void Start()
     {
@@ -62,11 +64,20 @@ public class FinalBossController : EnemyManager
         Coroutine actualPhase = null;
         for(int i = 0; i < Phases.Length; i++)
         {
-            actualPhase = StartCoroutine(ProccessPhase(Phases[i]));
-            //while (HP > Phases[i].HPlimit)
-            //{
-            //    yield return new WaitForSeconds(1);
-            //}
+            if (Phases[i].transition)
+            {
+                yield return StartCoroutine(ProccessPhase(Phases[i]));
+            }
+            else
+            {
+                actualPhase = StartCoroutine(ProccessPhase(Phases[i]));
+                yield return new WaitForSeconds(9999999);
+
+                //while (HP > Phases[i].HPlimit)
+                //{
+                //    yield return new WaitForSeconds(1);
+                //}
+            }
             //StopCoroutine(actualPhase);
             //actualPhase = null;
 
@@ -75,7 +86,6 @@ public class FinalBossController : EnemyManager
             //{
             //    yield return new WaitForEndOfFrame();
             //}
-            yield return new WaitForSeconds(9999999);
         }
         yield return new WaitForEndOfFrame();
     }
@@ -87,33 +97,52 @@ public class FinalBossController : EnemyManager
         {
             while (true)
             {
-                if (j == phase.attacks.Length) j = 0;
-                startAttack(phase.attacks[j]);
-                yield return new WaitForSeconds(phase.attacks[j].timeBeforeNextAttack);
+                Coroutine c = startAttack(phase.attacks[j]);
+                //Si es un tipo de ataque que se puede solapar con otros, esperamos el tiempo que diga el jugador, en caso contrario, esperamos a que el ataque acabe
+                if(phase.attacks[j].type == AttackType.DP || phase.attacks[j].type == AttackType.DL)
+                    yield return new WaitForSeconds(phase.attacks[j].timeBeforeNextAttack);
+                else
+                    yield return startAttack(phase.attacks[j]);
                 j++;
+
+                //Si estamos en una transición pasamos a la siguiente fase en cuanto acaben los ataques
+                if (phase.transition && j == phase.attacks.Length) break;
+                //En caso contrario, repetimos hasta que se cumpla el limite de vida
+                else if (j == phase.attacks.Length) j = 0;
             }
         }
     }
 
-    public void startAttack(Attack attack)
+    public Coroutine startAttack(Attack attack)
     {
+        Coroutine c = null;
         switch (attack.type)
         {
             case AttackType.DT:
-                StartCoroutine(ActivateShooter(DT_object, attack.duration, attack.cooldown));
+                c = StartCoroutine(ActivateShooter(DT_object, attack.duration, attack.cooldown));
+                break;
+            case AttackType.DF:
+                c = StartCoroutine(ActivateShooter(DF_object, attack.duration));
                 break;
             case AttackType.DL:
-                StartCoroutine(InvokeShooters(DL_object, attack.repetitions, attack.cooldown));
+                c = StartCoroutine(InvokeShooters(DL_object, attack.repetitions, attack.cooldown));
                 break;
             case AttackType.DP:
                 break;
             case AttackType.SD:
-                StartCoroutine(ActivateShooter(SD_object, attack.repetitions, attack.duration, attack.cooldown));
+                c = StartCoroutine(ActivateShooter(SD_object, attack.repetitions, attack.duration, attack.cooldown));
+                break;
+            case AttackType.SD2:
+                c = StartCoroutine(ActivateShooter(SD2_object, attack.repetitions, attack.duration, attack.cooldown));
+                break;
+            case AttackType.SD3:
+                c = StartCoroutine(ActivateShooter_3DS(SD_object, SD2_object, attack.repetitions, attack.duration, attack.cooldown));
                 break;
             case AttackType.WD:
-                StartCoroutine(ActivateShooter(WD_object, attack.duration));
+                c = StartCoroutine(ActivateShooter(WD_object, attack.duration));
                 break;
         }
+        return c;
     }
 
     public IEnumerator ActivateShooter(GameObject shooter, float duration, float cooldown)
@@ -153,6 +182,26 @@ public class FinalBossController : EnemyManager
 
         attack_numbers--;
     }
+
+    public IEnumerator ActivateShooter_3DS(GameObject shooter, GameObject shooter2, int repetitions, float duration, float cooldown)
+    {
+        attack_numbers++;
+        for (int j = 0; j < repetitions; j++)
+        {
+            shooter.SetActive(true);
+            yield return new WaitForSeconds(duration);
+            shooter.SetActive(false);
+
+            shooter2.SetActive(true);
+            yield return new WaitForSeconds(duration);
+            shooter2.SetActive(false);
+
+            yield return new WaitForSeconds(cooldown);
+        }
+
+        attack_numbers--;
+    }
+
 
     public IEnumerator InvokeShooter(GameObject shooter, Vector3 position, int repetitions, float cooldown)
     {

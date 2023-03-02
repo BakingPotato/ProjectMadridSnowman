@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,15 +27,20 @@ public class FinalBossController : EnemyManager
         public int HPLimit;
         public bool random;
         public bool transition;
+        public bool walking;
     }
 
     [Header("Fases")]
     [SerializeField] Phase[] Phases;
+    [SerializeField] bool walk = false;
+    [SerializeField] float walk_speed = 1.5f;
     int attack_numbers = 0;
     Coroutine actual_attack;
+    bool actual_Phase_Walk;
 
     [Header("Contenedores")]
     public GameObject DL_object;
+    public GameObject DP_object;
     public GameObject SD_object;
     public GameObject SD2_object;
     public GameObject DT_object;
@@ -59,10 +64,48 @@ public class FinalBossController : EnemyManager
     public override void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-
         //Si es provocado o el jugador entra en su rango, persigue al jugador
         EngageTarget();
     }
+
+    protected virtual void EngageTarget()
+    {
+        FaceTarget();
+
+        if (distanceToTarget >= navMeshAgent.stoppingDistance)
+        {
+            ChaseTarget();
+            if (anime)
+                anime.SetTrigger("Move");
+        }
+
+        if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)
+        {
+            AttackTarget();
+        }
+        else
+        {
+            //Cancelar animaciï¿½n de ataque
+        }
+
+    }
+
+    protected void ChaseTarget()
+    {
+        if (navMeshAgent)
+        {
+            if (walk)
+            {
+                navMeshAgent.SetDestination(target.position);
+            }
+            else if (!walk)
+            {
+                navMeshAgent.ResetPath();
+            }
+        }
+
+    }
+
 
     IEnumerator MainControl()
     {
@@ -108,19 +151,24 @@ public class FinalBossController : EnemyManager
     IEnumerator ProccessPhase(Phase phase)
     {
         int j = 0;
+        actual_Phase_Walk = phase.walking;
         if (!phase.random)
         {
             while (true)
             {
                 actual_attack = startAttack(phase.attacks[j]);
+
+                walk = false;
                 //Si es un tipo de ataque que se puede solapar con otros, esperamos el tiempo que diga el jugador, en caso contrario, esperamos a que el ataque acabe
                 if(phase.attacks[j].type == AttackType.DP || phase.attacks[j].type == AttackType.DL || phase.attacks[j].type == AttackType.JAIL)
+                {
                     yield return new WaitForSeconds(phase.attacks[j].timeBeforeNextAttack);
+                }
                 else
                     yield return actual_attack = startAttack(phase.attacks[j]);
                 j++;
 
-                //Si estamos en una transición pasamos a la siguiente fase en cuanto acaben los ataques
+                //Si estamos en una transiciÃ³n pasamos a la siguiente fase en cuanto acaben los ataques
                 if (phase.transition && j == phase.attacks.Length) break;
                 //En caso contrario, repetimos hasta que se cumpla el limite de vida
                 else if (j == phase.attacks.Length) j = 0;
@@ -143,6 +191,7 @@ public class FinalBossController : EnemyManager
                 c = StartCoroutine(InvokeSnowRain(DL_object, attack.repetitions, attack.cooldown, attack.timeBeforeNextAttack));
                 break;
             case AttackType.DP:
+                c = StartCoroutine(ActivateShooter_DP(DP_object, attack.cooldown, attack.timeBeforeNextAttack));
                 break;
             case AttackType.SD:
                 c = StartCoroutine(ActivateShooter(SD_object, attack.repetitions, attack.duration, attack.cooldown, attack.timeBeforeNextAttack));
@@ -173,6 +222,8 @@ public class FinalBossController : EnemyManager
         yield return new WaitForSeconds(duration);
 
         shooter.SetActive(false);
+
+        walk = actual_Phase_Walk;
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
     }
@@ -185,9 +236,12 @@ public class FinalBossController : EnemyManager
         yield return new WaitForSeconds(duration);
 
         shooter.SetActive(false);
+
+        walk = actual_Phase_Walk;
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
     }
+
 
     public IEnumerator ActivateShooter(GameObject shooter, int repetitions, float duration, float cooldown, float waitTime)
     {
@@ -199,8 +253,32 @@ public class FinalBossController : EnemyManager
             shooter.SetActive(false);
             yield return new WaitForSeconds(cooldown);
         }
+        walk = actual_Phase_Walk;
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
+    }
+
+    public IEnumerator ActivateShooter_DP(GameObject shooter, float cooldown, float waitTime)
+    {
+        attack_numbers++;
+        shooter.SetActive(true);
+        attack_numbers--;
+
+        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
+        {
+            sp.ShootCooldown = cooldown;
+        }
+
+        yield return new WaitForSeconds(cooldown);
+
+        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
+        {
+            sp.ShootCooldown = 99;
+        }
+
+        shooter.SetActive(false);
+        walk = actual_Phase_Walk;
+        yield return new WaitForSeconds(waitTime);
     }
 
     public IEnumerator ActivateShooter_3DS(GameObject shooter, GameObject shooter2, int repetitions, float duration, float cooldown, float waitTime)
@@ -218,6 +296,7 @@ public class FinalBossController : EnemyManager
 
             yield return new WaitForSeconds(cooldown);
         }
+        walk = actual_Phase_Walk;
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
     }
@@ -238,8 +317,10 @@ public class FinalBossController : EnemyManager
     public IEnumerator InvokeSnowRain(GameObject shooter, int repetitions, float cooldown, float waitTime)
     { 
         attack_numbers++;
-        //Animación
+        yield return new WaitForSeconds(1);
         attack_numbers--;
+
+        walk = actual_Phase_Walk;
 
         for (int i = 0; i < repetitions; i++)
         {
@@ -257,11 +338,14 @@ public class FinalBossController : EnemyManager
     public IEnumerator InstantiateJail(GameObject shooter, float waitTime)
     {
         attack_numbers++;
-        //Animación
+        //AnimaciÃ³n
+        yield return new WaitForSeconds(1);
+        attack_numbers--;
 
-       Instantiate(shooter, new Vector3(target.position.x, 1, target.position.z - 8), Quaternion.identity);
+        walk = actual_Phase_Walk;
+
+        Instantiate(shooter, new Vector3(target.position.x, 1, target.position.z - 8), Quaternion.identity);
        yield return new WaitForSeconds(waitTime);
-       attack_numbers--;
     }
 
     public Vector3 getRandomPosAbovePlayer()

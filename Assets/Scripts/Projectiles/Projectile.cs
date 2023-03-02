@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
 
 	[SerializeField] float impulseForce;
 
+	[SerializeField] bool invincible = false;
+
 	LayerMask _ignoringLayer;
 
 	public LayerMask IgnoringLayer { get => _ignoringLayer; set => _ignoringLayer = value; }
@@ -24,7 +26,7 @@ public class Projectile : MonoBehaviour
 			DestroyProjectile();
 	}
 
-	private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.layer != IgnoringLayer)
 		{
@@ -32,7 +34,14 @@ public class Projectile : MonoBehaviour
 			if (hM)
 				hM.takeDamage(Damage);
 
-			DestroyProjectile();
+			if(invincible && (other.gameObject.layer == 7 || other.gameObject.layer == 14))
+            {
+				//No hacemos nada porque si es invencible, chocar con proyectiles o el jugador no lo destruye
+            }
+			else
+			{
+				DestroyProjectile();
+			}
 		}
 	}
 

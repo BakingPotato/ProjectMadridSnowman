@@ -32,6 +32,7 @@ public class ShootingProjectiles : MonoBehaviour
     {
         if (auto || (!canShoot && isPlayer))
         {
+            _currentTime = ShootCooldown;
             Shooting = true;
 
         }
@@ -54,7 +55,6 @@ public class ShootingProjectiles : MonoBehaviour
                     if (auto)
                     {
                         Shoot(transform.forward, 1);
-
                     }
                 }
             }

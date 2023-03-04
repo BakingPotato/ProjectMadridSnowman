@@ -9,10 +9,10 @@ public class AutoDestroy : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(WaitAndDestory(timer));
+        StartCoroutine(WaitAndDestroy(timer));
     }
 
-    private IEnumerator WaitAndDestory(float waitTime)
+    private IEnumerator WaitAndDestroy(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         Destroy(gameObject);

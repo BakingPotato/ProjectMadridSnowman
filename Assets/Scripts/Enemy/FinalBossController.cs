@@ -37,6 +37,8 @@ public class FinalBossController : EnemyManager
     int attack_numbers = 0;
     Coroutine actual_attack;
     bool actual_Phase_Walk;
+    bool goingUp = false;
+    bool goingDown = false;
 
     [Header("Contenedores")]
     public GameObject DL_object;
@@ -48,12 +50,18 @@ public class FinalBossController : EnemyManager
     public GameObject DG_object;
     public GameObject DF_object;
     public GameObject JAIL_object;
+    public GameObject DJump_object;
+    public GameObject DKIck_object;
+    public GameObject Godness_object;
+    Rigidbody rb;
 
     public override void Start()
     {
         health = GetComponent<HealthManager>();
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = GetComponent<Rigidbody>();
+
         StartCoroutine(MainControl());
 
         actual_attack = null;
@@ -66,6 +74,16 @@ public class FinalBossController : EnemyManager
         distanceToTarget = Vector3.Distance(target.position, transform.position);
         //Si es provocado o el jugador entra en su rango, persigue al jugador
         EngageTarget();
+
+        if (goingUp)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 20, Space.World);
+        }
+
+        if (goingDown)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime * 25, Space.World);
+        }
     }
 
     protected virtual void EngageTarget()
@@ -94,11 +112,11 @@ public class FinalBossController : EnemyManager
     {
         if (navMeshAgent)
         {
-            if (walk)
+            if (walk & navMeshAgent.isActiveAndEnabled)
             {
                 navMeshAgent.SetDestination(target.position);
             }
-            else if (!walk)
+            else if (!walk & navMeshAgent.isActiveAndEnabled)
             {
                 navMeshAgent.ResetPath();
             }
@@ -204,6 +222,15 @@ public class FinalBossController : EnemyManager
                 break;
             case AttackType.WD:
                 c = StartCoroutine(ActivateShooter(WD_object, attack.duration, attack.timeBeforeNextAttack));
+                break;
+            case AttackType.JUMP:
+                c = StartCoroutine(JumpAttack(DJump_object, attack.repetitions, attack.duration, attack.cooldown, attack.timeBeforeNextAttack));
+                break;
+            case AttackType.KICK:
+                c = StartCoroutine(KickAttack(DKIck_object, attack.repetitions, attack.cooldown, attack.timeBeforeNextAttack));
+                break;
+            case AttackType.DG:
+                c = StartCoroutine(DGAttack(DG_object, attack.duration, attack.cooldown, attack.timeBeforeNextAttack));
                 break;
             case AttackType.JAIL:
                 c = StartCoroutine(InstantiateJail(JAIL_object, attack.timeBeforeNextAttack));
@@ -333,6 +360,121 @@ public class FinalBossController : EnemyManager
             yield return new WaitForSeconds(cooldown);
         }
         yield return new WaitForSeconds(waitTime);
+    }
+
+    public IEnumerator JumpAttack(GameObject shooter, int repetitions, float duration, float cooldown, float waitTime)
+    {
+        navMeshAgent.enabled = false;
+
+        for(int i = 0; i < repetitions; i++)
+        {
+            goingUp = true;
+            while (transform.position.y < 25)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            goingUp = false;
+
+            Godness_object.GetComponent<MeshRenderer>().enabled = false;
+
+            yield return new WaitForSeconds(duration);
+
+            Vector3 targetFall = target.position;
+
+            Godness_object.GetComponent<MeshRenderer>().enabled = true;
+
+            transform.position = new Vector3(targetFall.x, 30.0f, targetFall.z);
+
+            goingDown = true;
+            while (transform.position.y > 1)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            goingDown = false;
+
+            Instantiate(shooter, new Vector3(transform.position.x, 1, transform.position.z), Quaternion.identity);
+
+            yield return new WaitForSeconds(cooldown);
+        }
+        //Animación
+        attack_numbers--;
+        navMeshAgent.enabled = true;
+
+        walk = actual_Phase_Walk;
+
+        yield return new WaitForSeconds(waitTime);
+    }
+
+    public IEnumerator DGAttack(GameObject shooter, float duration, float cooldown, float waitTime)
+    {
+        navMeshAgent.enabled = false;
+
+        goingUp = true;
+        while (transform.position.y < 25)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        goingUp = false;
+
+        Godness_object.GetComponent<MeshRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        Godness_object.GetComponent<MeshRenderer>().enabled = true;
+
+        transform.position = new Vector3(-1.77f, 30.0f, -19.66f);
+
+        goingDown = true;
+        while (transform.position.y > 1)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        goingDown = false;
+
+        shooter.SetActive(true);
+
+        yield return new WaitForSeconds(duration);
+
+        Instantiate(JAIL_object, new Vector3(target.position.x, 1, target.position.z - 8), Quaternion.identity);
+
+        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
+        {
+            sp.ShootCooldown = 0.4F;
+        }
+
+        yield return new WaitForSeconds(cooldown);
+
+        shooter.SetActive(false);
+
+        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
+        {
+            sp.ShootCooldown = 0.7F;
+        }
+
+        //Animación
+        attack_numbers--;
+        navMeshAgent.enabled = true;
+
+        walk = actual_Phase_Walk;
+
+        yield return new WaitForSeconds(waitTime);
+    }
+
+    public IEnumerator KickAttack(GameObject shooter, int repetitions, float cooldown, float waitTime)
+    {
+        attack_numbers++;
+
+        for (int j = 0; j < repetitions; j++)
+        {
+            yield return new WaitForSeconds(1);
+            shooter.SetActive(true);
+            yield return new WaitForSeconds(0.7f);
+            shooter.SetActive(false);
+            yield return new WaitForSeconds(cooldown);
+        }
+        walk = actual_Phase_Walk;
+        yield return new WaitForSeconds(waitTime);
+        attack_numbers--;
     }
 
     public IEnumerator InstantiateJail(GameObject shooter, float waitTime)

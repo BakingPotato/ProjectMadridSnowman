@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 172704135531579477}
   - component: {fileID: 172704135531579476}
   - component: {fileID: 4839091256449293041}
+  - component: {fileID: 8500316750035326811}
   - component: {fileID: 172704135531579480}
   m_Layer: 14
-  m_Name: SnowBallBoss_DG
+  m_Name: DKICK_Projectile_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 172704135531579475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3715120765486732270}
@@ -96,7 +97,7 @@ SphereCollider:
   m_GameObject: {fileID: 172704135531579475}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.52
   m_Center: {x: 0, y: 0, z: 0}
@@ -116,6 +117,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8500316750035326811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172704135531579475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ccd67a1520af8419d2c74112eeb896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DKick_Holder: {fileID: 3435728607315326765, guid: 3b6d2325ca2d37e47b2a0d9569c12899, type: 3}
 --- !u!114 &172704135531579480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,10 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4129a2b542e73154db4587a8657d6db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
-  lifeSpan: 5
-  impulseForce: 8
-  invincible: 0
+  damage: 5
+  lifeSpan: 4
+  impulseForce: 4
+  invincible: 1
   snow: {fileID: 1028879074283549735, guid: 4a98f78b7d4162042a3fd6e8e75202ff, type: 3}
 --- !u!1001 &3748256967894692869
 PrefabInstance:
@@ -197,9 +211,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3ce852138fda3a441917eb37692c3434, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3ce852138fda3a441917eb37692c3434, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3ce852138fda3a441917eb37692c3434, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1caeaa400c3c35d458da97053bd5b58e, type: 2}
     - target: {fileID: 919132149155446097, guid: 3ce852138fda3a441917eb37692c3434, type: 3}
       propertyPath: m_Name
       value: BolaNieve

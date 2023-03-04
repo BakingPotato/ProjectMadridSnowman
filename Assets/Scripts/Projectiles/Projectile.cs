@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
 			if (hM)
 				hM.takeDamage(Damage);
 
-			if(invincible && (other.gameObject.layer == 7 || other.gameObject.layer == 14))
+			if(invincible && (other.gameObject.layer == 7 || other.gameObject.layer == 11 || other.gameObject.layer == 14))
             {
 				//No hacemos nada porque si es invencible, chocar con proyectiles o el jugador no lo destruye
             }

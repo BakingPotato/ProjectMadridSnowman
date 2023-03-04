@@ -23,12 +23,12 @@ public class EnemyHealthManager : HealthManager
             health -= damage;
             healthBar.SetHealth(health);
             //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyHurt", transform.position);
-            if (snowExplosion)
-            {
-                ParticleSystem SnowExplode = Instantiate(snowExplosion);
-                SnowExplode.transform.position = transform.position;
-                SnowExplode.Play();
-            }
+            //if (snowExplosion)
+            //{
+            //    ParticleSystem SnowExplode = Instantiate(snowExplosion);
+            //    SnowExplode.transform.position = transform.position;
+            //    SnowExplode.Play();
+            //}
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
             StartBlinking();
             if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)

@@ -7,12 +7,22 @@ public class EnemyHealthManager : HealthManager
 	[SerializeField] EnemyHealthBar healthBar;
 
     public bool invincible = false;
+    public bool finalBoss = false;
+
     public ParticleSystem snowExplosion;
 	// Start is called before the first frame update
 	void Start()
     {
-        health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if (!finalBoss)
+        {
+            health = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
+        else
+        {
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(health);
+        }
 
         GM = GameManager.Instance;
     }
@@ -49,7 +59,15 @@ public class EnemyHealthManager : HealthManager
             //AudioManager.Instance.PlaySFX3DRandomPitch("EnemyDeath", transform.position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_dead", transform.position);
             GM.CurrentLevelManager.KillCount++;
-            this.GetComponent<EnemiesLootManager>().InstanceRandomLoot();
+            if (!finalBoss)
+            {
+                this.GetComponent<EnemiesLootManager>().InstanceRandomLoot();
+            }
+            else
+            {
+                //Animación muerte
+                GM.ShowResults("Creditos");
+            }
             Destroy(gameObject);
         }
     }

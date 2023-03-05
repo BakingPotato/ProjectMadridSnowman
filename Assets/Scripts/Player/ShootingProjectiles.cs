@@ -54,7 +54,7 @@ public class ShootingProjectiles : MonoBehaviour
                     Shooting = false;
                     if (auto)
                     {
-                        Shoot(transform.forward, 1);
+                        Shoot(transform.forward, -1);
                     }
                 }
             }

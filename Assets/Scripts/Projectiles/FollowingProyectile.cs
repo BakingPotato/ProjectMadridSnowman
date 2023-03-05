@@ -24,7 +24,7 @@ public class FollowingProyectile : MonoBehaviour
         else
             target = null;
 
-        speed = Random.Range(4, 6);
+        speed = Random.Range(4, 5);
         rotateSpeed = Random.Range(2, 6);
 
         StartCoroutine(pursuePlayer());

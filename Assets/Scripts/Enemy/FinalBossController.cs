@@ -7,7 +7,7 @@ public class FinalBossController : EnemyManager
 
     public enum AttackType
     {
-        DT, DF, DP, DL, SD, SD2, SD3, WD, DG, DASH, JUMP, KICK, JAIL
+        DT, DF, DP, DL, SD, SD2, SD3, WD, DG, JUMP, KICK, JAIL, LASTSTAND
     }
 
     [System.Serializable]
@@ -29,6 +29,9 @@ public class FinalBossController : EnemyManager
         public bool transition;
         public bool walking;
     }
+
+
+    GameManager GM;
 
     [Header("Fases")]
     [SerializeField] Phase[] Phases;
@@ -52,11 +55,15 @@ public class FinalBossController : EnemyManager
     public GameObject JAIL_object;
     public GameObject DJump_object;
     public GameObject DKIck_object;
+    public GameObject LASTSTAND_object;
+    public GameObject LASTSTAND_DG_object;
     public GameObject Godness_object;
     Rigidbody rb;
 
     public override void Start()
     {
+        GM = GameManager.Instance;
+
         health = GetComponent<HealthManager>();
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -130,6 +137,10 @@ public class FinalBossController : EnemyManager
         Coroutine actualPhase = null;
         for(int i = 0; i < Phases.Length; i++)
         {
+            if(i == 5)
+            {
+                GM.CurrentLevelManager.specialGameOver = true;
+            }
             Debug.Log("actual phase is " + i );
             if (Phases[i].transition)
             {
@@ -235,6 +246,9 @@ public class FinalBossController : EnemyManager
             case AttackType.JAIL:
                 c = StartCoroutine(InstantiateJail(JAIL_object, attack.timeBeforeNextAttack));
                 break;
+            case AttackType.LASTSTAND:
+                c = StartCoroutine(LastStandAttack(LASTSTAND_object, attack.duration, attack.cooldown, attack.timeBeforeNextAttack));
+                break;
         }
         return c;
     }
@@ -296,7 +310,7 @@ public class FinalBossController : EnemyManager
             sp.ShootCooldown = cooldown;
         }
 
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(cooldown+0.5f);
 
         foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
         {
@@ -351,11 +365,11 @@ public class FinalBossController : EnemyManager
 
         for (int i = 0; i < repetitions; i++)
         {
-            int limit = Random.Range(5, 8);
+            int limit = Random.Range(7, 10);
             for (int j = 0; j < limit; j++)
             {
                 Instantiate(shooter, getRandomPosAbovePlayer(), Quaternion.Euler(new Vector3(90, 0, 0)));
-                yield return new WaitForSeconds(0.8f);
+                yield return new WaitForSeconds(0.5f);
             }
             yield return new WaitForSeconds(cooldown);
         }
@@ -460,6 +474,55 @@ public class FinalBossController : EnemyManager
         yield return new WaitForSeconds(waitTime);
     }
 
+    public IEnumerator LastStandAttack(GameObject shooter, float duration, float cooldown, float waitTime)
+    {
+        navMeshAgent.enabled = false;
+
+        goingUp = true;
+        while (transform.position.y < 25)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        goingUp = false;
+
+        Godness_object.GetComponent<MeshRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        Godness_object.GetComponent<MeshRenderer>().enabled = true;
+
+        transform.position = new Vector3(-1.77f, 30.0f, -5.3f);
+
+        goingDown = true;
+        while (transform.position.y > 1)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        goingDown = false;
+
+        shooter.SetActive(true);
+        yield return new WaitForSeconds(duration);
+
+        GameObject dgFinal = Instantiate(LASTSTAND_DG_object, new Vector3(-1.77f, 1, -8f), Quaternion.identity);
+
+        foreach (ShootingProjectiles sp in dgFinal.GetComponentsInChildren<ShootingProjectiles>())
+        {
+            sp.ShootCooldown = 0.6F;
+        }
+
+        dgFinal.SetActive(true);
+
+        yield return new WaitForSeconds(cooldown);
+
+        //Animación
+        attack_numbers--;
+        navMeshAgent.enabled = true;
+
+        walk = actual_Phase_Walk;
+
+        yield return new WaitForSeconds(waitTime);
+    }
+
     public IEnumerator KickAttack(GameObject shooter, int repetitions, float cooldown, float waitTime)
     {
         attack_numbers++;
@@ -492,7 +555,7 @@ public class FinalBossController : EnemyManager
 
     public Vector3 getRandomPosAbovePlayer()
     {
-        return new Vector3(Random.Range(-3.0f, 3.0f), 15, Random.Range(-3.0f, 3.0f)) + target.transform.position;
+        return new Vector3(Random.Range(-2f, 2f), 15, Random.Range(-2f, 2f)) + target.transform.position;
     }
 
 }

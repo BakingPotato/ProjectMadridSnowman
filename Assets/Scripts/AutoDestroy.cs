@@ -7,12 +7,14 @@ public class AutoDestroy : MonoBehaviour
 
     public float timer = 2.5f;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if(Time.time > timer)
-        {
-            Destroy(this);
-        }
+        StartCoroutine(WaitAndDestroy(timer));
+    }
+
+    private IEnumerator WaitAndDestroy(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Destroy(gameObject);
     }
 }

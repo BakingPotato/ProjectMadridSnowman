@@ -69,7 +69,10 @@ public class LevelManager : MonoBehaviour
     }
 	public bool GameStarted { get => _gameStarted; set => _gameStarted = value; }
 
-	private void Awake()
+    public bool specialGameOver = false;
+
+
+    private void Awake()
 	{
         GameManager.Instance.CurrentLevelManager = this;
     }
@@ -131,9 +134,17 @@ public class LevelManager : MonoBehaviour
 
     public void startGameOver(bool alive)
     {
-        setGameOver(true);
-        UIManager.ShowGameOver(alive);
-        //AudioManager.Instance.PlayMusic("GameOver");
+        if (!specialGameOver)
+        {
+            setGameOver(true);
+            UIManager.ShowGameOver(alive);
+            //AudioManager.Instance.PlayMusic("GameOver");
+        }
+        else
+        {
+            UIManager.ShowSpecialGameOver();
+        }
+
     }
 
     public bool getGameOver()

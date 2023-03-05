@@ -34,6 +34,9 @@ public class UIManager : MonoBehaviour
 	[SerializeField] GameObject resultsPanel;
 	[SerializeField] UITextInfo uITextInfo;
 
+	[SerializeField] GameObject specialGameOverPanel;
+	[SerializeField] Animator specialGameOverAnim;
+
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
 
@@ -164,6 +167,15 @@ public class UIManager : MonoBehaviour
 		_totalText.text = total;
 
 		resultsAnim.SetTrigger("showResults");
+		//_continueButton.onClick.AddListener(delegate () { SwitchScene(nextSceneName); });
+	}
+
+
+	public void ShowSpecialGameOver()
+	{
+		specialGameOverPanel.SetActive(true);
+
+		specialGameOverAnim.SetTrigger("showSpecialGameOver");
 		//_continueButton.onClick.AddListener(delegate () { SwitchScene(nextSceneName); });
 	}
 

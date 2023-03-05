@@ -9,8 +9,8 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
     [SerializeField] float minShootCooldown = 0.15f;
-    [SerializeField] bool auto = false;
-    [SerializeField] bool canShoot = true;
+    public bool auto = false;
+    public bool canShoot = true;
 
     [SerializeField] bool isPlayer;
 
@@ -32,6 +32,7 @@ public class ShootingProjectiles : MonoBehaviour
     {
         if (auto || (!canShoot && isPlayer))
         {
+            _currentTime = ShootCooldown;
             Shooting = true;
 
         }
@@ -53,8 +54,7 @@ public class ShootingProjectiles : MonoBehaviour
                     Shooting = false;
                     if (auto)
                     {
-                        Shoot(transform.forward, 1);
-
+                        Shoot(transform.forward, -1);
                     }
                 }
             }

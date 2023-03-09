@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FinalBossController : EnemyManager
@@ -28,6 +29,7 @@ public class FinalBossController : EnemyManager
         public bool random;
         public bool transition;
         public bool walking;
+        public string name;
     }
 
 
@@ -59,6 +61,8 @@ public class FinalBossController : EnemyManager
     public GameObject LASTSTAND_DG_object;
     public GameObject Godness_object;
     Rigidbody rb;
+
+    [SerializeField] TextMeshProUGUI name;
 
     public override void Start()
     {
@@ -185,6 +189,8 @@ public class FinalBossController : EnemyManager
         {
             while (true)
             {
+                name.text = phase.name;
+
                 actual_attack = startAttack(phase.attacks[j]);
 
                 walk = false;

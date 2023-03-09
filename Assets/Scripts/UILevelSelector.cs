@@ -88,7 +88,8 @@ public class UILevelSelector : MonoBehaviour
             lockedButton.SetActive(true);
             lockedPanel.SetActive(true);
             playButton.SetActive(false);
-            descriptionText.text = "????";
+            descriptionText.text = "???";
+            levelNameText.text = "???";
             recordText.text = "Record: 0";
         }
 		else
@@ -98,10 +99,10 @@ public class UILevelSelector : MonoBehaviour
             playButton.SetActive(true);
             descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
             recordText.text = "Record: " + displayLevel.record;
+            levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
         }
 
         backgroundImg.sprite = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sprite;
-        levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
     }
 
     public void NextLevel()

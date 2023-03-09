@@ -8715,6 +8715,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 0
+    name: Mari
   - attacks:
     - type: 9
       repetitions: 3
@@ -8730,6 +8731,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 1
+    name: Mari
   - attacks:
     - type: 0
       repetitions: 0
@@ -8765,6 +8767,7 @@ MonoBehaviour:
     random: 0
     transition: 0
     walking: 1
+    name: Amalur
   - attacks:
     - type: 9
       repetitions: 5
@@ -8790,6 +8793,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 1
+    name: Amalur
   - attacks:
     - type: 9
       repetitions: 1
@@ -8840,6 +8844,7 @@ MonoBehaviour:
     random: 0
     transition: 0
     walking: 1
+    name: Diosa Madre
   walk: 0
   walk_speed: 1.5
   DL_object: {fileID: 8089665013928579378, guid: 0bcdbf83f0cec1c43913a2ed7e1724e7, type: 3}
@@ -8856,6 +8861,7 @@ MonoBehaviour:
   LASTSTAND_object: {fileID: 3435728608212474207}
   LASTSTAND_DG_object: {fileID: 8573850292294777982, guid: 9961d2c355303ae4587a7e5ed6f975c7, type: 3}
   Godness_object: {fileID: 2364708087947614127}
+  name: {fileID: 346167958}
 --- !u!114 &81354111780408209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21057,6 +21063,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2854670915449970541, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: _personalizedTitle
+      value: "Nunca me rendir\xE9"
+      objectReference: {fileID: 0}
     - target: {fileID: 2854670915580892762, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.12730408
@@ -21072,6 +21082,10 @@ PrefabInstance:
     - target: {fileID: 4242604667280348328, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.9248009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355901198289370327, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4759465864368957947, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchorMax.x

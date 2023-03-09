@@ -22,10 +22,14 @@ public class HamController : UmbrellaController
                 {
                     ehm.takeDamage(damage); 
                 }
-                //else
-                //{
-                //    Debug.Log("enemigo es null pero colisiona :)");
-                //}
+                else
+                {
+                    SpecialEnemyHealthManager sehm = collider.transform.GetComponent<SpecialEnemyHealthManager>();
+                    if (sehm != null)
+                    {
+                        sehm.takeDamage(damage);
+                    }
+                }
                 break;
 
             case "Box":

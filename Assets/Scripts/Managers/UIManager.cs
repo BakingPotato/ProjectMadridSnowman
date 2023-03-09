@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
 	[Header("Game UI")]
 	[SerializeField] TextMeshProUGUI _titleText;
+	public string _personalizedTitle = "";
     [SerializeField] TextMeshProUGUI _pointsText;
 	[SerializeField] bool money = true;
     [SerializeField] TextMeshProUGUI _timerText;
@@ -61,7 +62,16 @@ public class UIManager : MonoBehaviour
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
 
-		_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+		
+
+		if(GM.LevelsSO[GM.CurrentLevelIdx].levelName == "Tutorial")
+        {
+			_titleText.text = _personalizedTitle;
+		}
+        else
+        {
+			_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+		}
 	}
 
 	public void StartLevelFromUI()

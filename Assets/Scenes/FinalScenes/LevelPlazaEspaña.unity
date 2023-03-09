@@ -4781,6 +4781,77 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7948337973884282693, guid: c034930456aa68441b2b6a8b2c16e8f2, type: 3}
+--- !u!1001 &263837959
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -42.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -66.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: Es un cartel avisando a la gente que se refugien en los metros, pagando
+        primero claro.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &263837960 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 263837959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &264373963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6673,7 +6744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &337443816
 PrefabInstance:
@@ -7521,7 +7592,7 @@ Transform:
   - {fileID: 759399681}
   - {fileID: 301451913}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &391647768
 PrefabInstance:
@@ -13184,7 +13255,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
-      value: "Esas mochilas son... Espero que mis compa\xF1eros esten bien."
+      value: "Dicen que los riders m\xE1s expertos pueden recuperar todas sus fuerzas
+        cuando estan al borde del colapso, suena a mentira.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13811,7 +13883,7 @@ Transform:
   - {fileID: 1766540916}
   - {fileID: 902168829547281782}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &656366687 stripped
 Transform:
@@ -20424,7 +20496,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &959042344
 PrefabInstance:
@@ -31946,6 +32018,7 @@ Transform:
   - {fileID: 1157767087}
   - {fileID: 1907028452}
   - {fileID: 644112091}
+  - {fileID: 263837960}
   m_Father: {fileID: 655569470}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37484,7 +37557,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 140.1, y: 11.6, z: 0}
 --- !u!1 &1690209297 stripped
 GameObject:
@@ -38129,7 +38202,7 @@ Transform:
   - {fileID: 1901947883}
   - {fileID: 241394833}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1724660887
 PrefabInstance:
@@ -41936,8 +42009,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
-      value: "Los mu\xF1ecos de nieve estan demasiado organizados, ya han tomado
-        media ciudad."
+      value: "Un panfleto ecologista: \"Si da\xF1amos a nuestro planeta, no lloreis
+        cuando se defienda\"\n"
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48248,7 +48321,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 3.854, y: -98.317, z: -37.78}
 --- !u!4 &3057192991578182676
 Transform:

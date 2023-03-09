@@ -1390,7 +1390,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 939666378}
+  - {fileID: 432364169}
   m_Father: {fileID: 1901947883}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1615,10 +1617,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 40.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1651,7 +1653,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.82844555, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.22695911, w: 2.156353}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1868,6 +1870,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411874484}
   m_CullTransparentMesh: 1
+--- !u!4 &432364169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+  m_PrefabInstance: {fileID: 1512372149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432767619
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,6 +4306,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8282781474161655912, guid: 8c88a45db87ca8b4d80bfbf7955aa24d, type: 3}
   m_PrefabInstance: {fileID: 928996606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &939666378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+  m_PrefabInstance: {fileID: 1685410581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &941389210
 GameObject:
@@ -7260,6 +7272,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5501c4c7cf4e2149863af4b0284396d, type: 3}
+--- !u!1001 &1512372149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 281691803}
+    m_Modifications:
+    - target: {fileID: 2849166205685669663, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_Name
+      value: HealthSpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: waitTime
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: initial_waitTime
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: ranged.Array.data[0]
+      value: 
+      objectReference: {fileID: 6288926318121448692, guid: 7432367cd1abaa24a93ea3d4d42c3191, type: 3}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 31.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
 --- !u!1 &1539237793
 GameObject:
   m_ObjectHideFlags: 0
@@ -7795,6 +7884,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 100.19, y: -30, z: 0}
+--- !u!1001 &1685410581
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 281691803}
+    m_Modifications:
+    - target: {fileID: 2849166205685669663, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_Name
+      value: HealthSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: waitTime
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: initial_waitTime
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: ranged.Array.data[0]
+      value: 
+      objectReference: {fileID: 6288926318121448692, guid: 7432367cd1abaa24a93ea3d4d42c3191, type: 3}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
 --- !u!1 &1701628408
 GameObject:
   m_ObjectHideFlags: 0
@@ -9597,6 +9763,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 0
+    name: Cibeles
   - attacks:
     - type: 1
       repetitions: 0
@@ -9617,6 +9784,7 @@ MonoBehaviour:
     random: 0
     transition: 0
     walking: 0
+    name: Kybeles
   - attacks:
     - type: 3
       repetitions: 3
@@ -9652,6 +9820,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 0
+    name: Rea
   - attacks:
     - type: 3
       repetitions: 5
@@ -9663,10 +9832,11 @@ MonoBehaviour:
       duration: 15
       cooldown: 0
       timeBeforeNextAttack: 2
-    HPLimit: 210
+    HPLimit: 220
     random: 0
     transition: 1
     walking: 0
+    name: Magna Mater
   - attacks:
     - type: 2
       repetitions: 0
@@ -9713,10 +9883,11 @@ MonoBehaviour:
       duration: 0
       cooldown: 1
       timeBeforeNextAttack: 3
-    HPLimit: 170
+    HPLimit: 190
     random: 0
     transition: 0
     walking: 1
+    name: Tiamat
   - attacks:
     - type: 11
       repetitions: 0
@@ -9732,16 +9903,22 @@ MonoBehaviour:
       repetitions: 0
       duration: 5
       cooldown: 1.5
-      timeBeforeNextAttack: 2
+      timeBeforeNextAttack: 1
+    - type: 3
+      repetitions: 5
+      duration: 1
+      cooldown: 0
+      timeBeforeNextAttack: 0
     - type: 0
       repetitions: 0
       duration: 5
       cooldown: 0.5
       timeBeforeNextAttack: 2
-    HPLimit: 160
+    HPLimit: 185
     random: 0
     transition: 1
     walking: 1
+    name: Umai
   - attacks:
     - type: 2
       repetitions: 0
@@ -9753,20 +9930,22 @@ MonoBehaviour:
       duration: 10
       cooldown: 12
       timeBeforeNextAttack: 3
-    HPLimit: 150
+    HPLimit: 165
     random: 0
     transition: 1
     walking: 0
+    name: Danu
   - attacks:
     - type: 9
       repetitions: 3
       duration: 1
       cooldown: 1
       timeBeforeNextAttack: 5
-    HPLimit: 130
+    HPLimit: 160
     random: 0
     transition: 1
     walking: 0
+    name: Mari
   - attacks:
     - type: 0
       repetitions: 0
@@ -9793,10 +9972,42 @@ MonoBehaviour:
       duration: 0
       cooldown: 0
       timeBeforeNextAttack: 2
-    HPLimit: 80
+    HPLimit: 120
     random: 0
     transition: 0
     walking: 1
+    name: Mari
+  - attacks:
+    - type: 11
+      repetitions: 1
+      duration: 0.5
+      cooldown: 0.5
+      timeBeforeNextAttack: 0
+    - type: 9
+      repetitions: 3
+      duration: 1.5
+      cooldown: 1.5
+      timeBeforeNextAttack: 2
+    - type: 2
+      repetitions: 0
+      duration: 1
+      cooldown: 1
+      timeBeforeNextAttack: 0
+    - type: 6
+      repetitions: 1
+      duration: 3
+      cooldown: 1
+      timeBeforeNextAttack: 5
+    - type: 9
+      repetitions: 5
+      duration: 0
+      cooldown: 0
+      timeBeforeNextAttack: 1
+    HPLimit: 50
+    random: 0
+    transition: 1
+    walking: 1
+    name: Amalur
   - attacks:
     - type: 9
       repetitions: 5
@@ -9813,6 +10024,11 @@ MonoBehaviour:
       duration: 0.5
       cooldown: 0
       timeBeforeNextAttack: 0
+    - type: 3
+      repetitions: 10
+      duration: 1
+      cooldown: 0
+      timeBeforeNextAttack: 0
     - type: 2
       repetitions: 0
       duration: 1
@@ -9822,6 +10038,7 @@ MonoBehaviour:
     random: 0
     transition: 1
     walking: 1
+    name: Diosa Madre
   - attacks:
     - type: 9
       repetitions: 1
@@ -9848,6 +10065,11 @@ MonoBehaviour:
       duration: 0
       cooldown: 0
       timeBeforeNextAttack: 1
+    - type: 9
+      repetitions: 2
+      duration: 0.5
+      cooldown: 0.5
+      timeBeforeNextAttack: 4
     - type: 3
       repetitions: 5
       duration: 1
@@ -9858,10 +10080,11 @@ MonoBehaviour:
       duration: 1
       cooldown: 1
       timeBeforeNextAttack: 4
-    HPLimit: 50
+    HPLimit: 0
     random: 0
     transition: 0
     walking: 1
+    name: Diosa Madre
   walk: 0
   walk_speed: 1.5
   DL_object: {fileID: 8089665013928579378, guid: 0bcdbf83f0cec1c43913a2ed7e1724e7, type: 3}
@@ -9878,6 +10101,7 @@ MonoBehaviour:
   LASTSTAND_object: {fileID: 3435728608212474207}
   LASTSTAND_DG_object: {fileID: 8573850292294777982, guid: 9961d2c355303ae4587a7e5ed6f975c7, type: 3}
   Godness_object: {fileID: 2364708087947614127}
+  name: {fileID: 346167958}
 --- !u!114 &81354111780408209
 MonoBehaviour:
   m_ObjectHideFlags: 0

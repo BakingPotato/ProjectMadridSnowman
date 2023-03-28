@@ -79,7 +79,6 @@ public class VideoSettings : MonoBehaviour
         //}
 
         Application.targetFrameRate = selectedFPS;
-
     }
 
     public void reviewResolutions()

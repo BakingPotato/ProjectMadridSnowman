@@ -175,6 +175,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &3891566
@@ -727,6 +728,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 1
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &111087458
@@ -1057,6 +1059,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &205848669
@@ -1171,6 +1174,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &251664627
@@ -1311,6 +1315,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &281688918
@@ -1393,6 +1398,7 @@ Transform:
   m_Children:
   - {fileID: 939666378}
   - {fileID: 432364169}
+  - {fileID: 603557548}
   m_Father: {fileID: 1901947883}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1970,6 +1976,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &474737082
@@ -2152,6 +2159,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &520467433
@@ -2283,6 +2291,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3541936156967660619, guid: db2dcb500d5c24a41ad925c52504ac3b, type: 3}
   m_PrefabInstance: {fileID: 8439495230877550435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &603557547
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 281691803}
+    m_Modifications:
+    - target: {fileID: 2849166205685669663, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_Name
+      value: HealthSpawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: waitTime
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: initial_waitTime
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: ranged.Array.data[0]
+      value: 
+      objectReference: {fileID: 6288926318121448692, guid: 7432367cd1abaa24a93ea3d4d42c3191, type: 3}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: enemyArray.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+--- !u!4 &603557548 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2849166205685669665, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
+  m_PrefabInstance: {fileID: 603557547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616017467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2425,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &616017470
@@ -2480,6 +2571,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 1
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &634606669
@@ -2625,6 +2717,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &666546708
@@ -2734,6 +2827,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &670937571
@@ -2838,6 +2932,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &670952414
@@ -3011,6 +3106,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &736337565
@@ -3188,6 +3284,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &741739977
@@ -3773,6 +3870,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &855943969
@@ -3912,6 +4010,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &857468998
@@ -4139,6 +4238,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 1
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &897374615
@@ -4364,6 +4464,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &941389213
@@ -4729,6 +4830,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1046600018
@@ -5170,6 +5272,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1107656337
@@ -5619,6 +5722,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1201336038
@@ -5929,6 +6033,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1266304547
@@ -6395,6 +6500,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1405365414
@@ -7289,7 +7395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
       propertyPath: initial_waitTime
-      value: 35
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
       propertyPath: ranged.Array.data[0]
@@ -7401,6 +7507,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1539237796
@@ -7624,6 +7731,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1578053076
@@ -7728,6 +7836,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &1636295028
@@ -7901,7 +8010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
       propertyPath: initial_waitTime
-      value: 65
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: 40d9548280bc8f84595cfc464b1fc3cc, type: 3}
       propertyPath: ranged.Array.data[0]
@@ -8967,6 +9076,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &2044873320
@@ -9306,6 +9416,7 @@ MonoBehaviour:
   minShootCooldown: 4
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &2113973390
@@ -9410,6 +9521,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!23 &2139597532
@@ -10813,6 +10925,7 @@ MonoBehaviour:
   minShootCooldown: 0
   auto: 1
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!1 &3435728608212474207
@@ -16100,6 +16213,7 @@ MonoBehaviour:
   minShootCooldown: 0.15
   auto: 0
   canShoot: 1
+  laser: 0
   isPlayer: 1
   enemyAnimator: {fileID: 0}
 --- !u!95 &4915784657973313558

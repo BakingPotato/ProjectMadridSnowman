@@ -41,6 +41,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
 
+	public TMP_Dropdown dropdown_sm;
+
 	FMOD.Studio.Bus sfxBus;
 	FMOD.Studio.Bus musicBus;
 	//FMOD.Studio.Bus otherBus;
@@ -214,5 +216,10 @@ public class UIManager : MonoBehaviour
 		//AudioManager.Instance.PlaySFX("Button");
 		FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/ui_button");
 
+	}
+
+	public void changeShootingMode(int index)
+	{
+		PlayerPrefs.SetString("ShootingMode", dropdown_sm.options[index].text);
 	}
 }

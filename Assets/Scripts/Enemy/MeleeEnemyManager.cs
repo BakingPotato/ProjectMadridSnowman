@@ -8,7 +8,8 @@ public class MeleeEnemyManager : EnemyManager
     public Animator anim;
     public override void AttackTarget()
     {
-        anim.SetTrigger("Attack");
+        if(anim)
+            anim.SetTrigger("Attack");
 
 
         //if (target)

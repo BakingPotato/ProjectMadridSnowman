@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
 	[Header("Botones de opciones")]
 	[SerializeField] GameObject audioPanel;
 	[SerializeField] GameObject videoPanel;
+	[SerializeField] GameObject otherPanel;
 
 	[Header("Opciones de audio")]
 	[SerializeField] Slider musicSlider;
@@ -20,6 +21,8 @@ public class MenuManager : MonoBehaviour
 	[SerializeField] GameObject introPanel;
 	[SerializeField] VideoPlayer introVideo;
 	[SerializeField] float introTime;
+
+	public TMP_Dropdown dropdown_sm;
 
 	FMOD.Studio.Bus sfxBus;
 	FMOD.Studio.Bus musicBus;
@@ -98,6 +101,11 @@ public class MenuManager : MonoBehaviour
 		//AudioManager.Instance.PlayMusic(name);
 	}
 
+	public void changeShootingMode(int index)
+	{
+		PlayerPrefs.SetString("ShootingMode", dropdown_sm.options[index].text);
+	}
+
 	void HideIntroPanel()
 	{
 		introVideo.Stop();
@@ -114,11 +122,20 @@ public class MenuManager : MonoBehaviour
     {
 		audioPanel.SetActive(true);
 		videoPanel.SetActive(false);
+		otherPanel.SetActive(false);
     }
 
 	public void showVideoSettings()
 	{
 		audioPanel.SetActive(false);
 		videoPanel.SetActive(true);
+		otherPanel.SetActive(false);
+	}
+
+	public void showOtherSettings()
+	{
+		audioPanel.SetActive(false);
+		videoPanel.SetActive(false);
+		otherPanel.SetActive(true);
 	}
 }

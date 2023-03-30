@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -21,9 +22,16 @@ public class CharacterMovement : MonoBehaviour
 	public Vector3 LookPos { get => lookPos; set => lookPos = value; }
 
     private Vector3 inputDirection;
+    private Vector3 direction;
+    private Vector2 aimDirection;
 
-	// Start is called before the first frame update
-	void Start()
+    public bool isController;
+
+    PlayerInputActions playerActions;
+    InputAction move;
+
+    // Start is called before the first frame update
+    void Start()
     {
         GM = GameManager.Instance;
 
@@ -31,6 +39,10 @@ public class CharacterMovement : MonoBehaviour
         anim = GetComponent<Animator>();
 
         speed = NORMAL_SPEED;
+
+        playerActions = new PlayerInputActions();
+        playerActions.Player.Enable();
+        move = playerActions.Player.Move;
     }
 
     private void Update()
@@ -39,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
         //El jugador puede moverse mientras no acabe la partida
         if (GM.CurrentLevelManager.GameStarted && GM.CurrentLevelManager.getGameOver() == false)
         {
-            RotateCharacterToMouse();
+            movePlayerWithAim();
         }
         else
         {
@@ -50,7 +62,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //El jugador puede moverse mientras no acabe la partida
-        if(GM.CurrentLevelManager.GameStarted && GM.CurrentLevelManager.getGameOver() == false)
+        if (GM.CurrentLevelManager.GameStarted && GM.CurrentLevelManager.getGameOver() == false)
         {
             GetMovementInput();
         }
@@ -73,15 +85,60 @@ public class CharacterMovement : MonoBehaviour
         transform.LookAt(transform.position + lookDir, Vector3.up);
     }
 
-
-    private void GetMovementInput()
+    public void OnLook(InputAction.CallbackContext context)
     {
-        //Obtenemos los movimientos del jugador
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        aimDirection = context.ReadValue<Vector2>();
+        if (context.control.name == "rightStick")
+        {
+            isController = true;
+            Cursor.visible = false;
+        }
+        else
+        {
+            isController = false;
+            Cursor.visible = true;
+        }
+    }
+
+    public void movePlayerWithAim()
+    {
+        if (isController)
+        {
+            Vector3 joystickDir = new Vector3(aimDirection.x, 0f, aimDirection.y);
+            if(joystickDir != Vector3.zero)
+            {
+                transform.LookAt(transform.position + joystickDir, Vector3.up);
+            }
+        }
+        else
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            //Layer 11 es la del suelo
+            if (Physics.Raycast(ray, out hit, 100, groundLayer))
+            {
+                LookPos = hit.point;
+            }
+
+            Vector3 lookDir = LookPos - transform.position;
+            lookDir.y = 0;
+
+            transform.LookAt(transform.position + lookDir, Vector3.up);
+        }
+    }
+
+
+
+    public void GetMovementInput()
+    {
+        ////Obtenemos los movimientos del jugador
+        //float horizontal = Input.GetAxisRaw("Horizontal");
+        //float vertical = Input.GetAxisRaw("Vertical");
 
         //Aplicamos el normalized para que los diagonales no sean m�s r�pido
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
+        Vector2 inputDirection = playerActions.Player.Move.ReadValue<Vector2>();
+        Vector3 direction = new Vector3(inputDirection.x, 0, inputDirection.y).normalized;
 
         //Si hay movimiento
         if (direction.magnitude >= 0.1f)

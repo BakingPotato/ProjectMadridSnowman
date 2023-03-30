@@ -27,32 +27,50 @@ public class PlayerManager : MonoBehaviour
 
 	private void Update()
 	{
-        if (PlayerPrefs.GetString("ShootingMode", "Pulsar") == "Pulsar")
+        //if (PlayerPrefs.GetString("ShootingMode", "Pulsar") == "Pulsar")
+        //{
+        //    if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
+        //        Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
+        //    {
+        //        Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
+        //        dir.y = 0;
+
+        //        GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
+        //        shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+        //    }
+        //}
+        //else
+        //{
+        //    //Tipo disparo 2
+        //    if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() && Input.GetKeyDown(KeyCode.Mouse0))
+        //    {
+        //        _autoShoot = !_autoShoot;
+        //    }
+
+        //    if (_autoShoot && !shootingProjectiles.Shooting)
+        //    {
+        //        Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
+        //        dir.y = 0;
+
+        //        GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
+        //        shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+        //    }
+        //}
+
+        if (_autoShoot && !shootingProjectiles.Shooting)
         {
-            if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() &&
-                Input.GetKey(KeyCode.Mouse0) && !shootingProjectiles.Shooting)
-            {
-                Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
-                dir.y = 0;
+            Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
+            dir.y = 0;
 
-                GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
-                shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+            GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
+
+
+            if (_movement.isController)
+            {
+                shootingProjectiles.Shoot(shootingProjectiles.Hand.forward);
             }
-        }
-        else
-        {
-            //Tipo disparo 2
-            if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() && Input.GetKeyDown(KeyCode.Mouse0))
+            else
             {
-                _autoShoot = !_autoShoot;
-            }
-
-            if (_autoShoot && !shootingProjectiles.Shooting)
-            {
-                Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
-                dir.y = 0;
-
-                GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
                 shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
             }
         }
@@ -69,7 +87,15 @@ public class PlayerManager : MonoBehaviour
                 dir.y = 0;
 
                 GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
-                shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+
+                if (_movement.isController)
+                {
+                    shootingProjectiles.Shoot(shootingProjectiles.Hand.forward);
+                }
+                else
+                {
+                    shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
+                }
             }
         }
         else
@@ -78,15 +104,6 @@ public class PlayerManager : MonoBehaviour
             if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() )
             {
                 _autoShoot = !_autoShoot;
-            }
-
-            if (_autoShoot && !shootingProjectiles.Shooting)
-            {
-                Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
-                dir.y = 0;
-
-                GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
-                shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
             }
         }
     }

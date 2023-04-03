@@ -77,20 +77,26 @@ public class EnemyHealthManager : HealthManager
             GetComponent<EnemyManager>().enabled = false;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-            foreach (Transform t in gameObject.GetComponentsInChildren<Transform>())
-            {
-                if (t.gameObject.name.Contains("PEP"))
-                {
-                    t.gameObject.GetComponent<ParticleSystem>().Stop();
-                }
-            }
-
+            deactivateSEPPlayer();
 
             StartCoroutine(AutoDestroyAfterSeconds(8f));
 
 
             //Destroy(gameObject);
         }
+    }
+
+    private bool deactivateSEPPlayer()
+    {
+        foreach (Transform t in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (t.gameObject.name.Contains("PEP"))
+            {
+                t.gameObject.GetComponent<ParticleSystem>().Stop();
+                return true;
+            }
+        }
+        return false;
     }
 
     IEnumerator AutoDestroyAfterSeconds(float seconds)

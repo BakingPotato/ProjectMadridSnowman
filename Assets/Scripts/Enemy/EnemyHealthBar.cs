@@ -29,8 +29,15 @@ public class EnemyHealthBar : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
 
         CancelInvoke();
-        Invoke("HideAfterSeconds", showTime);
-	}
+        if (health > 0)
+        {
+            Invoke("HideAfterSeconds", showTime);
+        }
+        else
+        {
+            Invoke("HideAfterSeconds", 0.15f);
+        }
+    }
 
     void HideAfterSeconds()
 	{

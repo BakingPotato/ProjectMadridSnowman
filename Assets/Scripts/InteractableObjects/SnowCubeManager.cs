@@ -40,11 +40,32 @@ public class SnowCubeManager : HealthManager
             GM.CurrentLevelManager.BoxCount++;
             //AudioManager.Instance.PlaySFX3D("BreakBox", this.gameObject.transform.position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/box_is_broken", transform.position);
-            Destroy(gameObject);
+            //Ocultamos la caja y la destruimos una vez el rastro se pierda
+            foreach (Transform t in gameObject.GetComponentsInChildren<Transform>())
+            {
+                if (t.gameObject.name.Contains("Cubo"))
+                {
+                    t.gameObject.SetActive(false);
+                }
+
+                if (t.gameObject.name.Contains("PEP"))
+                {
+                    t.gameObject.GetComponent<ParticleSystem>().Stop();
+                }
+            }
+            GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine(AutoDestroyAfterSeconds(8f));
+
         }
     }
 
-	protected void InstanceRandomLoot()
+    IEnumerator AutoDestroyAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
+    }
+
+    protected void InstanceRandomLoot()
 	{
         LootType randomType = GetRandomLootType();
 

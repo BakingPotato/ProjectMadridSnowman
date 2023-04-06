@@ -79,6 +79,11 @@ public class EnemyHealthManager : HealthManager
 
             deactivateSEPPlayer();
 
+            if (finalBoss)
+            {
+                PlayerPrefs.SetInt("GameFinished", 1);
+            }
+
             StartCoroutine(AutoDestroyAfterSeconds(8f));
 
 

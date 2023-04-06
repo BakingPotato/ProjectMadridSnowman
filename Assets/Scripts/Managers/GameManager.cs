@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
 	int _currentLevelIdx = 0;
 
+	[SerializeField] bool _saveRecordsAtEnd = true;
+
 	private void Awake()
 	{
 		if (_instance != null && _instance != this)
@@ -177,8 +179,29 @@ public class GameManager : MonoBehaviour
 		int damage = CurrentLevelManager.TotalDamage;
 
 		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
+        if (_saveRecordsAtEnd)
+        {
+			CompleteLevel(total);
+			CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
+		}
+        else
+		{
+			SetScene("LevelMenu");
+        }
+	}
+
+	public void SaveRecords()
+	{
+		CurrentLevelManager.countdown.StopTimer();
+		CurrentLevelManager.setGameOver(true);
+		int timeLeft = (int)Mathf.Ceil(CurrentLevelManager.countdown.getElapsedTime());
+		int score = CurrentLevelManager.Points;
+		int enemies = CurrentLevelManager.KillCount;
+		int boxes = CurrentLevelManager.BoxCount;
+		int damage = CurrentLevelManager.TotalDamage;
+
+		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
 		CompleteLevel(total);
-		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
 
 }

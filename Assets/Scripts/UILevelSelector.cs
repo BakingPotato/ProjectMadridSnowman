@@ -53,6 +53,7 @@ public class UILevelSelector : MonoBehaviour
             // Cheat code successfully inputted!
             GameManager.Instance.UnlockAllLevels();
             DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+            DisplayAverageRecord();
             index = 0;
         }
     }
@@ -120,7 +121,7 @@ public class UILevelSelector : MonoBehaviour
             levelNumber++;
             allRecordSum += levelData.record;
         }
-        averageRecordText.text = (allRecordSum / levelNumber).ToString();
+        averageRecordText.text = "Puntuación Media:            " + (allRecordSum / levelNumber).ToString();
         averageRecordText.gameObject.SetActive(true);
     }
 

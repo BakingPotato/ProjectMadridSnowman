@@ -13,5 +13,6 @@ public class EndPoint : MonoBehaviour
 			GameManager.Instance.ShowResults(nextSceneName);
 		else if(pM)
 			GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo("Necesito " + minPoints / 100 + "," + (minPoints % 100).ToString("00") + " euros para pasar a la estación.", 4.5f);
+
 	}
 }

@@ -2649,16 +2649,24 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
+      propertyPath: phases.Array.data[4].shootingSpeedBuff
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
+      propertyPath: phases.Array.data[5].shootingSpeedBuff
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: phases.Array.data[0].powerUps.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: phases.Array.data[1].powerUps.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: phases.Array.data[2].powerUps.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6313598589350772147, guid: c7bef674351da374daf1a680172981e9, type: 3}
       propertyPath: phases.Array.data[3].powerUps.Array.size
@@ -5812,7 +5820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 396105906, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: LevelMenu
       objectReference: {fileID: 0}
     - target: {fileID: 913288572, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_IsActive

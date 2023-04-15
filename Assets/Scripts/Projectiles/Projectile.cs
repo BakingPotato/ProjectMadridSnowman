@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour
 
 	[SerializeField] float impulseForce;
 
+	[SerializeField] bool invincible = false;
+	public bool laser = false;
+
 	LayerMask _ignoringLayer;
 
 	public LayerMask IgnoringLayer { get => _ignoringLayer; set => _ignoringLayer = value; }
@@ -24,7 +27,7 @@ public class Projectile : MonoBehaviour
 			DestroyProjectile();
 	}
 
-	private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.layer != IgnoringLayer)
 		{
@@ -32,14 +35,28 @@ public class Projectile : MonoBehaviour
 			if (hM)
 				hM.takeDamage(Damage);
 
-			DestroyProjectile();
+			if(invincible && (other.gameObject.layer == 7 || other.gameObject.layer == 11 || other.gameObject.layer == 12 || other.gameObject.layer == 14))
+            {
+				//No hacemos nada porque si es invencible, chocar con proyectiles o el jugador no lo destruye
+            }
+			else
+			{
+				DestroyProjectile();
+			}
 		}
 	}
 
 	void DestroyProjectile()
 	{
-		//AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
-		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits", transform.position);
+        //AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
+        if (!laser)
+        {
+			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits", transform.position);
+		}
+		else
+        {
+
+        }
 		TriggerSnow();
 		Destroy(gameObject);
 	}

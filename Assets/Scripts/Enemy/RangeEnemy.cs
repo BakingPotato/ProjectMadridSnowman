@@ -7,6 +7,7 @@ public class RangeEnemy : EnemyManager
     [SerializeField] ShootingProjectiles shootingProjectiles;
     [SerializeField] ShootingProjectiles shootingProjectiles2;
     [SerializeField] bool isTurret;
+    [SerializeField] Animator RangeEnemyAnimator;
 
 	public override void AttackTarget()
     {
@@ -29,6 +30,7 @@ public class RangeEnemy : EnemyManager
             if (distanceToTarget >= navMeshAgent.stoppingDistance)
             {
                 ChaseTarget();
+                if(RangeEnemyAnimator) RangeEnemyAnimator.SetTrigger("Move");
             }
 
             if (type != enemyClass.Boss && distanceToTarget <= navMeshAgent.stoppingDistance)

@@ -24,7 +24,7 @@ public class PlayerHealthBar : MonoBehaviour
         }
 
         Color alphaC = frostIMG.color;
-        alphaC.a = slider.normalizedValue;
+        alphaC.a = slider.normalizedValue/1.8f;
         frostIMG.color = alphaC;
     }
 }

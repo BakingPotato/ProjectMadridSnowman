@@ -5,9 +5,13 @@ using UnityEngine.AI;
 
 public class MeleeEnemyManager : EnemyManager
 {
-
+    public Animator anim;
     public override void AttackTarget()
     {
+        if(anim)
+            anim.SetTrigger("Attack");
+
+
         //if (target)
         //{
         //    distanceToTarget = Vector3.Distance(target.position, transform.position);

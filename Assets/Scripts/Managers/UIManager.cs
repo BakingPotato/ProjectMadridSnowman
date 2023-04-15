@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 
 	[Header("Game UI")]
 	[SerializeField] TextMeshProUGUI _titleText;
+	public string _personalizedTitle = "";
     [SerializeField] TextMeshProUGUI _pointsText;
 	[SerializeField] bool money = true;
     [SerializeField] TextMeshProUGUI _timerText;
@@ -34,8 +35,13 @@ public class UIManager : MonoBehaviour
 	[SerializeField] GameObject resultsPanel;
 	[SerializeField] UITextInfo uITextInfo;
 
+	[SerializeField] GameObject specialGameOverPanel;
+	[SerializeField] Animator specialGameOverAnim;
+
 	[SerializeField] Slider musicSlider;
 	[SerializeField] Slider sfxSlider;
+
+	public TMP_Dropdown dropdown_sm;
 
 	FMOD.Studio.Bus sfxBus;
 	FMOD.Studio.Bus musicBus;
@@ -58,7 +64,16 @@ public class UIManager : MonoBehaviour
 
 		_healthBar.SetMaxHealth(GM.CurrentLevelManager.MAX_HEALTH);
 
-		_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+		
+
+		if(GM.LevelsSO[GM.CurrentLevelIdx].levelName == "Tutorial")
+        {
+			_titleText.text = _personalizedTitle;
+		}
+        else
+        {
+			_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+		}
 	}
 
 	public void StartLevelFromUI()
@@ -167,6 +182,15 @@ public class UIManager : MonoBehaviour
 		//_continueButton.onClick.AddListener(delegate () { SwitchScene(nextSceneName); });
 	}
 
+
+	public void ShowSpecialGameOver()
+	{
+		specialGameOverPanel.SetActive(true);
+
+		specialGameOverAnim.SetTrigger("showSpecialGameOver");
+		//_continueButton.onClick.AddListener(delegate () { SwitchScene(nextSceneName); });
+	}
+
 	public void SwitchScene(string name)
 	{
 		GameManager.Instance.SetScene(name);
@@ -192,5 +216,10 @@ public class UIManager : MonoBehaviour
 		//AudioManager.Instance.PlaySFX("Button");
 		FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/ui_button");
 
+	}
+
+	public void changeShootingMode(int index)
+	{
+		PlayerPrefs.SetString("ShootingMode", dropdown_sm.options[index].text);
 	}
 }

@@ -180,4 +180,5 @@ public class GameManager : MonoBehaviour
 		CompleteLevel(total);
 		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
+
 }

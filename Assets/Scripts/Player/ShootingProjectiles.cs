@@ -9,8 +9,9 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] Transform hand;
     [SerializeField] float shootCooldown;
     [SerializeField] float minShootCooldown = 0.15f;
-    [SerializeField] bool auto = false;
-    [SerializeField] bool canShoot = true;
+    public bool auto = false;
+    public bool canShoot = true;
+    public bool laser = false;
 
     [SerializeField] bool isPlayer;
 
@@ -24,12 +25,17 @@ public class ShootingProjectiles : MonoBehaviour
 	public float ShootCooldown { get => shootCooldown; set => shootCooldown = value; }
 	public Transform Hand { get => hand; set => hand = value; }
 	public bool Shooting { get => _shooting; set => _shooting = value; }
+    //added by me
+    public Animator enemyAnimator;
+
 
     private void Start()
     {
         if (auto || (!canShoot && isPlayer))
         {
+            _currentTime = ShootCooldown;
             Shooting = true;
+
         }
     }
     // Update is called once per frame
@@ -40,16 +46,16 @@ public class ShootingProjectiles : MonoBehaviour
             return;
         }
         else {
-        
+
             if (Shooting)
             {
-                _currentTime -= Time.deltaTime;
+               _currentTime -= Time.deltaTime;
                 if (_currentTime <= 0)
                 {
                     Shooting = false;
                     if (auto)
                     {
-                        Shoot(transform.forward, 1);
+                        Shoot(transform.forward, -1);
                     }
                 }
             }
@@ -64,20 +70,52 @@ public class ShootingProjectiles : MonoBehaviour
         Shooting = true;
         _currentTime = ShootCooldown;
 
-        Projectile proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
-        proj.transform.localScale *= _scaleFactor;
-        //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
-        if (isPlayer)
+        Projectile proj = projectilePrefab.GetComponent<Projectile>();
+
+        if (proj)
         {
-            proj.IgnoringLayer = gameObject.layer;
-            //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
-        }
-        else
-            proj.IgnoringLayer = 999;
+            proj = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<Projectile>();
+            proj.transform.localScale *= _scaleFactor;
+            //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
+            if (isPlayer)
+            {
+                proj.IgnoringLayer = gameObject.layer;
+                //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+                if (!laser)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                }
+                else
+                {
+                    proj.laser = true;
+                }
+            }
+            else
+                proj.IgnoringLayer = 999;
 
             proj.Damage += _buffDamage;
             proj.Throw(direction, inputDamage);
+            //added by me, hace la animacion de atacar
+        }
+        else //En caso de no ser projectile, es un projectileHolder
+        {
+            ProjectileHolder projHold = Instantiate(projectilePrefab, Hand.position, Quaternion.identity).GetComponent<ProjectileHolder>();
+            projHold.transform.localScale *= _scaleFactor;
+            //Esto es para que los proyectiles enemigos no ignoren a otros enemigos
+            if (isPlayer)
+            {
+                //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
+                if (!laser)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                }
+            }
+
+            projHold.Throw(direction, inputDamage);
+            //added by me, hace la animacion de atacar
+        }
+
+        if (enemyAnimator) enemyAnimator.SetTrigger("Attack");
 
         if (_tripleShoot)
 		{

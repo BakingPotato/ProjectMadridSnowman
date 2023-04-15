@@ -10,6 +10,7 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] Gradient gradient;
     [SerializeField] Image fill;
+    [SerializeField] bool boss = false;
 
 	public void SetMaxHealth(int health)
 	{
@@ -33,6 +34,9 @@ public class EnemyHealthBar : MonoBehaviour
 
     void HideAfterSeconds()
 	{
-        parent.SetActive(false);
+        if (!boss)
+        {
+            parent.SetActive(false);
+        }
     }
 }

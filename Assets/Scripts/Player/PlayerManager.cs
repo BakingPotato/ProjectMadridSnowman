@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -76,35 +77,21 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot(InputAction.CallbackContext ctx)
     {
-         if (PlayerPrefs.GetString("ShootingMode", "Pulsar") == "Pulsar")
+        if (!GameManager.Instance.CurrentLevelManager.GameStarted || GameManager.Instance.CurrentLevelManager.GamePaused || GameManager.Instance.CurrentLevelManager.getGameOver()) return;
+
+        if (PlayerPrefs.GetString("ShootingMode", "Pulsar") == "Pulsar")
         {
-            if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver()
-                && !shootingProjectiles.Shooting)
-            {
-                Vector3 dir = _movement.LookPos - shootingProjectiles.Hand.position;
-                dir.y = 0;
-
-                GameManager.Instance.CurrentLevelManager.UIManager.ShowShootingBar(shootingProjectiles.ShootCooldown);
-
-                if (_movement.isController)
-                {
-                    shootingProjectiles.Shoot(shootingProjectiles.Hand.forward);
-                }
-                else
-                {
-                    shootingProjectiles.Shoot(shootingProjectiles.Hand.forward + dir);
-                }
-            }
+            if (ctx.phase == InputActionPhase.Performed)
+                _autoShoot = true;
+            else if (ctx.phase == InputActionPhase.Canceled)
+                _autoShoot = false;
         }
         else
         {
-            //Tipo disparo 2
-            if (GameManager.Instance.CurrentLevelManager.GameStarted && !GameManager.Instance.CurrentLevelManager.GamePaused && !GameManager.Instance.CurrentLevelManager.getGameOver() )
-            {
+            if(ctx.phase == InputActionPhase.Performed)
                 _autoShoot = !_autoShoot;
-            }
         }
     }
 

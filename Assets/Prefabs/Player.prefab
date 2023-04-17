@@ -4958,6 +4958,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 2048
+  isController: 0
 --- !u!114 &838814574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5067,7 +5068,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6873101151515718284}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: Shoot
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

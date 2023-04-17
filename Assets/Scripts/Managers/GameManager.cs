@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	private static GameManager _instance;
+
+	public UnityAction onFileUpdate;
 
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
 	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
@@ -65,7 +69,10 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = 60;
 	}
 
-	public void NewLevelsData()
+#if UNITY_EDITOR
+    [ContextMenu("SnowDevs/ResetSaveFile")]
+#endif
+    public void NewLevelsData()
 	{
 		SaveManager.GameDataInstance.levels = new SaveManager.LevelData[levelsSO.Length];
 		for (int i = 0; i < levelsSO.Length; i++)
@@ -78,6 +85,8 @@ public class GameManager : MonoBehaviour
 		SaveManager.GameDataInstance.levels[0].unlocked = true;
 
 		SaveManager.WriteData();
+
+		onFileUpdate?.Invoke();
 	}
 
 	/// <summary>
@@ -104,7 +113,10 @@ public class GameManager : MonoBehaviour
 		SaveManager.WriteData();
 	}
 
-	public void UnlockAllLevels()
+#if UNITY_EDITOR
+    [ContextMenu("SnowDevs/UnlockAllLevels")]
+#endif
+    public void UnlockAllLevels()
 	{
 		for (int i = 0; i < SaveManager.GameDataInstance.levels.Length; i++)
 		{
@@ -112,6 +124,8 @@ public class GameManager : MonoBehaviour
 		}
 
 		SaveManager.WriteData();
+
+		onFileUpdate?.Invoke();
 	}
 
 	public void CompleteLevel(int score)

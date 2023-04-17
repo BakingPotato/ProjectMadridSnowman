@@ -12,6 +12,7 @@ public class UILevelSelector : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelNameText;
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] TextMeshProUGUI recordText;
+    [SerializeField] TextMeshProUGUI averageRecordText;
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject lockedButton;
     [SerializeField] GameObject lockedPanel;
@@ -22,6 +23,10 @@ public class UILevelSelector : MonoBehaviour
 
     private void Start()
 	{
+        if (PlayerPrefs.GetInt("GameFinished", 0) == 1)
+        {
+            DisplayAverageRecord();
+        }
         GameManager.Instance.onFileUpdate += UpdateDisplayLevel;
         UpdateDisplayLevel();
     }
@@ -121,5 +126,19 @@ public class UILevelSelector : MonoBehaviour
         GameManager.Instance.CurrentLevelIdx--;
         
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+    }
+
+    void DisplayAverageRecord()
+    {
+        int allRecordSum = 0;
+        int levelNumber = 0;
+
+        foreach (SaveManager.LevelData levelData in SaveManager.GameDataInstance.levels)
+        {
+            levelNumber++;
+            allRecordSum += levelData.record;
+        }
+        averageRecordText.text = (allRecordSum / levelNumber).ToString();
+        averageRecordText.transform.parent.gameObject.SetActive(true);
     }
 }

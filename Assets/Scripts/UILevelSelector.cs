@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEditor;
 
 public class UILevelSelector : MonoBehaviour
 {
@@ -21,10 +22,16 @@ public class UILevelSelector : MonoBehaviour
 
     private void Start()
 	{
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
-	}
+        GameManager.Instance.onFileUpdate += UpdateDisplayLevel;
+        UpdateDisplayLevel();
+    }
 
-	private void Update()
+    private void OnDisable()
+    {
+        GameManager.Instance.onFileUpdate -= UpdateDisplayLevel;
+    }
+
+    private void Update()
 	{
         // Check if any key is pressed
         if (Input.anyKeyDown)
@@ -47,22 +54,19 @@ public class UILevelSelector : MonoBehaviour
         {
             // Cheat code successfully inputted!
             GameManager.Instance.UnlockAllLevels();
-            DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
             index = 0;
         }
-    }
-
-	//DEBUG
-	public void ResetSaveFile()
-	{
-        GameManager.Instance.NewLevelsData();
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
     }
 
 	public void PlayLevel()
 	{
         GameManager.Instance.SetScene(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sceneName);
 	}
+
+    void UpdateDisplayLevel()
+    {
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+    }
 
     void DisplayLevel(string levelName)
 	{

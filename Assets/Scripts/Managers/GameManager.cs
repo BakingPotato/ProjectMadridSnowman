@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
 #endif
     public void NewLevelsData()
 	{
+		PlayerPrefs.SetInt("GameFinished", 0);
+
 		SaveManager.GameDataInstance.levels = new SaveManager.LevelData[levelsSO.Length];
 		for (int i = 0; i < levelsSO.Length; i++)
 		{
@@ -124,6 +126,8 @@ public class GameManager : MonoBehaviour
 		{
 			SaveManager.GameDataInstance.levels[i].unlocked = true;
 		}
+
+		PlayerPrefs.SetInt("GameFinished", 1);
 
 		SaveManager.WriteData();
 

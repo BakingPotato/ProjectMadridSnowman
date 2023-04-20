@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization.Settings;
 using TMPro;
 
 public class MenuManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class MenuManager : MonoBehaviour
 	[SerializeField] float introTime;
 
 	public TMP_Dropdown dropdown_sm;
+	public TMP_Dropdown dropdown_language;
 
 	FMOD.Studio.Bus sfxBus;
 	FMOD.Studio.Bus musicBus;
@@ -49,6 +51,10 @@ public class MenuManager : MonoBehaviour
 			CancelInvoke();
 			Invoke("HideIntroPanel", introTime);
 		}
+
+        if (dropdown_sm)
+			SetDropdowns();
+
 
 		//AudioManager.Instance.PlayMusic("MainMenu");
 	}
@@ -103,7 +109,9 @@ public class MenuManager : MonoBehaviour
 
 	public void changeShootingMode(int index)
 	{
-		PlayerPrefs.SetString("ShootingMode", dropdown_sm.options[index].text);
+		//0 = Pulsar
+		//1 = Alternar
+		PlayerPrefs.SetInt("ShootingMode", index);
 	}
 
 	void HideIntroPanel()
@@ -137,5 +145,45 @@ public class MenuManager : MonoBehaviour
 		audioPanel.SetActive(false);
 		videoPanel.SetActive(false);
 		otherPanel.SetActive(true);
+	}
+
+	public void changeLanguage(int index)
+	{
+		//0 = Inglés
+		//1 = Español
+		LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+
+		SetDropdowns();
+	}
+
+	private void SetDropdowns()
+	{
+
+		//Español
+		if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+		{
+
+			dropdown_sm.options[0].text = "Pulsar"; dropdown_sm.options[1].text = "Alternar";
+			dropdown_language.options[0].text = "Inglés"; dropdown_language.options[1].text = "Español";
+
+			dropdown_language.value = 1;
+		}
+		else
+		{
+
+			dropdown_sm.options[0].text = "Hold"; dropdown_sm.options[1].text = "Switch";
+			dropdown_language.options[0].text = "English"; dropdown_language.options[1].text = "Spanish";
+
+			dropdown_language.value = 0;
+		}
+
+		if (PlayerPrefs.GetInt("ShootingMode", 0) == 0)
+		{
+			dropdown_sm.value = 0;
+		}
+		else
+		{
+			dropdown_sm.value = 1;
+		}
 	}
 }

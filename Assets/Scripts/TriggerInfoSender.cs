@@ -5,7 +5,6 @@ using UnityEngine.Localization.Settings;
 
 public class TriggerInfoSender : MonoBehaviour
 {
-	[SerializeField] [TextArea] string message;
 	[SerializeField] [TextArea] string messageES;
 	[SerializeField] [TextArea] string messageEN;
 	[SerializeField] float messageDuration;
@@ -14,7 +13,7 @@ public class TriggerInfoSender : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			//Español
-			if(LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1])
+			if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
             {
 				GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo(messageES, messageDuration);
 

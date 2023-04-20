@@ -8141,7 +8141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33572164, y: 0.07668403}
   m_AnchorMax: {x: 0.60858256, y: 0.22500001}
-  m_AnchoredPosition: {x: 1.1000061, y: 0.49679565}
+  m_AnchoredPosition: {x: 1.1000061, y: 0.49682617}
   m_SizeDelta: {x: 120.5697, y: 22.12783}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703126632
@@ -10232,6 +10232,7 @@ MonoBehaviour:
   invincibilityTime: 1
   blinkingObject: {fileID: 2364708087947614127}
   invencible: 0
+  noMoreBlinking: 0
   healthBar: {fileID: 1255875037}
   invincible: 0
   finalBoss: 1
@@ -11344,6 +11345,7 @@ MonoBehaviour:
   invincibilityTime: 1.8
   blinkingObject: {fileID: 2547861661735952674}
   invencible: 0
+  noMoreBlinking: 0
 --- !u!198 &4915784656561099576
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -16542,7 +16544,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1970968105603693423}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: Shoot
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16783,6 +16785,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 956649665465521944, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 2997726183424
+      objectReference: {fileID: 0}
     - target: {fileID: 1283472348208523026, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -16813,7 +16819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039220617101189861, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.8999481
+      value: 0.8999634
       objectReference: {fileID: 0}
     - target: {fileID: 2180576429031078741, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.x

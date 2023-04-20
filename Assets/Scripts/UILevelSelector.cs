@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 using System;
 using UnityEditor;
 
@@ -106,9 +107,19 @@ public class UILevelSelector : MonoBehaviour
             lockedButton.SetActive(false);
             lockedPanel.SetActive(false);
             playButton.SetActive(true);
-            descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
+            //Español
+            if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+            {
+                descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
+                levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
+            }
+            else
+            {
+                descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description_EN;
+                levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName_EN;
+            }
             recordText.text = "Record: " + displayLevel.record;
-            levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
+
         }
 
         backgroundImg.sprite = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sprite;

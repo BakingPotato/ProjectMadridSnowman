@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
-using TMPro;
 using UnityEngine.Localization.Settings;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {

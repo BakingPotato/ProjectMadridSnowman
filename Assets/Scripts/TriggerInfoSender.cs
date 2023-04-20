@@ -5,7 +5,6 @@ using UnityEngine.Localization.Settings;
 
 public class TriggerInfoSender : MonoBehaviour
 {
-	[SerializeField] [TextArea] string message;
 	[SerializeField] [TextArea] string messageES;
 	[SerializeField] [TextArea] string messageEN;
 	[SerializeField] float messageDuration;

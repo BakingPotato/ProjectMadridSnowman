@@ -75,7 +75,15 @@ public class UIManager : MonoBehaviour
 		}
         else
         {
-			_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+			//Español
+			if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+			{
+				_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+            }
+            else
+			{
+				_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName_EN;
+			}
 		}
 
 		SetDropdowns();

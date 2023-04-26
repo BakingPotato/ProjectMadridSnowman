@@ -11,9 +11,10 @@ public class HealthManager : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected bool hasInvencibilityFrames = false;
     [SerializeField] protected float invincibilityTime = 1.0f;
-    [SerializeField] GameObject blinkingObject;
+    [SerializeField] protected GameObject blinkingObject;
 
     public bool invencible = false;
+    public bool noMoreBlinking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -89,13 +90,23 @@ public class HealthManager : MonoBehaviour
 
     void Blink()
 	{
-        blinkingObject.SetActive(!blinkingObject.activeSelf);
+        if(!noMoreBlinking)
+            blinkingObject.SetActive(!blinkingObject.activeSelf);
+        else
+            blinkingObject.SetActive(false);
     }
 
-    void StopBlinking()
+    protected void StopBlinking()
     {
         CancelInvoke("Blink");
-        blinkingObject.SetActive(true);
+        if(!noMoreBlinking)
+            blinkingObject.SetActive(true);
+    }
+    
+    protected void StopBlinkingForever()
+    {
+        noMoreBlinking = true;
+        CancelInvoke("Blink");
     }
 
     public void gainHealth(int cure)

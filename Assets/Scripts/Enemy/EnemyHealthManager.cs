@@ -40,7 +40,8 @@ public class EnemyHealthManager : HealthManager
             //    SnowExplode.Play();
             //}
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
-            StartBlinking();
+            if(health > 0)
+                StartBlinking();
             if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
             {
                 //Es provocado al ser da�ado
@@ -68,8 +69,45 @@ public class EnemyHealthManager : HealthManager
                 //Animación muerte
                 GM.ShowResults("Creditos");
             }
-            Destroy(gameObject);
+
+            //Hacemos que el enemigo deje de existir pero no lo destruimos aún
+            StopBlinkingForever();
+            blinkingObject.gameObject.SetActive(false);
+            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<EnemyManager>().enabled = false;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+            deactivateSEPPlayer();
+
+            if (finalBoss)
+            {
+                PlayerPrefs.SetInt("GameFinished", 1);
+            }
+
+            StartCoroutine(AutoDestroyAfterSeconds(8f));
+
+
+            //Destroy(gameObject);
         }
+    }
+
+    private bool deactivateSEPPlayer()
+    {
+        foreach (Transform t in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (t.gameObject.name.Contains("PEP"))
+            {
+                t.gameObject.GetComponent<ParticleSystem>().Stop();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    IEnumerator AutoDestroyAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
     }
 
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 using System;
+using UnityEditor;
 
 public class UILevelSelector : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class UILevelSelector : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelNameText;
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] TextMeshProUGUI recordText;
+    [SerializeField] TextMeshProUGUI averageRecordText;
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject lockedButton;
     [SerializeField] GameObject lockedPanel;
@@ -21,10 +24,20 @@ public class UILevelSelector : MonoBehaviour
 
     private void Start()
 	{
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
-	}
+        if (PlayerPrefs.GetInt("GameFinished", 0) == 1)
+        {
+            DisplayAverageRecord();
+        }
+        GameManager.Instance.onFileUpdate += UpdateDisplayLevel;
+        UpdateDisplayLevel();
+    }
 
-	private void Update()
+    private void OnDisable()
+    {
+        GameManager.Instance.onFileUpdate -= UpdateDisplayLevel;
+    }
+
+    private void Update()
 	{
         // Check if any key is pressed
         if (Input.anyKeyDown)
@@ -47,22 +60,19 @@ public class UILevelSelector : MonoBehaviour
         {
             // Cheat code successfully inputted!
             GameManager.Instance.UnlockAllLevels();
-            DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
             index = 0;
         }
-    }
-
-	//DEBUG
-	public void ResetSaveFile()
-	{
-        GameManager.Instance.NewLevelsData();
-        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
     }
 
 	public void PlayLevel()
 	{
         GameManager.Instance.SetScene(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sceneName);
 	}
+
+    void UpdateDisplayLevel()
+    {
+        DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+    }
 
     void DisplayLevel(string levelName)
 	{
@@ -97,9 +107,19 @@ public class UILevelSelector : MonoBehaviour
             lockedButton.SetActive(false);
             lockedPanel.SetActive(false);
             playButton.SetActive(true);
-            descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
+            //Español
+            if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+            {
+                descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description;
+                levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
+            }
+            else
+            {
+                descriptionText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].description_EN;
+                levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName_EN;
+            }
             recordText.text = "Record: " + displayLevel.record;
-            levelNameText.text = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName;
+
         }
 
         backgroundImg.sprite = GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].sprite;
@@ -117,5 +137,19 @@ public class UILevelSelector : MonoBehaviour
         GameManager.Instance.CurrentLevelIdx--;
         
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+    }
+
+    void DisplayAverageRecord()
+    {
+        int allRecordSum = 0;
+        int levelNumber = 0;
+
+        foreach (SaveManager.LevelData levelData in SaveManager.GameDataInstance.levels)
+        {
+            levelNumber++;
+            allRecordSum += levelData.record;
+        }
+        averageRecordText.text = (allRecordSum / levelNumber).ToString();
+        averageRecordText.transform.parent.gameObject.SetActive(true);
     }
 }

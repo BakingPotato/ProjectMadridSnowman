@@ -140,10 +140,12 @@ MonoBehaviour:
   health: 0
   hasInvencibilityFrames: 0
   invincibilityTime: 1
-  blinkingObject: {fileID: 2028618551108284963}
+  blinkingObject: {fileID: 482595916924745656}
   invencible: 0
+  noMoreBlinking: 0
   healthBar: {fileID: 5340287607419617217}
   invincible: 0
+  finalBoss: 0
   snowExplosion: {fileID: 3354943827875239630, guid: bf5b6c60c52477d428b0657c4090c0bc, type: 3}
 --- !u!114 &2028618551108284982
 MonoBehaviour:
@@ -206,6 +208,7 @@ MonoBehaviour:
   minShootCooldown: 0.15
   auto: 0
   canShoot: 1
+  laser: 0
   isPlayer: 0
   enemyAnimator: {fileID: 6564412166401161080}
 --- !u!114 &19492699365721325
@@ -5180,6 +5183,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1314f0a47bca8d948ae7ee40172ab404, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9610fbc914ca78438675860746903f9, type: 3}
+--- !u!1 &482595916924745656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1323024019024687196, guid: c9610fbc914ca78438675860746903f9, type: 3}
+  m_PrefabInstance: {fileID: 1508377362199005156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1006931380449979650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1808058882794646246, guid: c9610fbc914ca78438675860746903f9, type: 3}

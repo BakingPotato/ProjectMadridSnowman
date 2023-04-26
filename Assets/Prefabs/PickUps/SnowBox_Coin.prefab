@@ -131,7 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   health: 1
+  hasInvencibilityFrames: 0
+  invincibilityTime: 1
   blinkingObject: {fileID: 0}
+  invencible: 0
+  objectModel: {fileID: 3291130464391871370}
   powerUps: []
   coins:
   - {fileID: 8191434180827579180, guid: aefa33e926290094f9393ace47e8aaf2, type: 3}
@@ -5080,5 +5084,10 @@ PrefabInstance:
 --- !u!4 &2803386403641844016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8181fa77895716142b2b3a835fadc0c1, type: 3}
+  m_PrefabInstance: {fileID: 2408608218109839067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3291130464391871370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8181fa77895716142b2b3a835fadc0c1, type: 3}
   m_PrefabInstance: {fileID: 2408608218109839067}
   m_PrefabAsset: {fileID: 0}

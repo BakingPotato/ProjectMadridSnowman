@@ -14,10 +14,13 @@ public class ActivatorTrigger : MonoBehaviour
     [SerializeField] Button backButton;
     [SerializeField] UIManager UI;
 
+    GameManager GM;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GM = GameManager.Instance;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +53,7 @@ public class ActivatorTrigger : MonoBehaviour
 
     void tutorialEnd()
     {
+        GM.SaveRecords();
         UI.SwitchScene("TutorialExtraEnd");
     }
 }

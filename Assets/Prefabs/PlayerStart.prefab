@@ -140,6 +140,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2595778564396963681, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595778564396963681, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5864576540397230354}
+    - target: {fileID: 2595778564396963681, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Shoot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
 --- !u!4 &2234371210583768574 stripped
@@ -157,6 +169,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5731887735444180811, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
   m_PrefabInstance: {fileID: 1009088202366741406}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5864576540397230354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6873101151515718284, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}
+  m_PrefabInstance: {fileID: 1009088202366741406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a65c432aeffcb448ae640fa8d4a329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7015280835527160840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8023805537880170390, guid: 8536145d83c0bc44291d8b13f5e3734f, type: 3}

@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 	[SerializeField] float impulseForce;
 
 	[SerializeField] bool invincible = false;
+	public bool laser = false;
 
 	LayerMask _ignoringLayer;
 
@@ -47,8 +48,15 @@ public class Projectile : MonoBehaviour
 
 	void DestroyProjectile()
 	{
-		//AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
-		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits", transform.position);
+        //AudioManager.Instance.PlaySFX3DRandomPitch("SnowImpact", transform.position);
+        if (!laser)
+        {
+			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Objects/snowball_hits", transform.position);
+		}
+		else
+        {
+
+        }
 		TriggerSnow();
 		Destroy(gameObject);
 	}

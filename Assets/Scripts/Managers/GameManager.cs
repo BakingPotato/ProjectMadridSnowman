@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	private static GameManager _instance;
+
+	public UnityAction onFileUpdate;
 
 	public LevelManager CurrentLevelManager { get => _currentLevelManager; set => _currentLevelManager = value; }
 	public bool IntroVideo { get => _introVideo; set => _introVideo = value; }
@@ -40,6 +44,8 @@ public class GameManager : MonoBehaviour
 	bool _introVideo = true;
 
 	int _currentLevelIdx = 0;
+
+	[SerializeField] bool _saveRecordsAtEnd = true;
 
 	private void Awake()
 	{
@@ -65,8 +71,13 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = 60;
 	}
 
-	public void NewLevelsData()
+#if UNITY_EDITOR
+    [ContextMenu("SnowDevs/ResetSaveFile")]
+#endif
+    public void NewLevelsData()
 	{
+		PlayerPrefs.SetInt("GameFinished", 0);
+
 		SaveManager.GameDataInstance.levels = new SaveManager.LevelData[levelsSO.Length];
 		for (int i = 0; i < levelsSO.Length; i++)
 		{
@@ -78,6 +89,8 @@ public class GameManager : MonoBehaviour
 		SaveManager.GameDataInstance.levels[0].unlocked = true;
 
 		SaveManager.WriteData();
+
+		onFileUpdate?.Invoke();
 	}
 
 	/// <summary>
@@ -104,14 +117,21 @@ public class GameManager : MonoBehaviour
 		SaveManager.WriteData();
 	}
 
-	public void UnlockAllLevels()
+#if UNITY_EDITOR
+    [ContextMenu("SnowDevs/UnlockAllLevels")]
+#endif
+    public void UnlockAllLevels()
 	{
 		for (int i = 0; i < SaveManager.GameDataInstance.levels.Length; i++)
 		{
 			SaveManager.GameDataInstance.levels[i].unlocked = true;
 		}
 
+		PlayerPrefs.SetInt("GameFinished", 1);
+
 		SaveManager.WriteData();
+
+		onFileUpdate?.Invoke();
 	}
 
 	public void CompleteLevel(int score)
@@ -177,8 +197,29 @@ public class GameManager : MonoBehaviour
 		int damage = CurrentLevelManager.TotalDamage;
 
 		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
+        if (_saveRecordsAtEnd)
+        {
+			CompleteLevel(total);
+			CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
+		}
+        else
+		{
+			SetScene("LevelMenu");
+        }
+	}
+
+	public void SaveRecords()
+	{
+		CurrentLevelManager.countdown.StopTimer();
+		CurrentLevelManager.setGameOver(true);
+		int timeLeft = (int)Mathf.Ceil(CurrentLevelManager.countdown.getElapsedTime());
+		int score = CurrentLevelManager.Points;
+		int enemies = CurrentLevelManager.KillCount;
+		int boxes = CurrentLevelManager.BoxCount;
+		int damage = CurrentLevelManager.TotalDamage;
+
+		int total = (timeLeft * 4) + (score * 2) + (enemies * 9) + (boxes * 6) - (damage * 10);
 		CompleteLevel(total);
-		CurrentLevelManager.UIManager.ShowResults(timeLeft.ToString(), score.ToString(), enemies.ToString(), boxes.ToString(), damage.ToString(), total.ToString(), nextSceneName);
 	}
 
 }

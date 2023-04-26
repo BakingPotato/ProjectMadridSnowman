@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 public class FinalBossController : EnemyManager
 {
@@ -189,7 +190,11 @@ public class FinalBossController : EnemyManager
         {
             while (true)
             {
-                name.text = phase.name;
+
+                if(phase.name == "Diosa Madre" && LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+                    name.text = "Mother Godness";
+                else
+                    name.text = phase.name;
 
                 actual_attack = startAttack(phase.attacks[j]);
 

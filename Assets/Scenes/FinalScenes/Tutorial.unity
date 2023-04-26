@@ -3572,7 +3572,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
-      value: "Estas se\xF1ales te guiar\xE1n al metro."
+      value: "Estas se\xF1ales te guiar\xE1n al refugio en el metro."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: Follow this signals to the underground refugee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: "Estas se\xF1ales te guiar\xE1n al refugio en el metro."
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4973,7 +4981,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
-      value: "Cuida que tu temperatura no caiga mucho, no hay m\xE9dicos cerca."
+      value: "Cuida que tu barra de temperatura no caiga mucho, no hay m\xE9dicos
+        cerca."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: There aren't any doctors nearby, so don't let your temperature bar reach
+        zero.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: "Cuida que tu barra de temperatura no caiga mucho, no hay m\xE9dicos
+        cerca."
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9660,6 +9679,14 @@ PrefabInstance:
       propertyPath: message
       value: "Est\xE1s listo para salir a repartir. Y no pierdas nada."
       objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: "Go out and deliver. And don\u2019t lose anything."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: "Est\xE1s listo para salir a repartir. Y no pierdas nada."
+      objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.89
@@ -11601,6 +11628,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
+      value: "Vigila que tu tiempo no se acabe, o ser\xE1s despedido."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: Don't be slow, if your timer reach zero you're fired.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
       value: "Vigila que tu tiempo no se acabe, o ser\xE1s despedido."
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001071, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
@@ -18691,7 +18726,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
       propertyPath: message
-      value: Posees diferentes tipos de mejoras para ayudarte.
+      value: Posees diferentes objetos de mejoras para ayudarte.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: You can take powerup items to help you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: Posees diferentes objetos de mejoras para ayudarte.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
@@ -21169,6 +21212,102 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1723447683768018461, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683768018461, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683768018461, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683802306822, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683802306822, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683802306822, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683839390623, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.4043007
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683894005939, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683894005939, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683921295995, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447683921295995, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684004231149, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684004231149, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684382830853, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000005722046
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684553903256, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684553903256, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684553903256, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_MinValue
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447684623602287, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685404912213, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685404912213, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685427975974, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685514912135, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685831369604, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723447685831369604, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2241859329416115077, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -21268,6 +21407,10 @@ PrefabInstance:
     - target: {fileID: 2854670915449970540, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242604667280348328, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.9248009
       objectReference: {fileID: 0}
     - target: {fileID: 4759465864368957947, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchorMax.x

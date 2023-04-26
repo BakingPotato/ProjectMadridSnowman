@@ -11,6 +11,7 @@ public class ShootingProjectiles : MonoBehaviour
     [SerializeField] float minShootCooldown = 0.15f;
     public bool auto = false;
     public bool canShoot = true;
+    public bool laser = false;
 
     [SerializeField] bool isPlayer;
 
@@ -80,7 +81,14 @@ public class ShootingProjectiles : MonoBehaviour
             {
                 proj.IgnoringLayer = gameObject.layer;
                 //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                if (!laser)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                }
+                else
+                {
+                    proj.laser = true;
+                }
             }
             else
                 proj.IgnoringLayer = 999;
@@ -97,7 +105,10 @@ public class ShootingProjectiles : MonoBehaviour
             if (isPlayer)
             {
                 //AudioManager.Instance.PlaySFX3DRandomPitch("SnowShoot", transform.position);
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                if (!laser)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_shoots");
+                }
             }
 
             projHold.Throw(direction, inputDamage);

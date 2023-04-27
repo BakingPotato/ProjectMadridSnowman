@@ -41,10 +41,22 @@ public class GiantEnemyManager : EnemyManager
         {
             HealthManager playerHealth = other.gameObject.GetComponent<HealthManager>();
             playerHealth.takeDamage(enemyDamage);
-        }else if(other.gameObject.name == "Phase2_Trigger")
+        }
+        else if (other.gameObject.name == "Phase2_Trigger")
         {
             changePhase();
         }
+        else if(other.gameObject.layer != 11 && other.gameObject.layer != 12 && other.gameObject.layer != 6 && !other.gameObject.name.Contains("Metal") && !other.gameObject.name.Contains("Rotating"))
+        {
+            StartCoroutine(DestroyAfterSeconds(2, other));
+        }
+
+    }
+
+    IEnumerator DestroyAfterSeconds(int seconds, Collider o)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(o.gameObject);
     }
 
     public void changePhase()

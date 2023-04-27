@@ -81,7 +81,9 @@ public class PlayerManager : MonoBehaviour
     {
         if (!GameManager.Instance.CurrentLevelManager.GameStarted || GameManager.Instance.CurrentLevelManager.GamePaused || GameManager.Instance.CurrentLevelManager.getGameOver()) return;
 
-        if (PlayerPrefs.GetString("ShootingMode", "Pulsar") == "Pulsar")
+        //0 = Pulsar
+        //1 = Alternar
+        if (PlayerPrefs.GetInt("ShootingMode", 0) == 0)
         {
             if (ctx.phase == InputActionPhase.Performed)
                 _autoShoot = true;

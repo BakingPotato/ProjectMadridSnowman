@@ -2103,11 +2103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: ranged.Array.size
@@ -4134,6 +4134,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec373313ed311774888c53e4ca8296a4, type: 3}
+--- !u!1001 &174659765
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: 'Es otro planfeto religioso: "La diosa madre no parara hasta que nuestra
+        raza se extinga"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: 'Is another religious pamphlet: "The All Mother won''t stop until we
+        all go extinct"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: 'Es otro planfeto religioso: "La diosa madre no parara hasta que nuestra
+        raza se extinga"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageDuration
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &174659766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 174659765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &176611959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13526,6 +13607,87 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7836621991028776388, guid: d4c6f9985921bc34a85e6fa83d096a27, type: 3}
   m_PrefabInstance: {fileID: 525530962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &532606968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: 'Es un planfeto religioso: "La diosa madre gobernaba sobre este planeta,
+        nosotros llegamos por suerte"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: 'Is a religious pamphlet: "The All Mother reigned over this planet,
+        until we arrived by pure luck"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: 'Es un planfeto religioso: "La diosa madre gobernaba sobre este planeta,
+        nosotros llegamos por suerte"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageDuration
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &532606969 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 532606968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &535713261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14853,11 +15015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: ranged.Array.size
@@ -22636,6 +22798,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4674462069553884989, guid: ece7fc79a36c10d49bf0e945655172a7, type: 3}
   m_PrefabInstance: {fileID: 1659618337}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &931947440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: Esto no puede ser real, siento como si los edificios se movieran para
+        evitar que avanzara.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: This can't be real, i feel like the buildings are moving to stop me
+        from advancing.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: Esto no puede ser real, siento como si los edificios se movieran para
+        evitar que avanzara.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &931947441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 931947440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &936008265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22661,11 +22900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: ranged.Array.size
@@ -26492,6 +26731,88 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f35435af938f34ca0f33483fc77d5e, type: 3}
+--- !u!1001 &1032313149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: "Debo encontrar una forma de salir de esta ciudad, y r\xE1pido."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: I must find a way out of this city, fast.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: "Debo encontrar una forma de salir de esta ciudad, y r\xE1pido."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012093604639925057, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493124552999607510, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &1032313150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 1032313149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1033730693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27934,6 +28255,7 @@ GameObject:
   - component: {fileID: 1100330373}
   - component: {fileID: 1100330372}
   - component: {fileID: 1100330371}
+  - component: {fileID: 1100330375}
   m_Layer: 0
   m_Name: TriggerEND
   m_TagString: Untagged
@@ -28043,6 +28365,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100330369}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1100330375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100330369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331d88d36ec187e43852dd46c9d765f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageES: ESTA DIOSA NO TE AMA
+  messageEN: This Godness doesn't love you
+  messageDuration: 30
 --- !u!1 &1101695655
 GameObject:
   m_ObjectHideFlags: 0
@@ -30946,11 +31283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: ranged.Array.size
@@ -31100,6 +31437,87 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5674772466109258557, guid: ec373313ed311774888c53e4ca8296a4, type: 3}
   m_PrefabInstance: {fileID: 1208304574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1208507377
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: 'Es otro planfeto religioso: "Envenamos sus bosques, sus mares, sus
+        cielos, la enfadamos"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: 'Is another religious pamphlet: "We poisoned her forests, her seas,
+        her skies, we made her very mad"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: 'Es otro planfeto religioso: "Envenamos sus bosques, sus mares, sus
+        cielos, la enfadamos"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageDuration
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &1208507378 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 1208507377}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1215394483
 PrefabInstance:
@@ -33757,7 +34175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 120
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
@@ -33951,6 +34369,80 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 324156071187208182, guid: 104cc939a0556084da11e4e671a14f01, type: 3}
   m_PrefabInstance: {fileID: 1359221055}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1363185964
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1456203842}
+    m_Modifications:
+    - target: {fileID: 3477642764625714965, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_Name
+      value: TriggerInfo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.08808164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 10.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: message
+      value: "Estos mu\xF1ecos parecen haber sido destrozados a zarpazos."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageEN
+      value: These snowmen seem to be have torn apart by some big animal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477642764756001056, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+      propertyPath: messageES
+      value: "Estos mu\xF1ecos parecen haber sido destrozados a zarpazos."
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+--- !u!4 &1363185965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3477642764625714966, guid: 953c5e2bfecd35b4ca718f92ebfabbe6, type: 3}
+  m_PrefabInstance: {fileID: 1363185964}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1364052396 stripped
 Transform:
@@ -36836,6 +37328,12 @@ Transform:
   - {fileID: 221757129}
   - {fileID: 51612653}
   - {fileID: 16067079}
+  - {fileID: 1032313150}
+  - {fileID: 1363185965}
+  - {fileID: 931947441}
+  - {fileID: 174659766}
+  - {fileID: 532606969}
+  - {fileID: 1208507378}
   m_Father: {fileID: 655569470}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46478,11 +46976,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: maxEnemyCount
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: initial_waitTime
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669664, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: ranged.Array.size
@@ -46502,7 +47000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669665, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.27
+      value: 44.5
       objectReference: {fileID: 0}
     - target: {fileID: 2849166205685669665, guid: caa5e72edfaf2734f98db0ffeeb95fc8, type: 3}
       propertyPath: m_LocalPosition.y

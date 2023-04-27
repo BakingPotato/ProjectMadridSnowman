@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Localization.Settings;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] Slider sfxSlider;
 
 	public TMP_Dropdown dropdown_sm;
+	public TMP_Dropdown dropdown_language;
 
 	FMOD.Studio.Bus sfxBus;
 	FMOD.Studio.Bus musicBus;
@@ -72,8 +75,19 @@ public class UIManager : MonoBehaviour
 		}
         else
         {
-			_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+			//Español
+			if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+			{
+				_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName;
+            }
+            else
+			{
+				_titleText.text = GM.LevelsSO[GM.CurrentLevelIdx].levelName_EN;
+			}
 		}
+
+		SetDropdowns();
+
 	}
 
 	public void StartLevelFromUI()
@@ -215,11 +229,53 @@ public class UIManager : MonoBehaviour
 	{
 		//AudioManager.Instance.PlaySFX("Button");
 		FMODUnity.RuntimeManager.PlayOneShot("event:/OTHER/UI/ui_button");
-
 	}
 
 	public void changeShootingMode(int index)
 	{
-		PlayerPrefs.SetString("ShootingMode", dropdown_sm.options[index].text);
+		//0 = Pulsar
+		//1 = Alternar
+		PlayerPrefs.SetInt("ShootingMode", index);
+	}
+
+	public void changeLanguage(int index)
+    {
+        //0 = Inglés
+        //1 = Español
+
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+
+		SetDropdowns();
+    }
+
+    private void SetDropdowns()
+    {
+
+        //Español
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
+        {
+
+			dropdown_sm.options[0].text = "Pulsar"; dropdown_sm.options[1].text = "Alternar";
+            dropdown_language.options[0].text = "Inglés"; dropdown_language.options[1].text = "Español";
+
+			dropdown_language.value = 1;
+		}
+		else
+        {
+
+			dropdown_sm.options[0].text = "Hold"; dropdown_sm.options[1].text = "Switch";
+            dropdown_language.options[0].text = "English"; dropdown_language.options[1].text = "Spanish";
+
+			dropdown_language.value = 0;
+		}
+
+		if (PlayerPrefs.GetInt("ShootingMode", 0) == 0)
+		{
+			dropdown_sm.value = 0;
+		}
+		else
+		{
+			dropdown_sm.value = 1;
+		}
 	}
 }

@@ -99,6 +99,7 @@ MonoBehaviour:
   invencible: 0
   healthBar: {fileID: 6589639775652944004}
   invincible: 0
+  finalBoss: 0
   snowExplosion: {fileID: 3354943827875239630, guid: bf5b6c60c52477d428b0657c4090c0bc, type: 3}
 --- !u!114 &2542405573610683592
 MonoBehaviour:
@@ -209,7 +210,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4483019338836594958}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5434,6 +5435,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   fill: {fileID: 6589639774040012128}
+  boss: 0
 --- !u!1001 &4875056021584997094
 PrefabInstance:
   m_ObjectHideFlags: 0

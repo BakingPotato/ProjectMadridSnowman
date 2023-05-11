@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] bool countdownToGameOver = true;
 
+    [SerializeField] bool initOnStart = true;
+
     [SerializeField] GameObject effectsCamera;
 
     const int MAX_POINTS = 9999;
@@ -91,7 +93,8 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.SetLevelIdxForScene();
 #endif
         //DEBUG (this should be called from StartLevelFromUI)
-        StartLevel();
+        if(initOnStart)
+            StartLevel();
     }
 
 	private void Update()

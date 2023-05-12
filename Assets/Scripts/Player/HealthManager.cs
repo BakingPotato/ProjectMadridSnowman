@@ -64,6 +64,18 @@ public class HealthManager : MonoBehaviour
         }
     }
 
+    public virtual void takeDamageIgnoreInvencibility(int damage)
+    {
+        //AudioManager.Instance.PlaySFXRandomPitch("PlayerHurt");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Player/player_is_hurt");
+        StartBlinking();
+        GM.CurrentLevelManager.HP -= damage;
+        GM.CurrentLevelManager.TotalDamage += damage;
+        //GM.score.resetMultiplier();
+        //GM.score.resetComboFromDamage();
+        checkDeath();
+    }
+
     protected void StartBlinking()
 	{
         if(hasInvencibilityFrames)

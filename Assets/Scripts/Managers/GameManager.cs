@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -64,10 +65,12 @@ public class GameManager : MonoBehaviour
 			RefreshData();
 		else
 			NewLevelsData();
-	}
+
+        DOTween.Init();
+    }
 
     private void Start()
-    {
+    {	
 		Application.targetFrameRate = 60;
 	}
 

@@ -22,7 +22,6 @@ public class TriggerInfoSender : MonoBehaviour
             {
 				GameManager.Instance.CurrentLevelManager.UIManager.SendTextInfo(messageEN, messageDuration);
 			}
-			FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/2D/Objects/info_box");
 		}
 	}
 }

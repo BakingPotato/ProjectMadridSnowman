@@ -6,9 +6,12 @@ using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
 using TMPro;
+using DG.Tweening;
 
 public class MenuManager : MonoBehaviour
 {
+	[SerializeField] Button[] _bouncingBtns;
+
 	[Header("Botones de opciones")]
 	[SerializeField] GameObject audioPanel;
 	[SerializeField] GameObject videoPanel;
@@ -32,6 +35,11 @@ public class MenuManager : MonoBehaviour
 
 	private void Start()
 	{
+		foreach (var btn in _bouncingBtns)
+		{
+			btn.onClick.AddListener(() => btn.transform.DOShakeScale(0.2f, 0.1f, 2, 0, randomnessMode: ShakeRandomnessMode.Harmonic).SetEase(Ease.OutBounce));
+		}
+
 		sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX");
 		musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MUSIC");
 		//otherBus = FMODUnity.RuntimeManager.GetBus("bus:/OTHER");

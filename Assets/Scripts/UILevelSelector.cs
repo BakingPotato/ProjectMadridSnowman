@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Localization.Settings;
 using System;
 using UnityEditor;
+using DG.Tweening;
 
 public class UILevelSelector : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UILevelSelector : MonoBehaviour
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject lockedButton;
     [SerializeField] GameObject lockedPanel;
+    [SerializeField] CanvasGroup panelCG;
 
     //DEBUG
     private string[] cheatCode = new string[] { "s", "n", "o", "w"};
@@ -130,13 +132,19 @@ public class UILevelSelector : MonoBehaviour
         GameManager.Instance.CurrentLevelIdx++;
         
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
-	}
+
+        panelCG.alpha = 0;
+        panelCG.DOFade(1, 0.3f);
+    }
 
     public void PreviousLevel()
     {
         GameManager.Instance.CurrentLevelIdx--;
         
         DisplayLevel(GameManager.Instance.LevelsSO[GameManager.Instance.CurrentLevelIdx].levelName);
+
+        panelCG.alpha = 0;
+        panelCG.DOFade(1, 0.3f);
     }
 
     void DisplayAverageRecord()

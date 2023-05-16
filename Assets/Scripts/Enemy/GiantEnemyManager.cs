@@ -40,7 +40,7 @@ public class GiantEnemyManager : EnemyManager
         if (other.gameObject.tag == "Player")
         {
             HealthManager playerHealth = other.gameObject.GetComponent<HealthManager>();
-            playerHealth.takeDamage(enemyDamage);
+            playerHealth.takeDamageIgnoreInvencibility(enemyDamage);
         }
         else if (other.gameObject.name == "Phase2_Trigger")
         {

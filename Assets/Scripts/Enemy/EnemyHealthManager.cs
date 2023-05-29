@@ -41,7 +41,16 @@ public class EnemyHealthManager : HealthManager
             //}
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/3D/Enemies/enemy_is_hurt", transform.position);
             if(health > 0)
-                StartBlinking();
+            {
+                if (finalBoss)
+                {
+
+                }
+                else
+                {
+                    StartBlinking();
+                }
+            }
             if (gameObject.GetComponent<EnemyManager>().getEnemyClass() == enemyClass.Melee)
             {
                 //Es provocado al ser da�ado

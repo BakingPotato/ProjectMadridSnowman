@@ -39,6 +39,7 @@ public class FinalBossController : EnemyManager
     [Header("Fases")]
     [SerializeField] Phase[] Phases;
     [SerializeField] bool walk = false;
+    [SerializeField] bool firstPhase = true;
     [SerializeField] float walk_speed = 1.5f;
     int attack_numbers = 0;
     Coroutine actual_attack;
@@ -139,14 +140,12 @@ public class FinalBossController : EnemyManager
 
     IEnumerator MainControl()
     {
-        if (anime) anime.SetTrigger("Despierta");
-        //Esperamos a que la animación complete el ciclo
-        while (anime.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+        if (firstPhase)
         {
-            yield return new WaitForEndOfFrame();
+            if (anime) anime.SetTrigger("Despierta");
+            //Esperamos a que la animación complete el ciclo
+            yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length);
         }
-
-        yield return new WaitForSeconds(1);
 
         if (anime) anime.SetTrigger("Idle");
 
@@ -222,7 +221,7 @@ public class FinalBossController : EnemyManager
 
                 walk = false;
                 //Si es un tipo de ataque que se puede solapar con otros, esperamos el tiempo que diga el jugador, en caso contrario, esperamos a que el ataque acabe
-                if(phase.attacks[j].type == AttackType.DP || phase.attacks[j].type == AttackType.DL || phase.attacks[j].type == AttackType.JAIL)
+                if( phase.attacks[j].type == AttackType.DL || phase.attacks[j].type == AttackType.JAIL)
                 {
                     yield return new WaitForSeconds(phase.attacks[j].timeBeforeNextAttack);
                 }
@@ -253,7 +252,7 @@ public class FinalBossController : EnemyManager
                 c = StartCoroutine(InvokeSnowRain(DL_object, attack.repetitions, attack.cooldown, attack.timeBeforeNextAttack));
                 break;
             case AttackType.DP:
-                c = StartCoroutine(ActivateShooter_DP(DP_object, attack.cooldown, attack.timeBeforeNextAttack));
+                c = StartCoroutine(ActivateShooter_DP(DP_object, attack.cooldown, attack.repetitions, attack.timeBeforeNextAttack));
                 break;
             case AttackType.SD:
                 c = StartCoroutine(ActivateShooter(SD_object, attack.repetitions, attack.duration, attack.cooldown, attack.timeBeforeNextAttack, "SD2"));
@@ -303,6 +302,7 @@ public class FinalBossController : EnemyManager
         walk = actual_Phase_Walk;
         if (anime) anime.SetTrigger("Idle");
 
+        //Time before next attack
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
     }
@@ -312,7 +312,7 @@ public class FinalBossController : EnemyManager
         while (true)
         {
             anime.SetTrigger(animation);
-            yield return new WaitForSeconds(cooldown);
+            yield return new WaitForSeconds(cooldown+0.1f);
         }
     }
 
@@ -330,6 +330,7 @@ public class FinalBossController : EnemyManager
 
         walk = actual_Phase_Walk;
         if (anime) anime.SetTrigger("Idle");
+
         yield return new WaitForSeconds(waitTime);
         attack_numbers--;
     }
@@ -379,31 +380,23 @@ public class FinalBossController : EnemyManager
         attack_numbers--;
     }
 
-    public IEnumerator ActivateShooter_DP(GameObject shooter, float cooldown, float waitTime)
+    public IEnumerator ActivateShooter_DP(GameObject shooter, float cooldown, float repetitions, float waitTime)
     {
         attack_numbers++;
+
+        shooter.SetActive(true);
+
         if (anime) anime.SetTrigger("Descarga2");
         yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length);
 
-        shooter.SetActive(true);
-        walk = actual_Phase_Walk;
-        if (anime) anime.SetTrigger("Idle");
-        attack_numbers--;
-
-        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
-        {
-            sp.ShootCooldown = cooldown;
-        }
-
-        yield return new WaitForSeconds(cooldown+0.5f);
-
-        foreach (ShootingProjectiles sp in shooter.GetComponentsInChildren<ShootingProjectiles>())
-        {
-            sp.ShootCooldown = 99;
-        }
+        shooter.GetComponentInChildren<ShootingProjectiles>().ShootCooldown = cooldown;
+        yield return new WaitForSeconds(cooldown * repetitions + 0.15f);
 
         shooter.SetActive(false);
+        walk = actual_Phase_Walk;
+        if (anime) anime.SetTrigger("Idle");
         yield return new WaitForSeconds(waitTime);
+        attack_numbers--;
     }
 
     public IEnumerator ActivateShooter_3DS(GameObject shooter, GameObject shooter2, int repetitions, float duration, float cooldown, float waitTime)
@@ -496,11 +489,12 @@ public class FinalBossController : EnemyManager
             transform.position = new Vector3(targetFall.x, 30.0f, targetFall.z);
 
             goingDown = true;
+
             bool once = false;
             while (transform.position.y > 1)
             {
                 yield return new WaitForEndOfFrame();
-                if(transform.position.y < 15 && !once)
+                if (transform.position.y < 15 && !once)
                 {
                     if (anime) anime.SetTrigger("Diving");
                     once = true;
@@ -508,18 +502,18 @@ public class FinalBossController : EnemyManager
             }
 
             goingDown = false;
+
             yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length / 2);
 
             Instantiate(shooter, new Vector3(transform.position.x, 1, transform.position.z), Quaternion.identity);
-            while (anime.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
-            {
-                yield return new WaitForEndOfFrame();
-            }
+
             yield return new WaitForSeconds(cooldown);
         }
-        //Animación
-        if (anime) anime.SetTrigger("Idle");
+        //Reactivamos la animación de andar
+
         attack_numbers--;
+        if (anime) anime.SetTrigger("Idle");
+
         navMeshAgent.enabled = true;
 
         walk = actual_Phase_Walk;
@@ -628,8 +622,8 @@ public class FinalBossController : EnemyManager
         transform.position = new Vector3(-1.77f, 30.0f, -5.3f);
 
         goingDown = true;
-        bool once = false;
 
+        bool once = false;
         while (transform.position.y > 1)
         {
             yield return new WaitForEndOfFrame();

@@ -15,6 +15,7 @@ public class UILevelSelector : MonoBehaviour
     [SerializeField] TextMeshProUGUI descriptionText;
     [SerializeField] TextMeshProUGUI recordText;
     [SerializeField] TextMeshProUGUI averageRecordText;
+    [SerializeField] GameObject averageRecordPanel;
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject lockedButton;
     [SerializeField] GameObject lockedPanel;
@@ -157,6 +158,7 @@ public class UILevelSelector : MonoBehaviour
             levelNumber++;
             allRecordSum += levelData.record;
         }
+        averageRecordPanel.SetActive(true);
         averageRecordText.text = (allRecordSum / levelNumber).ToString();
         averageRecordText.transform.parent.gameObject.SetActive(true);
     }

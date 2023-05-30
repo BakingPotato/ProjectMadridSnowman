@@ -213,7 +213,7 @@ public class FinalBossController : EnemyManager
             {
 
                 if(phase.name == "Diosa Madre" && LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
-                    name.text = "Mother Godness";
+                    name.text = "Godness Mother";
                 else
                     name.text = phase.name;
 

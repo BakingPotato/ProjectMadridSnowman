@@ -288,7 +288,7 @@ public class FinalBossController : EnemyManager
     public IEnumerator ActivateShooter(GameObject shooter, float duration, float cooldown, float waitTime)
     {
         attack_numbers++;
-        Coroutine animationRepeat = StartCoroutine(RepeatAnimation("DisparoTriple", cooldown));
+        Coroutine animationRepeat = StartCoroutine(RepeatAnimation("DisparoTriple", cooldown+0.2f));
         shooter.SetActive(true);
         ShootingProjectiles sp = shooter.GetComponent<ShootingProjectiles>();
 
@@ -312,14 +312,19 @@ public class FinalBossController : EnemyManager
         while (true)
         {
             anime.SetTrigger(animation);
-            yield return new WaitForSeconds(cooldown+0.1f);
+            yield return new WaitForSeconds(cooldown);
         }
     }
 
     public IEnumerator ActivateShooter(GameObject shooter, float duration, float waitTime)
     {
         attack_numbers++;
-        Coroutine animationRepeat = StartCoroutine(RepeatAnimation("DisparoTriple", shooter.GetComponentsInChildren<ShootingProjectiles>()[0].ShootCooldown));
+
+        //Reiniciamos los tiempos para que siempre salgan en el mismo tiempo
+        shooter.GetComponentsInChildren<ShootingProjectiles>()[0].ShootCooldown = 1;
+        shooter.GetComponentsInChildren<ShootingProjectiles>()[1].ShootCooldown = 1;
+        shooter.GetComponentsInChildren<ShootingProjectiles>()[2].ShootCooldown = 1;
+        Coroutine animationRepeat = StartCoroutine(RepeatAnimation("DisparoFragmentado", shooter.GetComponentsInChildren<ShootingProjectiles>()[0].ShootCooldown));
         shooter.SetActive(true);
 
         yield return new WaitForSeconds(duration);
@@ -374,6 +379,18 @@ public class FinalBossController : EnemyManager
             shooter.SetActive(false);
             yield return new WaitForSeconds(cooldown);
         }
+        if (anime)
+        {
+            if (anim == "SD")
+            {
+                if (anime) anime.SetTrigger("Descarga1_End");
+            }
+            else if (anim == "SD2")
+            {
+                if (anime) anime.SetTrigger("Descarga2_End");
+            }
+        }
+        yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length);
         walk = actual_Phase_Walk;
         if (anime)  anime.SetTrigger("Idle");
         yield return new WaitForSeconds(waitTime);
@@ -393,6 +410,8 @@ public class FinalBossController : EnemyManager
         yield return new WaitForSeconds(cooldown * repetitions + 0.15f);
 
         shooter.SetActive(false);
+        if (anime) anime.SetTrigger("Descarga2_End");
+        yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length);
         walk = actual_Phase_Walk;
         if (anime) anime.SetTrigger("Idle");
         yield return new WaitForSeconds(waitTime);
@@ -417,6 +436,8 @@ public class FinalBossController : EnemyManager
 
             yield return new WaitForSeconds(cooldown);
         }
+        if (anime) anime.SetTrigger("Descarga2_End");
+        yield return new WaitForSeconds(anime.GetCurrentAnimatorClipInfo(0).Length);
         walk = actual_Phase_Walk;
         if (anime)  anime.SetTrigger("Idle");
         yield return new WaitForSeconds(waitTime);

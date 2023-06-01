@@ -46,7 +46,7 @@ public class GiantEnemyManager : EnemyManager
         {
             changePhase();
         }
-        else if(other.gameObject.layer != 11 && other.gameObject.layer != 12 && other.gameObject.layer != 6 && !other.gameObject.name.Contains("Metal") && !other.gameObject.name.Contains("Rotating"))
+        else if(other.gameObject.layer != 11 && other.gameObject.layer != 12 && other.gameObject.layer != 7 && other.gameObject.layer != 6 && !other.gameObject.name.Contains("Metal") && !other.gameObject.name.Contains("Rotating"))
         {
             StartCoroutine(DestroyAfterSeconds(2, other));
         }
@@ -56,7 +56,7 @@ public class GiantEnemyManager : EnemyManager
     IEnumerator DestroyAfterSeconds(int seconds, Collider o)
     {
         yield return new WaitForSeconds(seconds);
-        Destroy(o.gameObject);
+        if(o != null && o.gameObject != null) Destroy(o.gameObject);
     }
 
     public void changePhase()

@@ -10391,6 +10391,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9089704012054621665, guid: 707f311d11374ea4c9870d8674f8d208, type: 3}
   m_PrefabInstance: {fileID: 1849121126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &577892716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2234371210583768560, guid: f61a4a5d8b6753944b0e64eb9c039631, type: 3}
+  m_PrefabInstance: {fileID: 5348411886483710589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &581873970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2979001466286423153, guid: bac9f4ed5c9b52d478b5a554098d4fa4, type: 3}
@@ -40526,7 +40531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242604667280348328, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9248009
+      value: -0.9248047
       objectReference: {fileID: 0}
     - target: {fileID: 4311926400743569432, guid: 519145ac74a4e14409a5ac8bc3510ec3, type: 3}
       propertyPath: m_IsActive
@@ -40927,11 +40932,13 @@ MonoBehaviour:
   chaseRange: 15
   turnSpeed: 5
   enemyDamage: 14
-  speed: 3.2
+  speed: 3.5
   spawner1: {fileID: 826499289}
   spawner2: {fileID: 2034715546}
   shooter: {fileID: 1486995059}
   health_UI: {fileID: 121998573}
+  player: {fileID: 577892716}
+  distance: 0
 --- !u!114 &9221771267941694293
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -58,7 +58,7 @@ public class GiantEnemyManager : EnemyManager
 
                 }else if (distance < 26)
                 {
-                    speed = 2.5f;
+                    speed = 2f;
                 }
             }
         }

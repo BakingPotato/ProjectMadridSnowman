@@ -16,7 +16,9 @@ public class GiantEnemyManager : EnemyManager
     [SerializeField] GameObject spawner2;
     [SerializeField] GameObject shooter;
     [SerializeField] GameObject health_UI;
+    [SerializeField] GameObject player;
 
+    public float distance;
 
     // Start is called before the first frame update
     public new void Start()
@@ -32,7 +34,34 @@ public class GiantEnemyManager : EnemyManager
     {
         //Solo se mueve durante la fase 1
         if(phase == 1)
+        {
             rb.MovePosition(transform.position + new Vector3(0, 0, -1) * Time.deltaTime * speed);
+            if (player)
+            {
+                distance = Vector3.Distance(transform.position, player.transform.position);
+
+                if (distance >= 40)
+                {
+                    speed = 6.5f;
+                }
+                else if (distance >= 36 && distance < 40)
+                {
+                    speed = 5.5f;
+                }
+                else if (distance >= 32 && distance < 36)
+                {
+                    speed = 4.5f;
+                }
+                else if (distance >= 26 && distance < 32)
+                {
+                    speed = 3.5f;
+
+                }else if (distance < 26)
+                {
+                    speed = 2f;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

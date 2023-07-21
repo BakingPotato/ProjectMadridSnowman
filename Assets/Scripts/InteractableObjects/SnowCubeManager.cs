@@ -74,13 +74,13 @@ public class SnowCubeManager : HealthManager
 			case LootType.Empty:
 				break;
 			case LootType.Coin:
-                Instantiate(coins[Random.Range(0, coins.Count)], transform.position, Quaternion.identity);
+                if(coins.Count > 0) Instantiate(coins[Random.Range(0, coins.Count)], transform.position, Quaternion.identity);
 				break;
 			case LootType.PowerUp:
-                Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform.position, Quaternion.identity);
+                if (powerUps.Count > 0) Instantiate(powerUps[Random.Range(0, powerUps.Count)], transform.position, Quaternion.identity);
                 break;
             case LootType.Cure:
-                Instantiate(cures[Random.Range(0, cures.Count)], transform.position, Quaternion.identity);
+                if (cures.Count > 0) Instantiate(cures[Random.Range(0, cures.Count)], transform.position, Quaternion.identity);
                 break;
         }
 	}

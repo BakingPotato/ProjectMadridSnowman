@@ -4321,7 +4321,6 @@ Transform:
   - {fileID: 445573148}
   - {fileID: 987313045}
   - {fileID: 1716361542}
-  - {fileID: 350064071}
   - {fileID: 1186964731}
   - {fileID: 1245899058}
   - {fileID: 89104835}
@@ -4331,9 +4330,9 @@ Transform:
   - {fileID: 618686660}
   - {fileID: 1229889370}
   - {fileID: 543937691}
-  - {fileID: 818701271}
+  - {fileID: 350064071}
   - {fileID: 1575868355}
-  - {fileID: 46612313}
+  - {fileID: 818701271}
   - {fileID: 1272943986}
   - {fileID: 142763814}
   - {fileID: 64972491}
@@ -4347,6 +4346,7 @@ Transform:
   - {fileID: 1563584410}
   - {fileID: 707652441}
   - {fileID: 992339534}
+  - {fileID: 46612313}
   - {fileID: 891614880}
   - {fileID: 1666367123}
   - {fileID: 1829009389}
@@ -4363,9 +4363,7 @@ Transform:
   - {fileID: 329717227}
   - {fileID: 1512091527}
   - {fileID: 331817252}
-  - {fileID: 374520714}
   - {fileID: 1257014922}
-  - {fileID: 1756494348}
   - {fileID: 443303002}
   - {fileID: 1649904666}
   - {fileID: 2117141615}
@@ -4376,6 +4374,7 @@ Transform:
   - {fileID: 2031280428}
   - {fileID: 1084990015}
   - {fileID: 1641033626}
+  - {fileID: 1756494348}
   - {fileID: 322574382}
   - {fileID: 924554867}
   - {fileID: 536333710}
@@ -4393,9 +4392,9 @@ Transform:
   - {fileID: 1320401304}
   - {fileID: 854454572}
   - {fileID: 1179231303}
-  - {fileID: 1245941683}
   - {fileID: 1900213620}
   - {fileID: 1794420122}
+  - {fileID: 374520714}
   - {fileID: 2034908706}
   - {fileID: 2068511109}
   - {fileID: 1503798526}
@@ -4405,6 +4404,7 @@ Transform:
   - {fileID: 963691209}
   - {fileID: 1335703172}
   - {fileID: 1666613649}
+  - {fileID: 1245941683}
   - {fileID: 1713628486}
   - {fileID: 1950318502}
   - {fileID: 1740180202}
@@ -8679,6 +8679,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 241394833}
     m_Modifications:
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[0]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: e1d4ed29230d100499e047a0ea32c230, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[1]
+      value: 
+      objectReference: {fileID: 1001422031073888443, guid: 1b2da22e772f29b41a38638bc0366fe0, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: 5bc2332a36152244aac3a7a3244fd3f0, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[3]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: 5bc2332a36152244aac3a7a3244fd3f0, type: 3}
     - target: {fileID: 7712401157795619474, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
       propertyPath: waitTime
       value: 20
@@ -37414,6 +37434,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 241394833}
     m_Modifications:
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[0]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: e1d4ed29230d100499e047a0ea32c230, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[1]
+      value: 
+      objectReference: {fileID: 1001422031073888443, guid: 1b2da22e772f29b41a38638bc0366fe0, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[2]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: 5bc2332a36152244aac3a7a3244fd3f0, type: 3}
+    - target: {fileID: 6112635167198754351, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
+      propertyPath: powerUps.Array.data[3]
+      value: 
+      objectReference: {fileID: 4527598319436771267, guid: 5bc2332a36152244aac3a7a3244fd3f0, type: 3}
     - target: {fileID: 7712401157795619474, guid: 686d4552bc64bb246b2e6fbd0f27a33e, type: 3}
       propertyPath: waitTime
       value: 20
@@ -50421,8 +50461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc8f825440998f41ab8d5af25dae930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
-  health: 75
+  maxHealth: 70
+  health: 70
   hasInvencibilityFrames: 0
   invincibilityTime: 0.1
   blinkingObject: {fileID: 1908553320}

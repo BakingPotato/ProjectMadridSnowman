@@ -100,7 +100,7 @@ public class HealthManager : MonoBehaviour
         invencible = false;
     }
 
-    void Blink()
+    protected virtual void Blink()
 	{
         if(!noMoreBlinking)
             blinkingObject.SetActive(!blinkingObject.activeSelf);
